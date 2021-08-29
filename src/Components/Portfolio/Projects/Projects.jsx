@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { projects } from "../../../Data/Data";
 import styles from "../Projects/Projects.module.css";
 
@@ -14,6 +14,7 @@ const Projects = () => {
     const newData = projectData.filter((data) => data.id === parseInt(id));
     console.log(newData);
     setProjectData(newData);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -27,8 +28,8 @@ const Projects = () => {
       <div className={styles.projectInfoSection}>
         {projectData.map((project) => {
           return (
-            <Row>
-              {project.id}
+            <Row key={project.id}>
+              
               <Col>
                 <div className={styles.projectImage}>
                   <img src={project.image} alt="project_image " />

@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext } from "react";
 import "./App.css";
 import { colors, themeColors } from "./Data/Data.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -76,6 +76,7 @@ function App() {
               {colors.map((color) => {
                 return (
                   <div
+                    key={color.id}
                     className="colors"
                     onClick={() => applyColor(color)}
                     style={{ backgroundColor: `${color.colorCode}` }}
@@ -89,6 +90,7 @@ function App() {
               {myThemeColors.map((themeColor) => {
                 return (
                   <div
+                    key={themeColor.id}
                     className="colors"
                     onClick={() => filterColors(themeColor)}
                     style={{ backgroundColor: `${themeColor.colorCode}` }}

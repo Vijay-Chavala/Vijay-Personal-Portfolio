@@ -1,6 +1,6 @@
 import React from "react";
 import { skillSet, otherSkills } from "../../../Data/Data";
-import { Row, Col, ProgressBar } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import styles from "../Skills/Skills.module.css";
 const Skills = ({ tabKey, keyValue }) => {
   return (
