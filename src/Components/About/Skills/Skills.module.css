@@ -1,0 +1,7 @@
+/* Check App.css for Skills Styles */
+.skillsSection h3 {
+  color: var(--theme-color);
+}
+.skillsSection h6 {
+  color: var(--text-color);
+}

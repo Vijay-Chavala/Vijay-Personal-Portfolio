@@ -1,0 +1,33 @@
+/* .imgContainer {
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff !important;
+  padding: 15px;
+  border-radius: 5px;
+} */
+
+.homeContainer {
+  height: 90vh;
+  display: grid;
+  place-items: center;
+}
+.homeContent {
+  margin-left: 10%;
+}
+.homeContent h5 {
+  color: var(--text-color-2);
+}
+.homeContent h5:first-child {
+  color: var(--theme-color);
+}
+
+.homeContent h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+.homeImg {
+  width: 100%;
+  height: auto;
+  /* border: 1px solid var(--border-color); */
+  border-radius: 5px;
+  padding: 20px;
+}

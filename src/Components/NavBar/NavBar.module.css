@@ -1,0 +1,37 @@
+.navBar {
+  background: transparent;
+}
+.backgroundTransparent {
+  background: transparent !important;
+}
+.navBarLogo {
+  font-weight: 700 !important;
+  box-shadow: -6px 6px 12px var(--shadow-in);
+  padding: 5px 25px;
+  border-radius: 5px;
+  color: var(--theme-color) !important;
+  transition: 0.5s ease-in-out !important;
+  font-size: 1.5rem;
+}
+.navBarLogo:hover {
+  box-shadow: 6px -6px 12px var(--shadow-in), -6px 6px 12px var(--shadow-in);
+}
+.navLink {
+  color: var(--text-color) !important;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+  font-size: 0.9rem;
+  box-shadow: 5px 5px 15px var(--shadow-out), -5px -5px 15px var(--shadow-in) !important;
+  text-transform: capitalize;
+  transition: 0.5s;
+  font-weight: bold;
+}
+.navActive,
+.navLink:hover,
+.navLink:focus {
+  box-shadow: inset 2px 2px 5px var(--shadow-out),
+    inset -3px -3px 7px var(--shadow-in) !important;
+  color: var(--theme-color) !important;
+  background-color: var(--main-color);
+}

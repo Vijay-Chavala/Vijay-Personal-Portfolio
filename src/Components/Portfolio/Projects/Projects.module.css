@@ -1,0 +1,14 @@
+.projectImage img {
+  width: 90%;
+  margin: 30px auto;
+}
+.projectImage {
+  width: 100%;
+  background-color: var(--main-color);
+  box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
+  display: grid;
+  place-items: center;
+}
+.projectInfoSection div {
+  color: var(--text-color);
+}
