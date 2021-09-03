@@ -8,7 +8,7 @@
   font-size: 1.1rem;
   color: var(--text-color-2);
 }
-.btnGroup button {
+.btnGroup .linkBtn {
   margin: 0 10px 0 0;
   padding: 8px;
   width: 28%;

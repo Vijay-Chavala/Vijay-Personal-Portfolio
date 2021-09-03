@@ -25,6 +25,13 @@
   left: 42%;
   display: grid;
   place-items: center;
+  transition: 0.2s ease-in-out !important;
+}
+.cardIcon:hover {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  box-shadow: inset 2px 2px 3px var(--shadow-out),
+    inset -3px -3px 7px var(--shadow-in) !important;
 }
 .cardBody {
   margin-top: 20px;

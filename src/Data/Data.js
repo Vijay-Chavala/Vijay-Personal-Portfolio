@@ -207,16 +207,16 @@ export const services = [
   },
   {
     id: 4,
-    icon: "fa fa-bullhorn",
-    title: "Great Support",
+    icon: "bi bi-scissors mb-3",
+    title: "Video Editing",
     info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
   },
-  {
-    id: 5,
-    icon: "fa fa-graphic",
-    title: "Graphic Design",
-    info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
-  },
+  // {
+  //   id: 5,
+  //   icon: "fa fa-graphic",
+  //   title: "Graphic Design",
+  //   info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+  // },
   {
     id: 6,
     icon: "fa fa-bullhorn",
@@ -231,7 +231,8 @@ export const projects = [
     title: "Corona Tracker",
     link: "google.com",
     image: "https://source.unsplash.com/random/300x200?sig=1",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    tags: ["a", "b", "c", "d", "e"],
   },
   {
     id: 2,
@@ -239,7 +240,8 @@ export const projects = [
     title: "Corona Tracker",
     link: "google.com",
     image: "https://source.unsplash.com/random/300x200?sig=2",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    tags: ["a", "b", "c", "d", "e"],
   },
   {
     id: 3,
@@ -247,7 +249,8 @@ export const projects = [
     title: "Corona Tracker",
     link: "google.com",
     image: "https://source.unsplash.com/random/300x200?sig=3",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    desc: "Pictures, abstract symbols, materials,relationships and to Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.make arrangements and rearrangements among these ingredients.",
+    tags: ["a", "b", "c", "d", "e"],
   },
   {
     id: 4,
@@ -255,7 +258,8 @@ export const projects = [
     title: "Corona Tracker",
     link: "google.com",
     image: "https://source.unsplash.com/random/300x200?sig=4",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    desc: "Pictures, abstract symbols, materials,relationships and to make Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.arrangements and rearrangements among these ingredients.",
+    tags: ["a", "b", "c", "d", "e"],
   },
   {
     id: 5,
@@ -263,7 +267,8 @@ export const projects = [
     title: "Corona Tracker",
     link: "google.com",
     image: "https://source.unsplash.com/random/300x200?sig=5",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    desc: "Pictures, abstract symbols, materials,relationships and toPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients. make arrangements and rearrangements among these ingredients.",
+    tags: ["a", "b", "c", "d", "e"],
   },
   {
     id: 6,
@@ -271,6 +276,7 @@ export const projects = [
     title: "Corona Tracker",
     link: "google.com",
     image: "https://source.unsplash.com/random/300x200?sig=6",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    tags: ["a", "b", "c", "d", "e"],
   },
 ];

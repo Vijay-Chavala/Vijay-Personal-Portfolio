@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import styles from "../NavBar/NavBar.module.css";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 import { menuItems } from "../../Data/Data";
 const NavBar = () => {
-  const [navActive, setNavActive] = useState(1);
+  //assigning location variable
+  const location = useLocation();
 
-  const menuItemActivate = (i) => {
-    setNavActive(i);
-  };
+  //destructuring pathname from location
+  const { pathname } = location;
+
+  //Javascript split method to get the name of the path in array
+  const splitLocation = pathname.split("/");
 
   return (
     <div>
@@ -19,7 +22,7 @@ const NavBar = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto">
+            <Nav className="ms-auto">
               {menuItems.map((item) => {
                 return (
                   <Nav.Link
@@ -27,35 +30,14 @@ const NavBar = () => {
                     as={Link}
                     to={`/${item.to}`}
                     className={`m-2 px-4 ${
-                      item.id === navActive ? styles.navActive : ""
-                    }   ${styles.navLink}`}
-                    onClick={() => menuItemActivate(item.id)}
+                      item.to === splitLocation[1] ? styles.navActive : ""
+                    } ${styles.navLink}`}
                   >
                     {item.menuName}
                   </Nav.Link>
                 );
               })}
             </Nav>
-            <NavDropdown
-              title="Quick Links"
-              id="basic-nav-dropdown"
-              className={`m-2 px-4   ${styles.navLink}`}
-            >
-              <NavDropdown.Item
-                href="#action/3.1"
-                className={`py-2   ${styles.navLink}`}
-              >
-                <i className="fa fa-download me-3 "></i>
-                Download CV
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                href="#action/3.2"
-                className={`py-2 ${styles.navLink}`}
-              >
-                <i className="fa fa-external-link me-3" aria-hidden="true"></i>
-                Live Web Applications
-              </NavDropdown.Item>
-            </NavDropdown>
           </Navbar.Collapse>
         </Container>
       </Navbar>

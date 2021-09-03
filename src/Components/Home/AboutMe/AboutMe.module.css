@@ -1,6 +1,11 @@
 .aboutContainer,
 .aboutMeContent {
+  color: var(--text-color);
 }
+.aboutContainer h2 {
+  color: var(--theme-color);
+}
+
 .aboutMeImage {
   width: 700px;
   height: auto;
@@ -10,9 +15,9 @@
   line-height: 2rem;
   font-size: 1.1rem;
 }
-.aboutMeContent button {
+.aboutMeContent .linkBtn {
   margin: 0 10px;
   padding: 8px;
-  width: 40%;
-  max-width: 100%;
+  word-wrap: normal;
+  width: 150px;
 }

@@ -1,5 +1,6 @@
 import React from "react";
-import aboutMe from "../../assets/aboutMe.svg";
+import aboutMe from "../../../assets/aboutMe.svg";
+import { Link } from "react-router-dom";
 
 import styles from "../AboutMe/AboutMe.module.css";
 import { Col, Container, Row } from "react-bootstrap";
@@ -7,7 +8,7 @@ import { Col, Container, Row } from "react-bootstrap";
 const AboutMe = () => {
   return (
     <Container className={` ${styles.aboutContainer}`}>
-      <h2 className="text-center my-5">About Me </h2>
+      <h2 className="text-center my-5">About Me </h2> 
       <Row className="">
         <Col sm="12" md="6" className=" ">
           <div className="">
@@ -29,12 +30,18 @@ const AboutMe = () => {
               excepturi quam repellat error consectetur.
             </p>
             <div className="btn-group">
-              <button className="soft-light-shadow btn soft-btn mt-4">
-                Works
-              </button>
-              <button className="soft-light-shadow btn soft-btn mt-4">
+              <Link
+                to="/services"
+                className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+              >
+                Services
+              </Link>
+              <Link
+                to="/about"
+                className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+              >
                 More About Me
-              </button>
+              </Link>
             </div>
           </div>
         </Col>

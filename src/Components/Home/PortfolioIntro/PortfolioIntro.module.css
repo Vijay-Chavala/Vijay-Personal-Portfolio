@@ -1,0 +1,29 @@
+.PortfolioIntroSection h2 {
+  color: var(--theme-color);
+}
+
+.Card {
+  transition: 0.6s ease-in-out;
+}
+.Card:hover {
+  transform: translateY(-3%);
+}
+.cardImage {
+  padding: 10px;
+}
+.cardImage img {
+  width: 100%;
+}
+.cardBody {
+  color: var(--text-color);
+}
+.cardBody p {
+  padding: 0 20px;
+  color: var(--text-color);
+}
+
+.link {
+  width: 150px;
+  margin-top: 20px;
+  padding: 8px;
+}

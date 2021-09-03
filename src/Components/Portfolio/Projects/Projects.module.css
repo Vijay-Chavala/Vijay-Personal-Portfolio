@@ -1,14 +1,74 @@
-.projectImage img {
-  width: 90%;
-  margin: 30px auto;
+.projectInfoSection p {
+  text-transform: capitalize;
 }
-.projectImage {
+
+.projectImageContainer {
   width: 100%;
   background-color: var(--main-color);
   box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
   display: grid;
   place-items: center;
+  cursor: pointer;
+  scroll-behavior: smooth;
+  padding: 10px;
 }
+.projectImageContainer .projectImageLink {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto !important;
+  margin: 30px auto !important;
+}
+.projectImageContainer .projectImageLink .projectImage {
+  width: 100%;
+  height: 500% !important;
+}
+
+/* scrollBar */
+.projectImageLink::-webkit-scrollbar {
+  width: 3px; /* width of the entire scrollbar */
+  scroll-behavior: smooth;
+}
+
+.projectImageLink::-webkit-scrollbar-track {
+  background: rgb(218, 218, 218); /* color of the tracking area */
+}
+
+.projectImageLink::-webkit-scrollbar-thumb {
+  background-color: rgb(95, 95, 95);
+
+  border-radius: 0px; /* roundness of the scroll thumb */
+  box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
+}
+.projectImageLink::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-color); /* color of the scroll thumb */
+}
+
 .projectInfoSection div {
   color: var(--text-color);
+}
+.projectDetails {
+  background-color: var(--main-color);
+  box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
+}
+.projectDetailsDescription {
+  background-color: var(--main-color);
+  box-shadow: inset 2px 2px 3px var(--shadow-out),
+    inset -5px -5px 7px var(--shadow-in) !important;
+}
+.projectDetailsTools {
+  display: flex;
+  flex-wrap: wrap;
+}
+.projectDetailsTools p {
+  margin: 5px;
+  background-color: var(--main-color);
+  box-shadow: inset 2px 2px 3px var(--shadow-out),
+    inset -5px -5px 30px var(--shadow-in) !important;
+  color: var(--text-color);
+  padding: 5px 30px;
+  border-radius: 20px;
+  opacity: 0.5;
+}
+.buttons a {
+  font-size: 1.3rem;
 }

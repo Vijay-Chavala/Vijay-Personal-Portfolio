@@ -8,7 +8,7 @@ const Services = () => {
     <Container className="pb-5 bgHeight">
       <div className="text-center mt-5 headingContent">
         <h6>Services</h6>
-        <h2>What I do</h2>
+        <h2>What I do</h2> 
         <div className="underline"></div>
       </div>
       <Row xs="1" md="3" lg="3" className="">

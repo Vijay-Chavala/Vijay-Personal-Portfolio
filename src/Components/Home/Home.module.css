@@ -3,14 +3,25 @@
   padding: 15px;
   border-radius: 5px;
 } */
+.homeButton {
+  width: 150px;
+  word-wrap: normal;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.workingImage {
+  width: 100%;
+  height: auto;
+}
 
 .homeContainer {
-  height: 90vh;
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
+
 .homeContent {
-  margin-left: 10%;
+  margin: 120px 0 0;
 }
 .homeContent h5 {
   color: var(--text-color-2);

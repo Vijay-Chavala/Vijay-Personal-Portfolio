@@ -15,7 +15,7 @@ import Projects from "./Components/Portfolio/Projects/Projects";
 export const colorsStore = createContext();
 
 function App() {
-  const [selectedColor, setSelectedColor] = useState("dark");
+  const [selectedColor, setSelectedColor] = useState("mainBody");
   const [themeClass, setThemeClass] = useState();
   const [darkMode, setDarkMode] = useState(false);
   const [settings, setSettings] = useState(false);
@@ -24,7 +24,7 @@ function App() {
   //toggle day night
 
   const toggleDayNight = () => {
-    !darkMode ? setSelectedColor("dark") : setSelectedColor("mainBody");
+    darkMode ? setSelectedColor("dark") : setSelectedColor("mainBody");
     setDarkMode(!darkMode);
 
     //filter colors

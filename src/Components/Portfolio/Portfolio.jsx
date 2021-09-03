@@ -35,7 +35,7 @@ const Portfolio = () => {
     <Container className="bgHeight pb-5">
       <div className="text-center mt-5 headingContent">
         <h6>Projects</h6>
-        <h2>What I do</h2>
+        <h2>Look at my projects</h2>
         <div className="underline"></div>
       </div>
       <div className="text-center pt-3">
@@ -60,7 +60,7 @@ const Portfolio = () => {
               as={Link}
               to={`projects/${project.id}`}
               key={project.id}
-              className="pe-4"
+              className={`pe-4 ${styles.Link}`}
             >
               <div className={styles.Card}>
                 <div className={styles.cardImage}>

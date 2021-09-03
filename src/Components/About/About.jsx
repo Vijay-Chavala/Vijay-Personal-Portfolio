@@ -3,6 +3,7 @@ import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import styles from "../About/About.module.css";
 import Skills from "./Skills/Skills";
 import Education from "./Education/Education";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const [key, setKey] = useState("education");
@@ -39,12 +40,18 @@ const About = () => {
             </p>
           </div>
           <div className={styles.btnGroup}>
-            <button className="soft-light-shadow btn soft-btn mt-4">
+            <Link
+              to="/"
+              className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+            >
               Download CV
-            </button>
-            <button className="soft-light-shadow btn soft-btn mt-4">
+            </Link>
+            <Link
+              to="/contact"
+              className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+            >
               Hire Me
-            </button>
+            </Link>
           </div>
         </Col>
         <Col sm="12" md="5">

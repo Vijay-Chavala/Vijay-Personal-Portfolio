@@ -101,6 +101,13 @@ ul li {
 }
 .soft-light-shadow {
   box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
+  border-radius: 5px;
+}
+.soft-light-shadow-inset {
+  box-shadow: inset 2px 2px 5px var(--shadow-out),
+    inset -3px -3px 7px var(--shadow-in) !important;
+  color: var(--text-color) !important;
+  border-radius: 5px;
 }
 /* Buttons */
 
@@ -113,7 +120,6 @@ ul li {
   text-transform: capitalize;
   transition: 0.5s ease;
 }
-.soft-light-shadow:hover,
 .soft-btn:hover,
 .soft-btn:focus {
   box-shadow: inset 2px 2px 5px var(--shadow-out),
