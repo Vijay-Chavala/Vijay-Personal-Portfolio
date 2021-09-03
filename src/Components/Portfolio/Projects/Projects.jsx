@@ -9,10 +9,7 @@ const Projects = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(id);
-    projectData.filter((data) => console.log(data.category === "react"));
     const newData = projectData.filter((data) => data.id === parseInt(id));
-    console.log(newData);
     setProjectData(newData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -28,8 +25,8 @@ const Projects = () => {
       <div className={`mt-5 ${styles.projectInfoSection}`}>
         {projectData.map((project) => {
           return (
-            <>
-              <Row key={project.id}> 
+            <div key={project.id}>
+              <Row>
                 <h2 className="">Project Details</h2>
                 <p>Category : {project.category}</p>
 
@@ -72,7 +69,7 @@ const Projects = () => {
                   </div>
                 </Col>
               </Row>
-            </>
+            </div>
           );
         })}
       </div>

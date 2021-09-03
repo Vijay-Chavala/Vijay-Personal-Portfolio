@@ -38,7 +38,7 @@ const Home = () => {
                 width="655"
                 height="413.67951"
                 viewBox="0 0 655 413.67951"
-                class="injected-svg gridItem__media"
+                className="injected-svg gridItem__media"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
               >
                 <path
