@@ -15,7 +15,7 @@
   --shadow-out: #b8b9be;
   --shadow-in: #ffffff;
   --border-color: #d1d9e6;
-  --theme-color: #e94394;
+  --theme-color: #494949;
 
   /* --border-color: none; */
 }
@@ -27,7 +27,7 @@
   --shadow-out: #0e1012;
   --shadow-in: #3a4248;
   --border-color: #2e2e2f;
-  /* --theme-color: #e94394; */
+  --theme-color: #ffcaca;
 }
 .blue {
   --main-color: #b1dbfb;
@@ -63,6 +63,15 @@
   --border-color: #f6d5af;
   --text-color: #000;
 }
+.default {
+  --main-color: #e6e7ee;
+  --text-color: #000000;
+  --text-color-2: #555555;
+  --shadow-out: #b8b9be;
+  --shadow-in: #ffffff;
+  --border-color: #d1d9e6;
+  --theme-color: #383838 !important;
+}
 
 .violet {
   --text-color: violet;
@@ -75,7 +84,7 @@
 .bluGrnDayDark {
   --theme-color: #01d5e4;
 }
-.pink#e94394 {
+.pinky {
   --theme-color: #e94394;
 }
 .yellowww {
@@ -85,7 +94,7 @@
   --theme-color: #72fd00;
 }
 .bluDayDark {
-  --theme-color: #1100ff;
+  --theme-color: #01d5e4;
 }
 ol li,
 p,

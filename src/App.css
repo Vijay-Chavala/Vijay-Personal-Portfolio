@@ -8,7 +8,7 @@ body {
   background: var(--main-color);
 }
 .mainBody {
-  background: var(--main-color);
+  background: var(--main-color) !important;
   background-size: contain;
   position: relative;
   transition: 0.5s;
@@ -20,7 +20,7 @@ body {
   position: fixed;
   top: 150px;
   right: -180px;
-  height: 310px;
+  height: 270px;
   width: 180px;
   background-color: var(--main-color);
   box-shadow: inset 2px 2px 3px var(--shadow-out),
@@ -36,7 +36,7 @@ body {
 }
 .settingIcon {
   position: absolute;
-  top: 90px;
+  top: 60px;
   left: -52px;
   background-color: var(--main-color);
   box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
@@ -73,7 +73,7 @@ body {
 
 .dayNightIcon {
   position: absolute;
-  top: 160px;
+  top: 140px;
   left: -52px;
   background-color: var(--main-color);
   box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
@@ -93,21 +93,17 @@ body {
   line-height: 0;
   color: var(--theme-color);
 }
-
 /* colors Container */
 .colorsContainer {
+  margin: 0 0 0 20px;
+}
+.themeColors {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.colorsContainer h5 {
-  color: var(--theme-color);
-}
-
-.colorsContainer .colors {
+.colors {
   margin-top: 8px;
   background-color: var(--main-color);
   box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
@@ -118,7 +114,22 @@ body {
   place-items: center;
   transition: 0.5s ease;
   cursor: pointer;
+  margin-left: 15px;
 }
+.selectedColors {
+  padding-top: 20px;
+}
+.frontColors {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.colorsContainer h5 {
+  color: var(--theme-color);
+  text-align: left;
+}
+
 /*  Navbar dropdown */
 .dropdown-menu {
   background-color: var(--main-color);

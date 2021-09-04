@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const GetInTouch = () => {
   return (
-    <Container className={`mb-3 ${styles.GetInTouchContainer}`}>
+    <Container className={`mb-5 ${styles.GetInTouchContainer}`}>
       <Row>
         <Col>
           <h2 className="text-center py-3">Get in touch</h2>

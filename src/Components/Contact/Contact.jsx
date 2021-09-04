@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import styles from "../Contact/Contact.module.css";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
+  const [phoneConnectionStatus, setPhoneConnectionStatus] = useState("");
+  const [mailConnectionStatus, setMailConnectionStatus] = useState("");
+  const [whatsppConnectionStatus, setWhatsappConnectionStatus] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPhoneConnectionStatus("");
+    }, 5000);
+  }, [phoneConnectionStatus]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMailConnectionStatus("");
+    }, 5000);
+  }, [mailConnectionStatus]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setWhatsappConnectionStatus("");
+    }, 5000);
+  }, [whatsppConnectionStatus]);
+
   function sendEmail(e) {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "gmail",
+        "service_6o7cpgc",
         "template_0tmbdpf",
         e.target,
         "user_0oYxQ6veRJeBj7a9Ycqhd"
@@ -17,6 +39,9 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
+          if (result.text === "OK") {
+            alert("Message Sent Successfully..!");
+          }
         },
         (error) => {
           console.log(error.text);
@@ -69,29 +94,50 @@ const Contact = () => {
               />
             </Form.Group>
             <button type="submit" className="soft-light-shadow btn soft-btn">
-              Submit
+              Send Message
             </button>
           </Form>
         </Col>
         <Col>
           <div className={` ${styles.contactIcons}`}>
             <ul className={styles.sidebar}>
-              <li className={styles.navItem}>
+              <li
+                className={styles.navItem}
+                onClick={() =>
+                  setPhoneConnectionStatus("Connecting to the Phone...")
+                }
+              >
                 <a href="tel:+917660061579" className={styles.navLink}>
                   <i className="fa fa-phone" aria-hidden="true"></i>
-                  <span className={styles.title}>+917660061579</span>
+                  <span className={styles.title}>
+                    {phoneConnectionStatus
+                      ? phoneConnectionStatus
+                      : "+917660061579"}
+                  </span>
                 </a>
               </li>
-              <li className={styles.navItem}>
+              <li
+                className={styles.navItem}
+                onClick={() => setMailConnectionStatus("Opening mail...")}
+              >
                 <a
                   href="mailto:vijayychavala@gmail.com"
                   className={styles.navLink}
                 >
                   <i className="fa fa-envelope" aria-hidden></i>
-                  <span className={styles.title}>vijayychavala@gmail.com</span>
+                  <span className={styles.title}>
+                    {mailConnectionStatus
+                      ? mailConnectionStatus
+                      : "vijayychavala@gmail.com"}
+                  </span>
                 </a>
               </li>
-              <li className={styles.navItem}>
+              <li
+                className={styles.navItem}
+                onClick={() =>
+                  setWhatsappConnectionStatus("Connecting to WhatsApp...")
+                }
+              >
                 <a
                   target="_blank"
                   href="https://wa.link/p5bfyy"
@@ -99,7 +145,11 @@ const Contact = () => {
                   className={styles.navLink}
                 >
                   <i className="fa fa-whatsapp" aria-hidden="true"></i>
-                  <span className={styles.title}>+917660061579</span>
+                  <span className={styles.title}>
+                    {whatsppConnectionStatus
+                      ? whatsppConnectionStatus
+                      : "+917660061579"}
+                  </span>
                 </a>
               </li>
             </ul>

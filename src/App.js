@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import "./App.css";
 import { colors, themeColors } from "./Data/Data.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,10 +16,20 @@ export const colorsStore = createContext();
 
 function App() {
   const [selectedColor, setSelectedColor] = useState("mainBody");
-  const [themeClass, setThemeClass] = useState();
-  const [darkMode, setDarkMode] = useState(false);
+  const [themeClass, setThemeClass] = useState("");
+  const [darkMode, setDarkMode] = useState(true);
   const [settings, setSettings] = useState(false);
-  const [myThemeColors, setMyThemeColors] = useState(themeColors);
+  const [myThemeColors, setMyThemeColors] = useState([]);
+  const [globalColor, setGlobalColor] = useState("");
+
+  console.log(globalColor);
+  // default day mode colors
+  useEffect(() => {
+    const dayColors = themeColors.filter(
+      (themeColor) => themeColor.category === "mainBody"
+    );
+    setMyThemeColors(dayColors);
+  }, []);
 
   //toggle day night
 
@@ -27,22 +37,36 @@ function App() {
     darkMode ? setSelectedColor("dark") : setSelectedColor("mainBody");
     setDarkMode(!darkMode);
 
-    //filter colors
+    //filter colors based on day night and setting filtered theme colors to newColors
 
     const newColors = themeColors.filter(
-      (themeColor) => themeColor.category === selectedColor
+      (themeColor) => themeColor.category !== selectedColor
     );
+    // to avoid dark colors to apply day theme
+    if (selectedColor === "dark") {
+      setThemeClass(myThemeColors.colorClassName);
+      setGlobalColor("");
+    }
+    console.log(myThemeColors);
+    console.log(selectedColor);
     console.log(newColors);
     setMyThemeColors(newColors);
   };
 
-  //applying clicked color to selectedColor state
+  //applying clicked color to selectedColor state(Background Theme)
   const applyColor = (color) => {
+    console.log("applying clicked color" + color.colorName);
     setSelectedColor(color.colorName);
   };
+
   const filterColors = (themeColor) => {
     if (themeColor.category === selectedColor) {
+      console.log("Current selected color " + selectedColor);
       setThemeClass(themeColor.colorClassName);
+      setGlobalColor(themeColor.colorCode);
+
+      console.log("className " + themeColor.colorClassName);
+      console.log("colorCode " + themeColor.colorCode);
     } else {
       setThemeClass("");
     }
@@ -50,68 +74,72 @@ function App() {
 
   return (
     <Router>
-      {/* <colorsStore.Provider> */}
-      <div className={`mainBody ${selectedColor} ${themeClass}`}>
-        <div className={settings ? "settings settingsActive " : "settings "}>
-          <div className="settingIcon " onClick={() => setSettings(!settings)}>
-            <i className="fa fa-gear "></i>
-          </div>
-          <div className="dayNightIcon" onClick={() => toggleDayNight()}>
-            <i
-              className={
-                selectedColor === "dark"
-                  ? "bi bi-brightness-high"
-                  : "bi bi-moon"
-              }
-            ></i>
-          </div>
-          <div className="colorsContainer">
-            <div className="themeContainer ms-3">
-              <h5>Theme</h5>
-              <div
-                className="colors"
-                onClick={() => setSelectedColor("mainBody")}
-                style={{ backgroundColor: "#fff" }}
-              ></div>
-              {colors.map((color) => {
-                return (
-                  <div
-                    key={color.id}
-                    className="colors"
-                    onClick={() => applyColor(color)}
-                    style={{ backgroundColor: `${color.colorCode}` }}
-                  ></div>
-                );
-              })}
+      <colorsStore.Provider value={[globalColor, setGlobalColor]}>
+        <div className={`mainBody ${selectedColor} ${themeClass}`}>
+          <div className={settings ? "settings settingsActive " : "settings "}>
+            <div
+              className="settingIcon "
+              onClick={() => setSettings(!settings)}
+            >
+              <i className="fa fa-gear "></i>
             </div>
-            <div className="selectedColors ms-3">
-              <h5>Colors</h5>
+            <div className="dayNightIcon" onClick={() => toggleDayNight()}>
+              <i
+                className={
+                  selectedColor === "dark"
+                    ? "bi bi-brightness-high"
+                    : "bi bi-moon"
+                }
+              ></i>
+            </div>
+            <div className="colorsContainer ">
+              <div className="themeContainer">
+                <h5>Theme</h5>
+                <div className="themeColors">
+                  {colors.map((color) => {
+                    return (
+                      <div
+                        key={color.id}
+                        className="colors"
+                        onClick={() => applyColor(color)}
+                        style={{ backgroundColor: `${color.colorCode}` }}
+                      ></div>
+                    );
+                  })}
+                </div>
+              </div>
+              {selectedColor === "dark" ||
+              (selectedColor === "mainBody" && myThemeColors.length < 4) ? (
+                <div className="selectedColors">
+                  <h5>Colors</h5>
+                  <div className="frontColors">
+                    {myThemeColors.map((themeColor) => {
+                      return (
+                        <div
+                          key={themeColor.id}
+                          className="colors"
+                          onClick={() => filterColors(themeColor)}
+                          style={{ backgroundColor: `${themeColor.colorCode}` }}
+                        ></div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          </div>
 
-              {myThemeColors.map((themeColor) => {
-                return (
-                  <div
-                    key={themeColor.id}
-                    className="colors"
-                    onClick={() => filterColors(themeColor)}
-                    style={{ backgroundColor: `${themeColor.colorCode}` }}
-                  ></div>
-                );
-              })}
-            </div>
-          </div>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/services" component={Services} />
+            <Route path="/portfolio" component={Portfolio} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/projects/:id" component={Projects} />
+          </Switch>
         </div>
-
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/services" component={Services} />
-          <Route path="/portfolio" component={Portfolio} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/projects/:id" component={Projects} />
-        </Switch>
-      </div>
-      {/* </colorsStore.Provider> */}
+      </colorsStore.Provider>
     </Router>
   );
 }

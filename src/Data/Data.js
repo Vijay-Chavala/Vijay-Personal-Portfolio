@@ -2,6 +2,11 @@
 
 export const colors = [
   {
+    id: "0",
+    colorName: "default",
+    colorCode: "#e6e7ee",
+  },
+  {
     id: "1",
     colorName: "blue",
     colorCode: "#b1dbfb",
@@ -45,7 +50,7 @@ export const themeColors = [
   {
     id: "3",
     category: "mainBody",
-    colorClassName: "pink#e94394",
+    colorClassName: "pinky",
     colorCode: "#e94394",
   },
   {

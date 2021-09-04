@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import styles from "../About/About.module.css";
 import Skills from "./Skills/Skills";
 import Education from "./Education/Education";
 import { Link } from "react-router-dom";
-
+import { colorsStore } from "../../App";
 const About = () => {
-  const [key, setKey] = useState("education");
+  const [key, setKey] = useState("skills");
+  const [globalColor, setGlobalColor] = useContext(colorsStore);
+  console.log("about " + globalColor);
   return (
     <Container className="bgHeight">
       <div className="text-center mt-5 headingContent">
@@ -109,7 +111,7 @@ const About = () => {
               <path
                 d="M249.52,651.18266c-19.56251,19.32716-21.75117,48.83128-21.75117,48.83128s29.52845-1.83141,49.091-21.15858,21.75116-48.83129,21.75116-48.83129S269.08248,631.85549,249.52,651.18266Z"
                 transform="translate(-114.2798 -119)"
-                fill={""}
+                fill={globalColor}
               ></path>
               <rect
                 x="68.05348"
@@ -117,7 +119,7 @@ const About = () => {
                 width="106.91603"
                 height="45.49618"
                 rx="15.19753"
-                fill={""}
+                fill={globalColor}
               ></rect>
               <g opacity="0.7">
                 <path
@@ -129,7 +131,7 @@ const About = () => {
               <path
                 d="M1007.13681,665.74436a19.45875,19.45875,0,1,0,19.45875,19.45874A19.45877,19.45877,0,0,0,1007.13681,665.74436Zm0,31.43336a11.97462,11.97462,0,1,1,11.97461-11.97462A11.97462,11.97462,0,0,1,1007.13681,697.17772Z"
                 transform="translate(-114.2798 -119)"
-                fill={""}
+                fill={globalColor}
               ></path>
               <path
                 d="M1007.13681,665.74436a19.45875,19.45875,0,1,0,19.45875,19.45874A19.45877,19.45877,0,0,0,1007.13681,665.74436Zm0,31.43336a11.97462,11.97462,0,1,1,11.97461-11.97462A11.97462,11.97462,0,0,1,1007.13681,697.17772Z"
@@ -138,7 +140,7 @@ const About = () => {
               ></path>
               <path
                 d="M818.01569,531.77609H892.857a0,0,0,0,1,0,0v74.07228a9.75,9.75,0,0,1-9.75,9.75H827.76569a9.75,9.75,0,0,1-9.75-9.75V531.77609A0,0,0,0,1,818.01569,531.77609Z"
-                fill={""}
+                fill={globalColor}
               ></path>
               <rect
                 y="615.59838"
@@ -156,7 +158,7 @@ const About = () => {
               <path
                 d="M603.61048,640.72159c48.89581,0,128.8143-14.57335,166.79676-39.61233-4.11411-22.48424-13.57985-58.86769-22.55024-91.42816-11.42431-41.46766-83.52767-70.216-126.54025-70.216h-41.4486c-43.1459,0-115.35328,28.91469-126.6338,70.55985-8.5964,31.736-17.77266,66.589-22.33837,87.05194C470.03068,624.57518,552.14757,640.72159,603.61048,640.72159Z"
                 transform="translate(-114.2798 -119)"
-                fill={""}
+                fill={globalColor}
               ></path>
               <circle
                 cx="486.8065"
