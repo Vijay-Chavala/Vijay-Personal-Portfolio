@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { colorsStore } from "../../App";
 const About = () => {
   const [key, setKey] = useState("skills");
+  // eslint-disable-next-line no-unused-vars
   const [globalColor, setGlobalColor] = useContext(colorsStore);
   console.log("about " + globalColor);
   return (

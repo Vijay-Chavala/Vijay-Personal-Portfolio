@@ -8,6 +8,7 @@ import GetInTouch from "./GetInTouch/GetInTouch";
 import { colorsStore } from "../../App";
 
 const Home = () => {
+  // eslint-disable-next-line no-unused-vars
   const [globalColor, setGlobalColor] = useContext(colorsStore);
 
   return (
