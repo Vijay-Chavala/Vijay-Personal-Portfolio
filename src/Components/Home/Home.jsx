@@ -1,34 +1,50 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../Home/Home.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AboutMe from "./AboutMe/AboutMe";
 import PortfolioIntro from "./PortfolioIntro/PortfolioIntro";
 import GetInTouch from "./GetInTouch/GetInTouch";
+import { colorsStore } from "../../App";
+
 const Home = () => {
+  const [globalColor, setGlobalColor] = useContext(colorsStore);
+
   return (
     <Container className={`mt-5 ${styles.homeContainer}`}>
-      <Row>
-        <Col sm="12" md="6">
+      <Row className="d-flex ">
+        <Col
+          sm="12"
+          md="12"
+          lg="5"
+          className="order-lg-1 order-md-2 order-sm-2 order-2 sm-text-center"
+        >
           <div className={` ${styles.homeContent}`}>
             <h5 className="">Hello</h5>
             <h1 className="my-3">I'm Vijay Kumar</h1>
             <h5 className="mb-3">Web Designer and Developer</h5>
-            <Link
-              to="/about"
-              className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
-            >
-              Download CV
-            </Link>
-            <Link
-              to="/portfolio"
-              className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
-            >
-              Portfolio
-            </Link>
+            <div className={` ${styles.homeButtonContainer}`}>
+              <Link
+                to="/about"
+                className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
+              >
+                Download CV
+              </Link>
+              <Link
+                to="/portfolio"
+                className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
+              >
+                Portfolio
+              </Link>
+            </div>
           </div>
         </Col>
-        <Col sm="12" md="6">
+        <Col
+          sm="12"
+          md="12"
+          lg="7"
+          className="order-lg-2 order-md-1 order-sm-1 order-1 mx-sm-auto"
+        >
           <div className={styles.imgContainer}>
             <div>
               <svg
@@ -38,41 +54,41 @@ const Home = () => {
                 width="655"
                 height="413.67951"
                 viewBox="0 0 655 413.67951"
-                className="injected-svg gridItem__media"
+                className={styles.workingImage}
                 xmlnsXlink="http://www.w3.org/1999/xlink"
               >
                 <path
                   d="M689.063,372.583a122.04116,122.04116,0,0,1,10.10051-38.51722q2.27961-5.09249,5.01812-9.96076a.7438.7438,0,0,0-1.28354-.75026,123.7286,123.7286,0,0,0-13.7678,37.98231q-1.03367,5.58355-1.55378,11.24593c-.08811.95214,1.39893.94613,1.48649,0Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="435.2819"
                   cy="73.9144"
                   r="9.4144"
-                  fill="#e6e6e6"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M690.026,372.83307a79.17357,79.17357,0,0,1,6.55267-24.98791q1.47888-3.30374,3.25549-6.462a.48254.48254,0,0,0-.83269-.48673,80.26825,80.26825,0,0,0-8.93182,24.6409q-.67059,3.6223-1.008,7.29575c-.05716.6177.90755.6138.96436,0Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="429.66984"
                   cy="93.66195"
                   r="6.10756"
-                  fill="#e6e6e6"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M688.80883,372.25653a79.17368,79.17368,0,0,1-10.2024-23.73277q-.86592-3.51453-1.40764-7.09749a.48253.48253,0,0,0-.95592.12838,80.26823,80.26823,0,0,0,8.11306,24.92247q1.69918,3.26856,3.69253,6.37254c.33485.5222,1.09311-.07422.76037-.59313Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="403.73518"
                   cy="93.23322"
                   r="6.10756"
-                  fill="#e6e6e6"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M670.05906,377.66024v-12a4.50508,4.50508,0,0,1,4.5-4.5h28a4.50508,4.50508,0,0,1,4.5,4.5v12a4.50508,4.50508,0,0,1-4.5,4.5h-28A4.50508,4.50508,0,0,1,670.05906,377.66024Z"
@@ -344,35 +360,35 @@ const Home = () => {
                 <path
                   d="M854.063,453.583a122.04116,122.04116,0,0,1,10.10051-38.51722q2.27961-5.09249,5.01812-9.96076a.7438.7438,0,0,0-1.28354-.75026,123.7286,123.7286,0,0,0-13.7678,37.98231q-1.03367,5.58355-1.55378,11.24593c-.08811.95214,1.39893.94613,1.48649,0Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="600.2819"
                   cy="154.9144"
                   r="9.4144"
-                  fill="#e6e6e6"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M855.026,453.83307a79.17357,79.17357,0,0,1,6.55267-24.98791q1.47888-3.30374,3.25549-6.462a.48254.48254,0,0,0-.83269-.48673,80.26825,80.26825,0,0,0-8.93182,24.6409q-.67059,3.6223-1.008,7.29575c-.05716.6177.90755.6138.96436,0Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="594.66984"
                   cy="174.66195"
                   r="6.10756"
-                  fill="#e6e6e6"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M853.80883,453.25653a79.17368,79.17368,0,0,1-10.2024-23.73277q-.86592-3.51453-1.40764-7.09749a.48253.48253,0,0,0-.95592.12838,80.26823,80.26823,0,0,0,8.11306,24.92247q1.69918,3.26856,3.69253,6.37254c.33485.5222,1.09311-.07422.76037-.59313Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="568.73518"
                   cy="174.23322"
                   r="6.10756"
-                  fill="#e6e6e6"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M835.05906,458.66024v-12a4.50508,4.50508,0,0,1,4.5-4.5h28a4.50508,4.50508,0,0,1,4.5,4.5v12a4.50508,4.50508,0,0,1-4.5,4.5h-28A4.50508,4.50508,0,0,1,835.05906,458.66024Z"
@@ -406,7 +422,7 @@ const Home = () => {
                 <path
                   d="M454.38952,629.78677h23.64386a0,0,0,0,1,0,0v14.88687a0,0,0,0,1,0,0H439.50266a0,0,0,0,1,0,0v0A14.88686,14.88686,0,0,1,454.38952,629.78677Z"
                   transform="translate(-597.31958 343.86136) rotate(-50.58212)"
-                  fill="#2f2e41"
+                  fill="#adadad"
                 ></path>
                 <path
                   d="M443.88663,577.83023l-5.31975,25.07884a4,4,0,0,0,3.84843,4.8295l52.29785.84351a4,4,0,0,0,4.00364-4.69462l-4.57453-25.92236a4,4,0,0,0-3.93914-3.30486H447.79957A4,4,0,0,0,443.88663,577.83023Z"
@@ -457,7 +473,7 @@ const Home = () => {
                 <path
                   d="M514.55908,605.66016h-89a7.00818,7.00818,0,0,1-7-7v-49a7.00818,7.00818,0,0,1,7-7h89a7.00817,7.00817,0,0,1,7,7v49A7.00818,7.00818,0,0,1,514.55908,605.66016Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#6c63ff"
+                  fill={globalColor}
                 ></path>
                 <circle cx="197.55906" cy="331" r="6" fill="#fff"></circle>
                 <path
@@ -468,35 +484,35 @@ const Home = () => {
                 <path
                   d="M305.16247,594.9787A122.0417,122.0417,0,0,1,315.263,556.46148q2.27961-5.09249,5.01813-9.96076a.7438.7438,0,0,0-1.28354-.75026,123.72825,123.72825,0,0,0-13.7678,37.98231q-1.03366,5.58356-1.55378,11.24593c-.08811.95214,1.39893.94613,1.48648,0Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="51.38142"
                   cy="296.31007"
                   r="9.4144"
-                  fill="#6c63ff"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M306.1255,595.22874a79.1741,79.1741,0,0,1,6.55267-24.98791q1.47889-3.30373,3.25549-6.462a.48254.48254,0,0,0-.83269-.48673,80.26852,80.26852,0,0,0-8.93181,24.64089q-.67059,3.62232-1.008,7.29576c-.05716.6177.90755.6138.96435,0Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="45.76935"
                   cy="316.05762"
                   r="6.10756"
-                  fill="#6c63ff"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M304.90835,594.6522a79.174,79.174,0,0,1-10.20241-23.73277q-.86592-3.51453-1.40763-7.09749a.48253.48253,0,0,0-.95592.12838,80.26809,80.26809,0,0,0,8.11306,24.92246q1.69919,3.26857,3.69252,6.37255c.33485.5222,1.09311-.07422.76038-.59313Z"
                   transform="translate(-272.5 -243.16024)"
-                  fill="#e6e6e6"
+                  fill="#a0d1f9"
                 ></path>
                 <circle
                   cx="19.8347"
                   cy="315.62888"
                   r="6.10756"
-                  fill="#6c63ff"
+                  fill={globalColor}
                 ></circle>
                 <path
                   d="M286.15857,600.05591v-12a4.50508,4.50508,0,0,1,4.5-4.5h28a4.50508,4.50508,0,0,1,4.5,4.5v12a4.50508,4.50508,0,0,1-4.5,4.5h-28A4.50508,4.50508,0,0,1,286.15857,600.05591Z"

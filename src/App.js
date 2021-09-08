@@ -11,6 +11,7 @@ import Services from "./Components/Services/Services";
 import Portfolio from "./Components/Portfolio/Portfolio";
 import Contact from "./Components/Contact/Contact";
 import Projects from "./Components/Portfolio/Projects/Projects";
+import PageNotFound from "./Components/PageNotFound";
 
 export const colorsStore = createContext();
 
@@ -20,7 +21,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [settings, setSettings] = useState(false);
   const [myThemeColors, setMyThemeColors] = useState([]);
-  const [globalColor, setGlobalColor] = useState("");
+  const [globalColor, setGlobalColor] = useState("#222222");
 
   console.log(globalColor);
   // default day mode colors
@@ -45,8 +46,13 @@ function App() {
     // to avoid dark colors to apply day theme
     if (selectedColor === "dark") {
       setThemeClass(myThemeColors.colorClassName);
-      setGlobalColor("");
+      setGlobalColor("#222222");
     }
+    if (selectedColor === "mainBody") {
+      setThemeClass(myThemeColors.colorClassName);
+      setGlobalColor("#ffcaca");
+    }
+
     console.log(myThemeColors);
     console.log(selectedColor);
     console.log(newColors);
@@ -137,6 +143,7 @@ function App() {
             <Route path="/portfolio" component={Portfolio} />
             <Route path="/contact" component={Contact} />
             <Route path="/projects/:id" component={Projects} />
+            <Route path="*" component={PageNotFound} />
           </Switch>
         </div>
       </colorsStore.Provider>

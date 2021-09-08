@@ -8,7 +8,9 @@ const GetInTouch = () => {
     <Container className={`mb-5 ${styles.GetInTouchContainer}`}>
       <Row>
         <Col>
-          <h2 className="text-center py-3">Get in touch</h2>
+          <h2 className="text-center pt-3">Get in touch</h2>
+          <div className="underline my-3"></div>
+
           <div className="soft-light-shadow-inset text-center py-5 px-5 ">
             <h5>Thanks for viewing my Portfolio.</h5>
             <h5>I really hope that you've enjoyed looking at my work!</h5>

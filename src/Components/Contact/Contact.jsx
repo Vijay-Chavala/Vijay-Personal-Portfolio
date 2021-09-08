@@ -58,7 +58,7 @@ const Contact = () => {
         <div className="underline"></div>
       </div>
       <Row>
-        <Col sm="12" md="6" lg="6" className={`mx-auto ${styles.col1}`}>
+        <Col sm="12" md="12" lg="6" className={`mx-auto ${styles.col1}`}>
           <Form autoComplete="off" onSubmit={sendEmail}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label className={styles.label}>Name</Form.Label>
@@ -98,7 +98,7 @@ const Contact = () => {
             </button>
           </Form>
         </Col>
-        <Col>
+        <Col sm="12" md="12" lg="6">
           <div className={` ${styles.contactIcons}`}>
             <ul className={styles.sidebar}>
               <li

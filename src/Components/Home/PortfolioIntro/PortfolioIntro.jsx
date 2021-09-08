@@ -9,17 +9,20 @@ const PortfolioIntro = () => {
     <Container
       className={`my-4 py-4 text-center mx-auto ${styles.PortfolioIntroSection}`}
     >
-      <h2 className="text-center py-3">Recent Works</h2>
-      <Row xs="1" md="3" lg="3" className="py-3  ">
+      <h2 className="text-center pt-3 ">Recent Works</h2>
+      <div className="underline my-3"></div>
+
+      <Row xs="1" sm="1" md="2" lg="3" className="py-3 mx-auto ">
         {projects.slice(1, 4).map((project) => {
           return (
             <Col key={project.id}>
-              <div className={`soft-light-shadow py-3 ${styles.Card}`}>
+              <div className={`soft-light-shadow my-3 py-3 ${styles.Card}`}>
                 <div className={styles.cardImage}>
                   <img src={project.image} alt="projectImg" />
                 </div>
                 <div className={`py-2 ${styles.cardBody}`}>
                   <h5>{project.title}</h5>
+                  <div className={styles.underline}></div>
                   <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Corporis atque aperiam eius commodi et tenetur excepturi sed

@@ -31,7 +31,12 @@ const Projects = () => {
                 <p>Category : {project.category}</p>
 
                 <div className={` mt-3 mb-5 ${styles.projectImageContainer}`}>
-                  <a href="ddbdb" className={styles.projectImageLink}>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.projectImageLink}
+                  >
                     <img
                       src={project.image}
                       alt="project_image "
@@ -43,7 +48,7 @@ const Projects = () => {
               <Row className={`p-3 ${styles.projectDetails}`}>
                 <Col sm="12" md="11" className="mx-auto">
                   <div className={`p-3  ${styles.projectDetailsDescription}`}>
-                    <h4>{project.title}</h4>
+                    <h4>Name:{project.title}</h4>
                     <p>{project.desc}</p>
                     <div className={` ${styles.projectDetailsTools}`}>
                       {project.tags.map((tag, index) => {
@@ -57,12 +62,19 @@ const Projects = () => {
                   </div>
                   <div className={`mt-4  ${styles.buttons}`}>
                     <a
-                      href="fggs"
+                      href={project.link}
                       className="soft-light-shadow btn soft-btn me-3"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Live Website
                     </a>
-                    <a href="sdfsf" className="soft-light-shadow btn soft-btn">
+                    <a
+                      href={project.gitHubLink}
+                      className="soft-light-shadow btn soft-btn me-3"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <i className="fa fa-github" aria-hidden="true"></i> Github
                       Code
                     </a>

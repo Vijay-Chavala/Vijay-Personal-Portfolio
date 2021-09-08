@@ -1,5 +1,5 @@
 .PortfolioIntroSection h2 {
-  color: var(--theme-color);
+  color: var(--text-color);
 }
 
 .Card {
@@ -10,9 +10,12 @@
 }
 .cardImage {
   padding: 10px;
+  overflow-y: hidden;
+  height: 200px;
 }
 .cardImage img {
   width: 100%;
+  height: auto;
 }
 .cardBody {
   color: var(--text-color);
@@ -20,6 +23,12 @@
 .cardBody p {
   padding: 0 20px;
   color: var(--text-color);
+}
+.underline {
+  width: 70px;
+  background-color: var(--theme-color);
+  height: 2px;
+  margin: 10px auto;
 }
 
 .link {

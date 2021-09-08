@@ -13,7 +13,7 @@ body {
   position: relative;
   transition: 0.5s;
   width: 100%;
-  min-width: 100vh;
+  min-width: 100%;
   overflow-x: hidden;
 }
 .settings {
@@ -292,6 +292,12 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .headingContent .underline {
+  width: 70px;
+  background-color: var(--theme-color);
+  height: 2px;
+  margin: 0 auto;
+}
+.underline {
   width: 70px;
   background-color: var(--theme-color);
   height: 2px;

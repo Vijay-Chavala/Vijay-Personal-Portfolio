@@ -14,15 +14,18 @@
 }
 .projectImageContainer .projectImageLink {
   width: 100%;
-  height: 100%;
-  overflow-y: auto !important;
+  height: 400px;
   margin: 30px auto !important;
+  overflow-y: scroll;
 }
 .projectImageContainer .projectImageLink .projectImage {
   width: 100%;
-  height: 500% !important;
+  height: auto;
+  transition: 10s all ease;
 }
-
+/* .projectImageContainer:hover .projectImage {
+  transform: translateY(-80%);
+} */
 /* scrollBar */
 .projectImageLink::-webkit-scrollbar {
   width: 3px; /* width of the entire scrollbar */
@@ -67,7 +70,6 @@
   color: var(--text-color);
   padding: 5px 30px;
   border-radius: 20px;
-  opacity: 0.5;
 }
 .buttons a {
   font-size: 1.3rem;

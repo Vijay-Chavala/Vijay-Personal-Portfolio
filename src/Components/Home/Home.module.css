@@ -3,6 +3,9 @@
   padding: 15px;
   border-radius: 5px;
 } */
+.homeButtonContainer {
+  display: flex;
+}
 .homeButton {
   width: 150px;
   word-wrap: normal;
@@ -35,10 +38,21 @@
   font-weight: 700;
   color: var(--text-color);
 }
-.homeImg {
+.imgContainer {
   width: 100%;
   height: auto;
   /* border: 1px solid var(--border-color); */
   border-radius: 5px;
   padding: 20px;
+}
+@media screen and (max-width: 991px) {
+  .homeContent {
+    margin: 20px auto 0;
+    text-align: left;
+  }
+  .homeButtonContainer {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+  }
 }

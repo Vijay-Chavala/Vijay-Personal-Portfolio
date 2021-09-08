@@ -10,7 +10,7 @@ const allCategories = [
 ];
 const Portfolio = () => {
   const [myProjects, setMyProjects] = useState(projects);
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(0);
 
   const filterProjects = (category, i) => {
     if (category === "all") {
@@ -53,7 +53,7 @@ const Portfolio = () => {
           );
         })}
       </div>
-      <Row xs="1" md="3" lg="3" className="">
+      <Row xs="1" md="2" lg="3" className="">
         {myProjects.map((project) => {
           return (
             <Col

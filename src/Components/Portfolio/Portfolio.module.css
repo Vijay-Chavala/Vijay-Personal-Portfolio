@@ -38,18 +38,23 @@
 }
 .cardImage {
   overflow: hidden;
+  height: 200px;
 }
+.Card:hover h4 {
+  color: var(--theme-color);
+}
+
 .cardImage img {
   width: 100%;
-  transition: 1s ease-in-out;
+  transition: 2s ease-in-out;
 }
 .cardImage img:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 
 .cardBody {
   margin-top: 20px;
 }
-.cardBody p {
+.cardBody h4 {
   padding: 0 20px;
 }

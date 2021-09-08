@@ -57,7 +57,7 @@ const About = () => {
           </div>
         </Col>
         <Col sm="12" md="5">
-          <div>
+          <div className="mt-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"

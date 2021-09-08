@@ -24,7 +24,7 @@
   background-color: var(--main-color);
   box-shadow: inset 2px 2px 3px var(--shadow-out),
     inset -3px -3px 7px var(--shadow-in) !important;
-  margin-top: 30px;
+  margin: 30px auto;
   padding: 45px 0;
 }
 .sidebar {
