@@ -21,7 +21,7 @@ const Home = () => {
           className="order-lg-1 order-md-2 order-sm-2 order-2 sm-text-center"
         >
           <div className={` ${styles.homeContent}`}>
-            <h5 className="">Hello</h5>
+            <h5 className="text-left">Hello</h5>
             <h1 className="my-3">I'm Vijay Kumar</h1>
             <h5 className="mb-3">UI Developer</h5>
             <div className={` ${styles.homeButtonContainer}`}>

@@ -23,7 +23,7 @@ function App() {
   const [myThemeColors, setMyThemeColors] = useState([]);
   const [globalColor, setGlobalColor] = useState("#222222");
 
-  console.log(globalColor);
+  // console.log(globalColor);
   // default day mode colors
   useEffect(() => {
     const dayColors = themeColors.filter(

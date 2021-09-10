@@ -30,7 +30,7 @@ html {
   --shadow-out: #0e1012;
   --shadow-in: #3a4248;
   --border-color: #2e2e2f;
-  --theme-color: #ffcaca;
+  --theme-color: #ff9d9d;
 }
 .blue {
   --main-color: #b1dbfb;
@@ -44,10 +44,10 @@ html {
 }
 
 .pink {
-  --main-color: #f5c1c1;
-  --shadow-out: #a98585;
-  --shadow-in: #fffdfd;
-  --border-color: #f6cece;
+  --main-color: #fdafd5;
+  --shadow-out: #d795b5;
+  --shadow-in: #ffc9f5;
+  --border-color: #ffb7f2;
   --text-color: #000;
 }
 
@@ -76,8 +76,12 @@ html {
   --theme-color: #383838 !important;
 }
 
-.violet {
-  --text-color: violet;
+.red {
+  --main-color: #ffa8a8;
+  --shadow-out: #d98f8f;
+  --shadow-in: #ffc1c1;
+  --border-color: #fdb8b8;
+  --text-color: #000;
 }
 
 /*Selected Color Classes */
@@ -88,10 +92,10 @@ html {
   --theme-color: #01d5e4;
 }
 .pinky {
-  --theme-color: #e94394;
+  --theme-color: #ff81be;
 }
 .yellowww {
-  --theme-color: #f9c921;
+  --theme-color: #ffdc5c;
 }
 .lightGreen {
   --theme-color: #72fd00;

@@ -20,7 +20,7 @@ body {
   position: fixed;
   top: 150px;
   right: -180px;
-  height: 270px;
+  height: 290px;
   width: 180px;
   background-color: var(--main-color);
   box-shadow: inset 2px 2px 3px var(--shadow-out),

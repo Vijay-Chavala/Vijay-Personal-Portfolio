@@ -66,17 +66,22 @@ const Projects = () => {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Live Website
+                      {project.category === "design"
+                        ? "View Design"
+                        : "Live Website"}
                     </a>
-                    <a
-                      href={project.gitHubLink}
-                      className="soft-light-shadow btn soft-btn me-3"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <i className="fa fa-github" aria-hidden="true"></i> Github
-                      Code
-                    </a>
+
+                    {project.gitHubLink && (
+                      <a
+                        href={project.gitHubLink}
+                        className="soft-light-shadow btn soft-btn me-3"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <i className="fa fa-github" aria-hidden="true"></i>{" "}
+                        Github Code
+                      </a>
+                    )}
                   </div>
                 </Col>
               </Row>

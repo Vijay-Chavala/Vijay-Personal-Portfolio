@@ -23,7 +23,7 @@ export const colors = [
   {
     id: "2",
     colorName: "pink",
-    colorCode: "#f9b4b4",
+    colorCode: "#fdafd5",
   },
   {
     id: "3",
@@ -37,8 +37,8 @@ export const colors = [
   },
   {
     id: "5",
-    colorName: "violet",
-    colorCode: "violet",
+    colorName: "red",
+    colorCode: "#ffa8a8",
   },
 ];
 
@@ -60,25 +60,32 @@ export const themeColors = [
     id: "3",
     category: "mainBody",
     colorClassName: "pinky",
-    colorCode: "#e94394",
+    colorCode: "#ff81be",
   },
   {
     id: "4",
     category: "dark",
     colorClassName: "yellowww",
-    colorCode: "#f9c921",
+    colorCode: "#ffdc5c",
   },
   {
     id: "5",
     category: "dark",
     colorClassName: "lightGreen",
-    colorCode: "#72fd00",
+    colorCode: "#a6ff5e",
   },
   {
     id: "6",
     category: "dark",
     colorClassName: "bluDayDark",
     colorCode: "#01d5e4",
+  },
+
+  {
+    id: "7",
+    category: "dark",
+    colorClassName: "pinky",
+    colorCode: "#ff81be",
   },
 ];
 
@@ -244,7 +251,7 @@ export const projects = [
     category: "react",
     title: "Personal Portfolio",
     link: "https://simple-react-restaurant.netlify.app/",
-    gitHubLink: "https://github.com/Vijay-Chavala/simple-react-restaurant-app",
+    gitHubLink: "https://github.com/Vijay-Chavala/Vijay-Personal-Portfolio",
     image: `${personalPortfolio}`,
     desc: "This is a Personal Portfolio website created by using react-js in this we can see complete details of a developer.It's complete UI design is taken from most trending Ui design 'Neumorphism' in 2021.Created reuseable components.Created a data file as a api file which contains all the information needed to display the content on the website and also it contains day and night mode.Also implemented multicolor themes and multicolor backgrounds. ",
     tags: [
@@ -403,7 +410,7 @@ export const projects = [
     id: 15,
     category: "design",
     title: "Online Shopping ",
-    link: "https://drive.google.com/uc?id=1xLDGiQOmfKuAb_tq_Qq5yq6Ylc_F7E7e",
+    link: "https://drive.google.com/embeddedfolderview?id=1xLDGiQOmfKuAb_tq_Qq5yq6Ylc_F7E7e",
     gitHubLink: "",
     image: "https://drive.google.com/uc?id=1mjgMRK1gkQV2zUA5QV7f9jwtpcu9mcZB",
     desc: "Online Shopping website UI design (large and mobile devices)",
