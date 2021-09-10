@@ -8,10 +8,13 @@
   font-size: 1.1rem;
   color: var(--text-color-2);
 }
+.btnGroup {
+  display: flex;
+}
 .btnGroup .linkBtn {
   margin: 0 10px 0 0;
   padding: 8px;
-  width: 28%;
+  width: 150px;
   max-width: 100%;
 }
 .workingImage {

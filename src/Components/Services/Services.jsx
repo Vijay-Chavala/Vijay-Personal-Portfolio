@@ -14,7 +14,7 @@ const Services = () => {
       <Row xs="1" sm="1" md="2" lg="3" className="">
         {services.map((service) => {
           return (
-            <Col key={service.id} className="pe-4 ">
+            <Col key={service.id} className="px-4  ">
               <div className={styles.Card}>
                 <div className={styles.cardIcon}>
                   <i

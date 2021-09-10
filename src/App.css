@@ -129,6 +129,15 @@ body {
   color: var(--theme-color);
   text-align: left;
 }
+.navbar-light .navbar-toggler {
+  color: var(--theme-color);
+  border-color: none;
+}
+
+.navbar-light .navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 /*  Navbar dropdown */
 .dropdown-menu {
@@ -302,4 +311,99 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: var(--theme-color);
   height: 2px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 425px) {
+  .settings {
+    top: 150px;
+    right: -120px;
+    height: 240px;
+    width: 120px;
+  }
+  .settingsActive {
+    right: 0px;
+  }
+  .settingIcon {
+    position: absolute;
+    top: 60px;
+    left: -42px;
+    background-color: var(--main-color);
+    box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  .settingIcon i {
+    font-size: 22px;
+    animation: spin 3s linear infinite;
+    color: var(--theme-color);
+  }
+
+  .dayNightIcon {
+    position: absolute;
+    top: 120px;
+    left: -42px;
+    background-color: var(--main-color);
+    box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+
+  .dayNightIcon i {
+    font-size: 22px;
+    vertical-align: middle;
+    line-height: 0;
+    color: var(--theme-color);
+  }
+  /* colors Container */
+  .colorsContainer {
+    margin: 0 0 0 20px;
+  }
+  .themeColors {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .colors {
+    margin-top: 4px;
+    background-color: var(--main-color);
+    box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+
+  .colorsContainer h5 {
+    color: var(--theme-color);
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .selectedColors {
+    padding-top: 10px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .navbar-toggler-icon {
+    height: 1rem;
+    width: 1rem;
+  }
 }

@@ -4,6 +4,7 @@ import servicesHub from "../assets/images/servicesHub.png";
 import todoApp from "../assets/images/todoApp.png";
 import imageSearch from "../assets/images/imageSearch.png";
 import weatherApp from "../assets/images/weatherApp.png";
+import personalPortfolio from "../assets/images/personalPortfolio.png";
 import onlineShopping from "../assets/images/onlineShopping.png";
 
 //colors
@@ -204,25 +205,25 @@ export const services = [
     id: 1,
     icon: "fa fa-mobile",
     title: "Responsive Design",
-    info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    info: "Get insights into who is browsing your site so that you can make smarter business decisions.",
   },
   {
     id: 2,
     icon: "fa fa-laptop",
     title: "Web Design",
-    info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    info: "To create design that strengthens company’s brand while ensuring ease of use and simplicity for your audience.",
   },
   {
     id: 3,
     icon: "fa fa-code",
     title: "Clean Code",
-    info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    info: "I write standards based code that is semantic, accessible, easy to maintain, cross browser compatible.",
   },
   {
     id: 4,
     icon: "bi bi-scissors mb-3",
-    title: "Video Editing",
-    info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    title: "Creative Editing",
+    info: "Video editing services can include cutting or splicing segments, re-sequencing clips, adding transitions, formatting, and more...",
   },
   // {
   //   id: 5,
@@ -230,14 +231,32 @@ export const services = [
   //   title: "Graphic Design",
   //   info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
   // },
-  {
-    id: 6,
-    icon: "fa fa-bullhorn",
-    title: "Great Support",
-    info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
-  },
+  // {
+  //   id: 6,
+  //   icon: "fa fa-bullhorn",
+  //   title: "Great Support",
+  //   info: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+  // },
 ];
 export const projects = [
+  {
+    id: 0,
+    category: "react",
+    title: "Personal Portfolio",
+    link: "https://simple-react-restaurant.netlify.app/",
+    gitHubLink: "https://github.com/Vijay-Chavala/simple-react-restaurant-app",
+    image: `${personalPortfolio}`,
+    desc: "This is a Personal Portfolio website created by using react-js in this we can see complete details of a developer.It's complete UI design is taken from most trending Ui design 'Neumorphism' in 2021.Created reuseable components.Created a data file as a api file which contains all the information needed to display the content on the website and also it contains day and night mode.Also implemented multicolor themes and multicolor backgrounds. ",
+    tags: [
+      "react",
+      "html",
+      "css",
+      "react-router-dom",
+      "useState",
+      "useEffect",
+      "React Boostrap",
+    ],
+  },
   {
     id: 1,
     category: "react",
@@ -245,7 +264,7 @@ export const projects = [
     link: "https://simple-react-restaurant.netlify.app/",
     gitHubLink: "https://github.com/Vijay-Chavala/simple-react-restaurant-app",
     image: `${restaurentPage}`,
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    desc: "This is a simple restaurant website,with having beautiful landing page and also having menu section which you can filter menu items. This is built using React on the Frontend and deployed on Netlify.",
     tags: ["react", "html", "css", "react-router-dom", "useState"],
   },
   {
@@ -255,7 +274,7 @@ export const projects = [
     link: "https://vj-react-js-covid19-tracker.netlify.app/",
     gitHubLink: "https://github.com/Vijay-Chavala/covid-tracker",
     image: `${covidTracker}`,
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.",
+    desc: "This is help us to track and trace corona cases and also to help spreading the awareness.In this we get number of infected people,recovered people and as well as number of deaths caused by covid-19.In this web application with help of chart.js we are creating charts to visualize number of infected people,deaths,and recovered people which everyone can understands easily.We can also trace covid19 cases of specific country by selecting country. ",
     tags: [
       "react",
       "material-ui",
@@ -263,28 +282,20 @@ export const projects = [
       "css",
       "CoronaTracker public API",
       "axios",
+      "chartjs",
     ],
   },
   {
     id: 3,
-    category: "HTML CSS JS",
-    title: "Services Hub",
-    link: "https://services-hub.netlify.app/",
-    gitHubLink: "https://github.com/Vijay-Chavala/ServicesHub",
-    image: `${servicesHub}`,
-    desc: "Pictures, abstract symbols, materials,relationships and to Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.make arrangements and rearrangements among these ingredients.",
-    tags: ["html", "css", "Jquery", "Boostrap-4", "JS"],
-  },
-  {
-    id: 4,
     category: "react",
     title: "Weather App",
     link: "https://react-js-weather-application.netlify.app/",
     gitHubLink: "https://github.com/Vijay-Chavala/React-Weather-App",
     image: `${weatherApp}`,
-    desc: "Pictures, abstract symbols, materials,relationships and to make Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.arrangements and rearrangements among these ingredients.",
+    desc: "This Weather Application provides accurate weather information based on location. This web app will also provide rain forecast, humidity information, temperatures , wind, pressure ,Humidity of the day for a location. The forecasts are accentuated by icons for clear comprehension.  Users will be able to find the sunrise and sunset time with a simple and brief text on today’s weather.",
     tags: ["open-weather API", "axios", "react", "useState", "useEffect"],
   },
+
   {
     id: 5,
     category: "react",
@@ -292,46 +303,41 @@ export const projects = [
     link: "https://react-images-search-app.netlify.app/",
     gitHubLink: "https://github.com/Vijay-Chavala/react-image-search",
     image: `${imageSearch}`,
-    desc: "Pictures, abstract symbols, materials,relationships and toPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients. make arrangements and rearrangements among these ingredients.",
+    desc: "This is a image search app created using React and open API and deployed on Netlify.In this app we can search any kind of images. ",
     tags: ["react", "html", "css", "axios"],
   },
+
   {
     id: 6,
+    category: "HTML CSS JS",
+    title: "Services Hub",
+    link: "https://services-hub.netlify.app/",
+    gitHubLink: "https://github.com/Vijay-Chavala/ServicesHub",
+    image: `${servicesHub}`,
+    desc: "Services Hub is a website where we can find all the technicians and professionals.Here we can find all the services.",
+    tags: ["html", "css", "Jquery", "Boostrap-4", "JS"],
+  },
+  {
+    id: 7,
     category: "react",
     title: "To-Do App",
     link: "https://reactjs-to-do-list-app.netlify.app/",
     gitHubLink: "https://github.com/Vijay-Chavala/react-todo-list",
     image: `${todoApp}`,
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    desc: "This is a project To-Do App, that helps to manage tasks and change tasks, write notes and delete tasks. This is built using React on the Frontend deployed on Netlify.",
     tags: ["react", "useState", "useEffect", "css", "html"],
   },
   {
-    id: 7,
+    id: 8,
     category: "HTML CSS JS",
     title: "Online Shopping",
     link: "https://my-online-shopping.netlify.app/",
     gitHubLink: "https://github.com/Vijay-Chavala/online-shopping",
     image: `${onlineShopping}`,
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    desc: "This is one of the e-commerce website designed(photoshop) and developed using html,css,js,boostrap.completed developing front end part",
     tags: ["bootstrap", "html", "css", "js"],
   },
-  {
-    id: 8,
-    category: "react",
-    title: "Personal Portfolio",
-    link: "https://vijay-personal-portfolio.netlify.app/",
-    gitHubLink: "https://github.com/Vijay-Chavala/Vijay-Personal-Portfolio",
-    image: `${onlineShopping}`,
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
-    tags: [
-      "react",
-      "useEffect",
-      "useState",
-      "react-bootstrap",
-      "react-router-dom",
-      "emailjs",
-    ],
-  },
+
   {
     id: 9,
     category: "design",
@@ -339,7 +345,7 @@ export const projects = [
     link: "https://drive.google.com/uc?id=1eQuMN0AlvKl9yR3ETM69ffQiFmwm03Ud",
     gitHubLink: "",
     image: "https://drive.google.com/uc?id=1eQuMN0AlvKl9yR3ETM69ffQiFmwm03Ud",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    desc: "Yoga Design 1 - This is one of the Ui design for Yoga website designed for one of the client",
     tags: ["ui", "photoshop cs6"],
   },
   {
@@ -360,7 +366,7 @@ export const projects = [
     link: "https://drive.google.com/uc?id=1fOYte468ULzWFdHfqVTtiRpSJ66BmFxU",
     gitHubLink: "",
     image: "https://drive.google.com/uc?id=1fOYte468ULzWFdHfqVTtiRpSJ66BmFxU",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    desc: "Yoga Design 2 - This is one of the Ui design for Yoga website designed for one of the client",
     tags: ["ui", "photoshop cs6"],
   },
   {
@@ -370,7 +376,7 @@ export const projects = [
     link: "https://drive.google.com/uc?id=1G2K75FapjxWvz6wonbUieYOO-km2D6iY",
     gitHubLink: "",
     image: "https://drive.google.com/uc?id=1G2K75FapjxWvz6wonbUieYOO-km2D6iY",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    desc: "Mobile Service Design 1 - This is one of the Ui design for Mobile repair services.",
     tags: ["ui", "photoshop cs6"],
   },
   {
@@ -380,7 +386,7 @@ export const projects = [
     link: "https://drive.google.com/uc?id=1o_6RUb8caurfsDJIQh4QMFsWcHJnk6ko",
     gitHubLink: "",
     image: "https://drive.google.com/uc?id=1o_6RUb8caurfsDJIQh4QMFsWcHJnk6ko",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    desc: "Mobile Service Design 2 - This is one of the Ui design for Mobile repair services.",
     tags: ["ui", "photoshop cs6"],
   },
   {
@@ -390,17 +396,17 @@ export const projects = [
     link: "https://drive.google.com/uc?id=1eQuMN0AlvKl9yR3ETM69ffQiFmwm03Ud",
     gitHubLink: "",
     image: "https://drive.google.com/uc?id=1eQuMN0AlvKl9yR3ETM69ffQiFmwm03Ud",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    desc: "Yoga Design 3 - This is one of the Ui design for Yoga website designed for one of the client",
     tags: ["ui", "photoshop cs6"],
   },
   {
     id: 15,
     category: "design",
-    title: "E-commerce ",
+    title: "Online Shopping ",
     link: "https://drive.google.com/uc?id=1xLDGiQOmfKuAb_tq_Qq5yq6Ylc_F7E7e",
     gitHubLink: "",
     image: "https://drive.google.com/uc?id=1mjgMRK1gkQV2zUA5QV7f9jwtpcu9mcZB",
-    desc: "Pictures, abstract symbols, materials,relationships and to make arrangements and rearrangements amoPictures, abstract symbols, materials,relationships and to make arrangements and rearrangements among these ingredients.ng these ingredients.",
+    desc: "Online Shopping website UI design (large and mobile devices)",
     tags: ["ui", "photoshop cs6"],
   },
 ];

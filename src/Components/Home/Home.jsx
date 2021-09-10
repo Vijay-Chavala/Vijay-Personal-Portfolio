@@ -23,7 +23,7 @@ const Home = () => {
           <div className={` ${styles.homeContent}`}>
             <h5 className="">Hello</h5>
             <h1 className="my-3">I'm Vijay Kumar</h1>
-            <h5 className="mb-3">Web Designer and Developer</h5>
+            <h5 className="mb-3">UI Developer</h5>
             <div className={` ${styles.homeButtonContainer}`}>
               <Link
                 to="/about"
@@ -35,7 +35,7 @@ const Home = () => {
                 to="/portfolio"
                 className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
               >
-                Portfolio
+                See my works
               </Link>
             </div>
           </div>

@@ -1,5 +1,5 @@
 .projectInfoSection p {
-  text-transform: capitalize;
+  text-transform: initial;
 }
 
 .projectImageContainer {
@@ -11,6 +11,7 @@
   cursor: pointer;
   scroll-behavior: smooth;
   padding: 10px;
+  border-radius: 5px;
 }
 .projectImageContainer .projectImageLink {
   width: 100%;
@@ -57,6 +58,7 @@
   background-color: var(--main-color);
   box-shadow: inset 2px 2px 3px var(--shadow-out),
     inset -5px -5px 7px var(--shadow-in) !important;
+  border-radius: 5px;
 }
 .projectDetailsTools {
   display: flex;
@@ -71,6 +73,26 @@
   padding: 5px 30px;
   border-radius: 20px;
 }
+.buttons {
+  display: flex;
+}
 .buttons a {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 570px) {
+  .projectImageContainer {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .buttons {
+    display: block;
+  }
+  .buttons a {
+    width: 100%;
+    margin-top: 10px;
+  }
 }

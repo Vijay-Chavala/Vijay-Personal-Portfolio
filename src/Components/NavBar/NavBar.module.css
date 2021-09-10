@@ -35,3 +35,9 @@
   color: var(--theme-color) !important;
   background-color: var(--main-color);
 }
+
+@media screen and (max-width: 350px) {
+  .navBarLogo {
+    font-size: 1rem;
+  }
+}

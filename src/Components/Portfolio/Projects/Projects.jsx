@@ -27,9 +27,6 @@ const Projects = () => {
           return (
             <div key={project.id}>
               <Row>
-                <h2 className="">Project Details</h2>
-                <p>Category : {project.category}</p>
-
                 <div className={` mt-3 mb-5 ${styles.projectImageContainer}`}>
                   <a
                     href={project.link}
@@ -48,7 +45,9 @@ const Projects = () => {
               <Row className={`p-3 ${styles.projectDetails}`}>
                 <Col sm="12" md="11" className="mx-auto">
                   <div className={`p-3  ${styles.projectDetailsDescription}`}>
-                    <h4>Name:{project.title}</h4>
+                    <h4 className="text-center">Project Details</h4>
+                    <h5>{project.title}</h5>
+                    <p>Category : {project.category}</p>
                     <p>{project.desc}</p>
                     <div className={` ${styles.projectDetailsTools}`}>
                       {project.tags.map((tag, index) => {

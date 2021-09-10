@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import styles from "../About/About.module.css";
+import "./Education/Education.css";
+
 import Skills from "./Skills/Skills";
 import Education from "./Education/Education";
 import { Link } from "react-router-dom";
@@ -23,23 +25,37 @@ const About = () => {
             <h5>Hi,Im Vijay Kumar</h5>
             <h2>UI Developer</h2>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam
-              excepturi nemo neque, eaque ad ab facilis voluptatum? Quaerat quae
-              excepturi enim unde? Facere consequuntur in eligendi molestiae
-              velit tempore numquam.
-            </p>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam
-              excepturi nemo neque, eaque ad ab facilis voluptatum? Quaerat quae
-              excepturi enim unde? Facere consequuntur in eligendi molestiae
-              velit tempore numquam.
+              After graduating in 2018 with a Bachelor’s Degree in Computer
+              Science and Engineering, I spent more than one year working
+              together with senior backend developer as a freelance web
+              developer I acquired project and time management skills, as well
+              as the ability to work on new technologies.
             </p>
 
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam
-              excepturi nemo neque, eaque ad ab facilis voluptatum? Quaerat quae
-              excepturi enim unde? Facere consequuntur in eligendi molestiae
-              velit tempore numquam.
+              As a freelance web developer I have worked on a multitude of web
+              projects for a range of clients providing Web Design (Photoshop)
+              and Development I use HTML, CSS,Bootstrap and JavaScript to
+              produce responsive websites and web apps that provide users the
+              best and most appropriate experience suited to their device and
+              browser.
+            </p>
+            <p>
+              I also have interest in designing. Given that producing a modern
+              website requires the combination of design, server technology, and
+              the layer that users interacts with, I believe having experience
+              in both design and development allows for making the most optimal
+              user experiences.
+            </p>
+            <p>
+              I am also experienced in building systems that implement business
+              logic and interact with server-side technology via APIs and tools
+              such as React and Redux,Angular(Beginner) as well as testing code
+              using tools such as Jasmine.
+            </p>
+            <p>
+              My main experience is in front-end development but I also have a
+              passion for full stack development.
             </p>
           </div>
           <div className={styles.btnGroup}>
@@ -286,12 +302,33 @@ const About = () => {
           <Tab eventKey="experience" title="Experience">
             <div className={styles.experienceTab}>
               <div className={styles.experienceTabContainer}>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Expedita aut facere magnam aspernatur praesentium unde,
-                  placeat officiis, exercitationem quisquam ipsam deserunt natus
-                  similique iste libero quam distinctio odio atque ex.
-                </p>
+                <div>
+                  <section className="">
+                    <div className="timeline-items">
+                      <div className="timeline-item">
+                        <div className="timeline-dot"></div>
+                        <div className="timeline-date">
+                          05-09-2018 to 20-01-2020
+                        </div>
+                        <div className="timeline-content">
+                          <h3>Front-end Developer</h3>
+                          <p>
+                            Working ore than a year as a freelance ui developer
+                            {/* together with a backend developer{" "} */}
+                          </p>
+                        </div>
+                      </div>
+                      {/* <div className="timeline-item">
+                        <div className="timeline-dot"></div>
+                        <div className="timeline-date">2021</div>
+                        <div className="timeline-content">
+                          <h3> </h3>
+                          <p></p>
+                        </div>
+                      </div> */}
+                    </div>
+                  </section>
+                </div>
               </div>
             </div>
           </Tab>

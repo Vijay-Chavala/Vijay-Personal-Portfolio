@@ -179,13 +179,17 @@ const AboutMe = () => {
         <Col sm="12" md="12" lg="6" className="mt-4">
           <div className={`${styles.aboutMeContent}`}>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              quidem odio dignissimos illum tempora maxime adipisci, reiciendis
-              quidem odio dignissimos illum tempora maxime adipisci, reiciendis
-              quidem odio dignissimos illum tempora maxime adipisci, reiciendis
-              officia quo autem officiis repellendus ducimus dolor sint,
-              excepturi quam repellat error consectetur.
+              Im a UI Developer and Designer. I’ve worked together with a senior
+              backend freelance developer. I create professional websites and I
+              like to design best designs for websites. I work on developing and
+              designing websites.
             </p>
+            <p>
+              This gave some experience on using best practices and working in
+              sprints and within deadlines with providing the project with
+              quality.
+            </p>
+
             <div className="btn-group">
               <Link
                 to="/services"

@@ -23,6 +23,10 @@
 .cardBody p {
   padding: 0 20px;
   color: var(--text-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .underline {
   width: 70px;

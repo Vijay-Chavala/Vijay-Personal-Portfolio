@@ -53,14 +53,14 @@ const Portfolio = () => {
           );
         })}
       </div>
-      <Row xs="1" md="2" lg="3" className="">
+      <Row xs="1" md="2" lg="3" className="mx-auto">
         {myProjects.map((project) => {
           return (
             <Col
               as={Link}
               to={`projects/${project.id}`}
               key={project.id}
-              className={`pe-4 ${styles.Link}`}
+              className={` mx-auto ${styles.Link}`}
             >
               <div className={styles.Card}>
                 <div className={styles.cardImage}>

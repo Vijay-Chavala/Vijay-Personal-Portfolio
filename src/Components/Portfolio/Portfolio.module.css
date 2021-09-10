@@ -6,6 +6,7 @@
   color: var(--text-color);
   text-transform: capitalize !important;
   transition: 0.5s !important;
+  margin-top: 10px;
 }
 .categoryButtons:hover,
 .btnActive {
@@ -31,7 +32,9 @@
   position: relative;
   margin-top: 60px;
   transition: 0.6s ease-in-out;
+  overflow: hidden;
 }
+
 .Card:hover {
   transform: translateY(-3%);
   cursor: pointer;

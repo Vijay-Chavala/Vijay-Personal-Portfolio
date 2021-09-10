@@ -13,22 +13,17 @@ const PortfolioIntro = () => {
       <div className="underline my-3"></div>
 
       <Row xs="1" sm="1" md="2" lg="3" className="py-3 mx-auto ">
-        {projects.slice(1, 4).map((project) => {
+        {projects.slice(0, 3).map((project) => {
           return (
             <Col key={project.id}>
               <div className={`soft-light-shadow my-3 py-3 ${styles.Card}`}>
                 <div className={styles.cardImage}>
                   <img src={project.image} alt="projectImg" />
                 </div>
-                <div className={`py-2 ${styles.cardBody}`}>
+                <div className={`pt-4 py-2 ${styles.cardBody}`}>
                   <h5>{project.title}</h5>
                   <div className={styles.underline}></div>
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Corporis atque aperiam eius commodi et tenetur excepturi sed
-                    totam pariatur, saepe quidem velit ratione esse ullam illum
-                    magni quo, suscipit nemo.
-                  </p>
+                  <p>{project.desc}</p>
                 </div>
               </div>
             </Col>
