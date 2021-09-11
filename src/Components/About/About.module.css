@@ -11,7 +11,7 @@
 .btnGroup {
   display: flex;
 }
-.btnGroup .linkBtn {
+.linkBtn {
   margin: 0 10px 0 0;
   padding: 8px;
   width: 150px;
@@ -39,4 +39,19 @@
   margin: 0 auto;
   color: var(--text-color-2);
 }
+.expBtnGroup {
+  text-align: center;
+}
 /*For More styles Check "About" Section Tab Styles in App.css */
+@media screen and (max-width: 480px) {
+  .expBtnGroup {
+    text-align: center;
+  }
+
+  .expBtnGroup .linkBtn {
+    margin: 0 10px 0 0;
+    padding: 8px;
+    width: 90%;
+    max-width: 100%;
+  }
+}

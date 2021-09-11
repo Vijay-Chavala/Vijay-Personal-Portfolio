@@ -25,12 +25,14 @@ const Home = () => {
             <h1 className="my-3">I'm Vijay Kumar</h1>
             <h5 className="mb-3">UI Developer</h5>
             <div className={` ${styles.homeButtonContainer}`}>
-              <Link
-                to="/about"
+              <a
+                href="https://drive.google.com/uc?id=1ZNHr5SCE4l3bSd-_qK9FrG4VEJ1kOJ-9"
+                target="_blank"
+                rel="noreferrer"
                 className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
               >
                 Download CV
-              </Link>
+              </a>
               <Link
                 to="/portfolio"
                 className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}

@@ -218,7 +218,7 @@ export const services = [
     id: 2,
     icon: "fa fa-laptop",
     title: "Web Design",
-    info: "To create design that strengthens company’s brand while ensuring ease of use and simplicity for your audience.",
+    info: "Create design that strengthens company’s brand while ensuring ease of use and simplicity for your audience.",
   },
   {
     id: 3,
@@ -281,7 +281,7 @@ export const projects = [
     link: "https://vj-react-js-covid19-tracker.netlify.app/",
     gitHubLink: "https://github.com/Vijay-Chavala/covid-tracker",
     image: `${covidTracker}`,
-    desc: "This is help us to track and trace corona cases and also to help spreading the awareness.In this we get number of infected people,recovered people and as well as number of deaths caused by covid-19.In this web application with help of chart.js we are creating charts to visualize number of infected people,deaths,and recovered people which everyone can understands easily.We can also trace covid19 cases of specific country by selecting country. ",
+    desc: "This is Covid tracker web application helps us to track and trace corona cases and also to help spreading the awareness. In this we get number of infected people, recovered people and as well as number of deaths caused by covid-19.In this web application with help of chart.js we are creating charts to visualize number of infected people, deaths and recovered people which everyone can understands easily. We can also trace covid cases of specific country by selecting country.",
     tags: [
       "react",
       "material-ui",
@@ -290,6 +290,8 @@ export const projects = [
       "CoronaTracker public API",
       "axios",
       "chartjs",
+      "classnames",
+      "react-countup",
     ],
   },
   {

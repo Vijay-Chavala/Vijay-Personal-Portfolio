@@ -59,17 +59,19 @@ const About = () => {
             </p>
           </div>
           <div className={styles.btnGroup}>
-            <Link
-              to="/"
+            <a
+              href="https://drive.google.com/uc?id=1ZNHr5SCE4l3bSd-_qK9FrG4VEJ1kOJ-9"
+              target="_blank"
+              rel="noreferrer"
               className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
             >
-              Download CV
-            </Link>
+              Get CV
+            </a>
             <Link
               to="/contact"
               className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
             >
-              Hire Me
+              Contact Me
             </Link>
           </div>
         </Col>
@@ -307,15 +309,22 @@ const About = () => {
                     <div className="timeline-items">
                       <div className="timeline-item">
                         <div className="timeline-dot"></div>
-                        <div className="timeline-date">
-                          05-09-2018 to 20-01-2020
-                        </div>
-                        <div className="timeline-content">
-                          <h3>Front-end Developer</h3>
-                          <p>
-                            Working ore than a year as a freelance ui developer
+                        <div className="timeline-date">1 year 3 months</div>
+                        <div className="timeline-content ">
+                          <h3>Freelance UI Developer</h3>
+                          <li>
+                            Responsible for developing responsive page layouts
+                            using HTML5, CSS3, JavaScript along with bootstrap
+                            and jquery frameworks
+                          </li>
+                          <li>
+                            Used jQuery for basic animation and user screen
+                            customization purposes.
+                          </li>
+                          <li>
+                            Designed UI designs based on client requirements.
                             {/* together with a backend developer{" "} */}
-                          </p>
+                          </li>
                         </div>
                       </div>
                       {/* <div className="timeline-item">
@@ -328,6 +337,21 @@ const About = () => {
                       </div> */}
                     </div>
                   </section>
+                </div>
+
+                <div className={styles.expBtnGroup}>
+                  <Link
+                    to="/services"
+                    className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+                  >
+                    Services
+                  </Link>
+                  <Link
+                    to="/portfolio"
+                    className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+                  >
+                    See My Works
+                  </Link>
                 </div>
               </div>
             </div>
