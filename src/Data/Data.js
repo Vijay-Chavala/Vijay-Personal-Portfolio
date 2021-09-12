@@ -250,7 +250,7 @@ export const projects = [
     id: 0,
     category: "react",
     title: "Personal Portfolio",
-    link: "https://simple-react-restaurant.netlify.app/",
+    link: "https://vijay-personal-portfolio.netlify.app/",
     gitHubLink: "https://github.com/Vijay-Chavala/Vijay-Personal-Portfolio",
     image: `${personalPortfolio}`,
     desc: "This is a Personal Portfolio website created by using react-js in this we can see complete details of a developer.It's complete UI design is taken from most trending Ui design 'Neumorphism' in 2021.Created reuseable components.Created a data file as a api file which contains all the information needed to display the content on the website and also it contains day and night mode.Also implemented multicolor themes and multicolor backgrounds. ",
