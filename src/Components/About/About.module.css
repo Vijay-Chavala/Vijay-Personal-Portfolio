@@ -35,7 +35,7 @@
     inset -3px -3px 7px var(--shadow-in);
   padding: 30px;
   border-radius: 15px;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   color: var(--text-color-2);
 }

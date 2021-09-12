@@ -72,7 +72,7 @@ export const themeColors = [
     id: "5",
     category: "dark",
     colorClassName: "lightGreen",
-    colorCode: "#a6ff5e",
+    colorCode: "#abfc68",
   },
   {
     id: "6",
