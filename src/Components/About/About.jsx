@@ -50,8 +50,7 @@ const About = () => {
             <p>
               I am also experienced in building systems that implement business
               logic and interact with server-side technology via APIs and tools
-              such as React and Redux,Angular(Beginner) as well as testing code
-              using tools such as Jasmine.
+              such as React and Redux,Angular(Beginner).
             </p>
             <p>
               My main experience is in front-end development but I also have a
