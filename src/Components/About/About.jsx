@@ -59,7 +59,7 @@ const About = () => {
           </div>
           <div className={styles.btnGroup}>
             <a
-              href="https://drive.google.com/uc?id=1ZNHr5SCE4l3bSd-_qK9FrG4VEJ1kOJ-9"
+              href="https://drive.google.com/uc?id=1JgZSfvVlBDpLXgdf0jI-8HmN8PEJTU2P"
               target="_blank"
               rel="noreferrer"
               className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
