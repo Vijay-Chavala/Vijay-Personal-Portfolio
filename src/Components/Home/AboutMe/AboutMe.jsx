@@ -179,15 +179,15 @@ const AboutMe = () => {
         <Col sm="12" md="12" lg="6" className="mt-4">
           <div className={`${styles.aboutMeContent}`}>
             <p>
-              Im a UI Developer and Designer. I’ve worked together with a senior
-              backend freelance developer. I create professional websites and I
-              like to design best designs for websites. I work on developing and
-              designing websites.
+              Self-Motivated <b>Freelance Front End Developer</b> around 3 years
+              of working experience in developing maintaining websites and web
+              applications. Passionate and hardworking in delivering within
+              deadlines and providing the best quality product.
             </p>
             <p>
-              This gave some experience on using best practices and working in
-              sprints and within deadlines with providing the project with
-              quality.
+              I’ve worked together with a senior backend freelance developer.
+              Develop high performance websites and web applications using
+              HTML5, CSS3, Bootstrap,JavaScript,ReactJS etc.
             </p>
 
             <div className="btn-group">

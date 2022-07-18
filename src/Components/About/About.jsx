@@ -26,19 +26,19 @@ const About = () => {
             <h2>UI Developer</h2>
             <p>
               After graduating in 2018 with a Bachelor’s Degree in Computer
-              Science and Engineering, I spent more than one year working
-              together with senior backend developer as a freelance web
-              developer I acquired project and time management skills, as well
-              as the ability to work on new technologies.
+              Science and Engineering, I spent around 3 years working together
+              with senior backend developers as a freelance UI developer I
+              acquired project and time management skills, as well as the
+              ability to work on new technologies.
             </p>
 
             <p>
               As a freelance web developer I have worked on a multitude of web
               projects for a range of clients providing Web Design (Photoshop)
-              and Development I use HTML, CSS,Bootstrap and JavaScript to
-              produce responsive websites and web apps that provide users the
-              best and most appropriate experience suited to their device and
-              browser.
+              and Development I use HTML, CSS,Bootstrap and JavaScript along
+              with ReactJs to produce responsive websites and web apps that
+              provide users the best and most appropriate experience suited to
+              their device and browser.
             </p>
             <p>
               I also have interest in designing. Given that producing a modern
@@ -50,7 +50,7 @@ const About = () => {
             <p>
               I am also experienced in building systems that implement business
               logic and interact with server-side technology via APIs and tools
-              such as React and Redux,Angular(Beginner).
+              such as React,Redux.
             </p>
             <p>
               My main experience is in front-end development but I also have a
@@ -59,7 +59,7 @@ const About = () => {
           </div>
           <div className={styles.btnGroup}>
             <a
-              href="https://drive.google.com/uc?id=1JgZSfvVlBDpLXgdf0jI-8HmN8PEJTU2P"
+              href="https://drive.google.com/uc?id=1jfc3ldsNPgEbybIyWzbKl1c8BuO8qqhB"
               target="_blank"
               rel="noreferrer"
               className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
@@ -308,13 +308,36 @@ const About = () => {
                     <div className="timeline-items">
                       <div className="timeline-item">
                         <div className="timeline-dot"></div>
-                        <div className="timeline-date">1 year 3 months</div>
+                        <div className="timeline-date">2+ years</div>
                         <div className="timeline-content ">
-                          <h3>Freelance UI Developer</h3>
+                          <h3> UI Developer/React Developer</h3>
+                          <li>
+                            Developed high performance applications using React
+                            JS, HTML, CSS, JavaScript, Boostrap5 and Redux.
+                          </li>
+                          <li>
+                            Design reusable UI components using React with
+                            JavaScript.
+                          </li>
+                          <li>
+                            Building stable and maintainable codebases using
+                            React.
+                          </li>
+                          <li>
+                            Developed fully responsive user interfaces using
+                            boostrap and custom media queries.
+                          </li>
+                        </div>
+                      </div>
+                      <div className="timeline-item">
+                        <div className="timeline-dot"></div>
+                        <div className="timeline-date">1+ years</div>
+                        <div className="timeline-content ">
+                          <h3> UI Developer</h3>
                           <li>
                             Responsible for developing responsive page layouts
                             using HTML5, CSS3, JavaScript along with bootstrap
-                            and jquery frameworks
+                            and ReactJs library,
                           </li>
                           <li>
                             Used jQuery for basic animation and user screen

@@ -22,11 +22,11 @@ const Home = () => {
         >
           <div className={` ${styles.homeContent}`}>
             <h5 className="text-left">Hello</h5>
-            <h1 className="my-3">I'm Vijay Kumar</h1>
+            <h1 className="my-3">I'm Vijay Chavala</h1>
             <h5 className="mb-3">UI Developer</h5>
             <div className={` ${styles.homeButtonContainer}`}>
               <a
-                href="https://drive.google.com/uc?id=1JgZSfvVlBDpLXgdf0jI-8HmN8PEJTU2P"
+                href="https://drive.google.com/uc?id=1jfc3ldsNPgEbybIyWzbKl1c8BuO8qqhB"
                 target="_blank"
                 rel="noreferrer"
                 className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}

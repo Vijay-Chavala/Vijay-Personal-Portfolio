@@ -25,7 +25,7 @@ const Projects = () => {
       <div className={`mt-5 ${styles.projectInfoSection}`}>
         {projectData.map((project) => {
           return (
-            <div key={project.id}>
+            <div key={project.id} className="">
               <Row>
                 <div className={` mt-3 mb-5 ${styles.projectImageContainer}`}>
                   <a
@@ -60,16 +60,18 @@ const Projects = () => {
                     </div>
                   </div>
                   <div className={`mt-4  ${styles.buttons}`}>
-                    <a
-                      href={project.link}
-                      className="soft-light-shadow btn soft-btn me-3"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {project.category === "design"
-                        ? "View Design"
-                        : "Live Website"}
-                    </a>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        className="soft-light-shadow btn soft-btn me-3"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {project.category === "design"
+                          ? "View Design"
+                          : "Live Website"}
+                      </a>
+                    )}
 
                     {project.gitHubLink && (
                       <a

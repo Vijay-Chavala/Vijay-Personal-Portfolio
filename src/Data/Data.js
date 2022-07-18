@@ -6,6 +6,8 @@ import imageSearch from "../assets/images/imageSearch.png";
 import weatherApp from "../assets/images/weatherApp.png";
 import personalPortfolio from "../assets/images/personalPortfolio.png";
 import onlineShopping from "../assets/images/onlineShopping.png";
+import groceBuy from "../assets/images/groceBuy.png";
+import eMart from "../assets/images/e-mart.png";
 
 //colors
 
@@ -126,7 +128,7 @@ export const skillSet = [
   {
     id: 2,
     language: "CSS",
-    percentage: 70,
+    percentage: 75,
   },
   {
     id: 3,
@@ -141,17 +143,17 @@ export const skillSet = [
   {
     id: 5,
     language: "Material UI",
-    percentage: 30,
+    percentage: 20,
   },
   {
     id: 6,
     language: "ReactJs",
-    percentage: 70,
+    percentage: 75,
   },
   {
     id: 7,
     language: "Angular",
-    percentage: 20,
+    percentage: 40,
   },
 ];
 
@@ -159,7 +161,7 @@ export const otherSkills = [
   {
     id: 1,
     tool: "Photoshop",
-    percentage: 90,
+    percentage: 80,
   },
   {
     id: 2,
@@ -247,11 +249,21 @@ export const services = [
 ];
 export const projects = [
   {
+    id: 17,
+    category: "HTML CSS JS",
+    title: "GroceBuy",
+    link: "http://grocebuy.com/",
+    // gitHubLink: "https://github.com/Vijay-Chavala/ServicesHub",
+    image: `${groceBuy}`,
+    desc: "GroceBuy offers online Groceries, Vegetables, Meat and Food order delivery service from your favorite local stores or Restaurants We deliver all of your daily needs right to your door - or wherever you are! We manage about 1000+ products in each grocebuy location, so when you order, your stuff comes directly from your favorite store.",
+    tags: ["html", "css", "jQuery", "Boostrap5", "Slick Slider", "JavaScript"],
+  },
+  {
     id: 0,
     category: "react",
     title: "Personal Portfolio",
     link: "https://vijay-personal-portfolio.netlify.app/",
-    gitHubLink: "https://github.com/Vijay-Chavala/Vijay-Personal-Portfolio",
+    // gitHubLink: "https://github.com/Vijay-Chavala/Vijay-Personal-Portfolio",
     image: `${personalPortfolio}`,
     desc: "This is a Personal Portfolio website created by using react-js in this we can see complete details of a developer.It's complete UI design is taken from most trending Ui design 'Neumorphism' in 2021.Created reuseable components.Created a data file as a api file which contains all the information needed to display the content on the website and also it contains day and night mode.Also implemented multicolor themes and multicolor backgrounds. ",
     tags: [
@@ -269,7 +281,7 @@ export const projects = [
     category: "react",
     title: "Royal Restaurant",
     link: "https://simple-react-restaurant.netlify.app/",
-    gitHubLink: "https://github.com/Vijay-Chavala/simple-react-restaurant-app",
+    // gitHubLink: "https://github.com/Vijay-Chavala/simple-react-restaurant-app",
     image: `${restaurentPage}`,
     desc: "This is a simple restaurant website,with having beautiful landing page and also having menu section which you can filter menu items. This is built using React on the Frontend and deployed on Netlify.",
     tags: ["react", "html", "css", "react-router-dom", "useState"],
@@ -321,11 +333,12 @@ export const projects = [
     category: "HTML CSS JS",
     title: "Services Hub",
     link: "https://services-hub.netlify.app/",
-    gitHubLink: "https://github.com/Vijay-Chavala/ServicesHub",
+    // gitHubLink: "https://github.com/Vijay-Chavala/ServicesHub",
     image: `${servicesHub}`,
     desc: "Services Hub is a website where we can find all the technicians and professionals.Here we can find all the services.",
     tags: ["html", "css", "Jquery", "Boostrap-4", "JS"],
   },
+
   {
     id: 7,
     category: "react",
@@ -337,11 +350,21 @@ export const projects = [
     tags: ["react", "useState", "useEffect", "css", "html"],
   },
   {
+    id: 16,
+    category: "angular",
+    title: "E-Mart App(Angular Demo Project)",
+    link: "https://e-mart-angular.netlify.app",
+    gitHubLink: "https://github.com/Vijay-Chavala/Angular-E-cart",
+    image: `${eMart}`,
+    desc: "The add-to-cart button is a feature of e-commerce stores that allows customers to choose items to purchase without actually completing the payment.",
+    tags: ["angular", "RxJs", "services", "boostrap", "html", "css"],
+  },
+  {
     id: 8,
     category: "HTML CSS JS",
     title: "Online Shopping",
     link: "https://my-online-shopping.netlify.app/",
-    gitHubLink: "https://github.com/Vijay-Chavala/online-shopping",
+    // gitHubLink: "https://github.com/Vijay-Chavala/online-shopping",
     image: `${onlineShopping}`,
     desc: "This is one of the e-commerce website designed(photoshop) and developed using html,css,js,boostrap.completed developing front end part",
     tags: ["bootstrap", "html", "css", "js"],
