@@ -1,9 +1,13 @@
 import restaurentPage from "../assets/images/restaurentPage.png";
+import covidTracker from "../assets/images/covidTracker.png";
 import servicesHub from "../assets/images/servicesHub.png";
 import todoApp from "../assets/images/todoApp.png";
+import imageSearch from "../assets/images/imageSearch.png";
+import weatherApp from "../assets/images/weatherApp.png";
 import personalPortfolio from "../assets/images/personalPortfolio.png";
 import onlineShopping from "../assets/images/onlineShopping.png";
 import groceBuy from "../assets/images/groceBuy.png";
+import eMart from "../assets/images/e-mart.png";
 
 //colors
 
@@ -129,32 +133,26 @@ export const skillSet = [
   {
     id: 3,
     language: "Javascript",
-    percentage: 80,
+    percentage: 65,
   },
   {
     id: 4,
-    language: "Styled Components",
-    percentage: 70,
-  },
-  {
-    id: 5,
     language: "Bootstrap",
     percentage: 60,
   },
-
+  {
+    id: 5,
+    language: "Material UI",
+    percentage: 20,
+  },
   {
     id: 6,
     language: "ReactJs",
-    percentage: 80,
+    percentage: 75,
   },
   {
     id: 7,
-    language: "Redux",
-    percentage: 70,
-  },
-  {
-    id: 8,
-    language: "NextJs",
+    language: "Angular",
     percentage: 40,
   },
 ];
@@ -164,6 +162,21 @@ export const otherSkills = [
     id: 1,
     tool: "Photoshop",
     percentage: 80,
+  },
+  {
+    id: 2,
+    tool: "Premier Pro",
+    percentage: 50,
+  },
+  {
+    id: 3,
+    tool: "Blender",
+    percentage: 30,
+  },
+  {
+    id: 4,
+    tool: "After Effects",
+    percentage: 30,
   },
 ];
 export const academicDetails = [
@@ -273,6 +286,47 @@ export const projects = [
     desc: "This is a simple restaurant website,with having beautiful landing page and also having menu section which you can filter menu items. This is built using React on the Frontend and deployed on Netlify.",
     tags: ["react", "html", "css", "react-router-dom", "useState"],
   },
+  {
+    id: 2,
+    category: "react",
+    title: "Corona Tracker",
+    link: "https://vj-react-js-covid19-tracker.netlify.app/",
+    gitHubLink: "https://github.com/Vijay-Chavala/covid-tracker",
+    image: `${covidTracker}`,
+    desc: "This is Covid tracker web application helps us to track and trace corona cases and also to help spreading the awareness. In this we get number of infected people, recovered people and as well as number of deaths caused by covid-19.In this web application with help of chart.js we are creating charts to visualize number of infected people, deaths and recovered people which everyone can understands easily. We can also trace covid cases of specific country by selecting country.",
+    tags: [
+      "react",
+      "material-ui",
+      "html",
+      "css",
+      "CoronaTracker public API",
+      "axios",
+      "chartjs",
+      "classnames",
+      "react-countup",
+    ],
+  },
+  {
+    id: 3,
+    category: "react",
+    title: "Weather App",
+    link: "https://react-js-weather-application.netlify.app/",
+    gitHubLink: "https://github.com/Vijay-Chavala/React-Weather-App",
+    image: `${weatherApp}`,
+    desc: "This Weather Application provides accurate weather information based on location. This web app will also provide rain forecast, humidity information, temperatures , wind, pressure ,Humidity of the day for a location. The forecasts are accentuated by icons for clear comprehension.  Users will be able to find the sunrise and sunset time with a simple and brief text on today’s weather.",
+    tags: ["open-weather API", "axios", "react", "useState", "useEffect"],
+  },
+
+  {
+    id: 5,
+    category: "react",
+    title: "Image Search",
+    link: "https://react-images-search-app.netlify.app/",
+    gitHubLink: "https://github.com/Vijay-Chavala/react-image-search",
+    image: `${imageSearch}`,
+    desc: "This is a image search app created using React and open API and deployed on Netlify.In this app we can search any kind of images. ",
+    tags: ["react", "html", "css", "axios"],
+  },
 
   {
     id: 6,
@@ -295,7 +349,16 @@ export const projects = [
     desc: "This is a project To-Do App, that helps to manage tasks and change tasks, write notes and delete tasks. This is built using React on the Frontend deployed on Netlify.",
     tags: ["react", "useState", "useEffect", "css", "html"],
   },
-
+  {
+    id: 16,
+    category: "angular",
+    title: "E-Mart App(Angular Demo Project)",
+    link: "https://e-mart-angular.netlify.app",
+    gitHubLink: "https://github.com/Vijay-Chavala/Angular-E-cart",
+    image: `${eMart}`,
+    desc: "The add-to-cart button is a feature of e-commerce stores that allows customers to choose items to purchase without actually completing the payment.",
+    tags: ["angular", "RxJs", "services", "boostrap", "html", "css"],
+  },
   {
     id: 8,
     category: "HTML CSS JS",

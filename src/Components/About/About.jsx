@@ -31,30 +31,42 @@ const About = () => {
               acquired project and time management skills, as well as the
               ability to work on new technologies.
             </p>
+            <p>
+              For the past 2.5 years, I’ve been working as a React.js Developer
+              at Applaunch, a fast-paced startup. I’ve contributed to building
+              and maintaining scalable web applications using technologies like
+              React, Redux, Redux-Saga, Axios, and Styled Components. My role
+              focuses on developing component-driven UIs, handling complex state
+              management, integrating APIs, and delivering smooth, user-centric
+              experiences.
+            </p>
 
             <p>
-              As a freelance web developer I have worked on a multitude of web
-              projects for a range of clients providing Web Design (Photoshop)
-              and Development I use HTML, CSS,Bootstrap and JavaScript along
-              with ReactJs to produce responsive websites and web apps that
-              provide users the best and most appropriate experience suited to
-              their device and browser.
+              Prior to joining Applaunch, I spent over 3 years as a freelance UI
+              developer, working closely with senior backend developers on
+              various web projects. During this time, I gained strong skills in
+              project ownership, time management, and adapting quickly to new
+              tools and client needs.
             </p>
+
             <p>
-              I also have interest in designing. Given that producing a modern
-              website requires the combination of design, server technology, and
-              the layer that users interacts with, I believe having experience
-              in both design and development allows for making the most optimal
-              user experiences.
+              As a freelancer, I provided end-to-end web design and development
+              services. I used Photoshop for design mockups and technologies
+              such as HTML5, CSS3, Bootstrap, JavaScript, and React.js to create
+              responsive websites and web applications optimized for all screen
+              sizes and browsers.
             </p>
+
             <p>
-              I am also experienced in building systems that implement business
-              logic and interact with server-side technology via APIs and tools
-              such as React,Redux.
+              I’ve always had a keen interest in UI/UX design. My combined
+              knowledge of visual design and front-end development allows me to
+              craft intuitive, modern, and user-focused interfaces.
             </p>
+
             <p>
-              My main experience is in front-end development but I also have a
-              passion for full stack development.
+              While my main expertise lies in frontend development, I’m also
+              passionate about full-stack development and constantly learning
+              new tools to improve the user experience and development workflow.
             </p>
           </div>
           <div className={styles.btnGroup}>
@@ -64,7 +76,7 @@ const About = () => {
               rel="noreferrer"
               className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
             >
-              Get CV
+              Download CV
             </a>
             <Link
               to="/contact"

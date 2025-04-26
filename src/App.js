@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect } from "react";
 import "./App.css";
 import { colors, themeColors } from "./Data/Data.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 // import { Container } from "react-bootstrap";
 import Home from "./Components/Home/Home";
@@ -136,15 +136,15 @@ function App() {
           </div>
 
           <NavBar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/services" component={Services} />
-            <Route path="/portfolio" component={Portfolio} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/projects/:id" component={Projects} />
-            <Route path="*" component={PageNotFound} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects/:id" element={<Projects />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
         </div>
       </colorsStore.Provider>
     </Router>
