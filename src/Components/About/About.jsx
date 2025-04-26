@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import styles from "../About/About.module.css";
 import "./Education/Education.css";
+import Resume from "../../assets/Resume_Vijay_Chavala_ReactJs_2025.pdf";
 
 import Skills from "./Skills/Skills";
 import Education from "./Education/Education";
@@ -71,7 +72,7 @@ const About = () => {
           </div>
           <div className={styles.btnGroup}>
             <a
-              href="https://drive.google.com/uc?id=1jfc3ldsNPgEbybIyWzbKl1c8BuO8qqhB"
+              href={Resume}
               target="_blank"
               rel="noreferrer"
               className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}

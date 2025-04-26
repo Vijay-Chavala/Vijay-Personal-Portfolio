@@ -16,12 +16,36 @@ import PageNotFound from "./Components/PageNotFound";
 export const colorsStore = createContext();
 
 function App() {
-  const [selectedColor, setSelectedColor] = useState("mainBody");
-  const [themeClass, setThemeClass] = useState("");
-  const [darkMode, setDarkMode] = useState(true);
+  // Initialize state from localStorage or default values
+  const [selectedColor, setSelectedColor] = useState(() => {
+    const savedColor = localStorage.getItem("selectedColor");
+    return savedColor || "mainBody";
+  });
+
+  const [themeClass, setThemeClass] = useState(() => {
+    const savedThemeClass = localStorage.getItem("themeClass");
+    return savedThemeClass || "";
+  });
+
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    return savedDarkMode ? JSON.parse(savedDarkMode) : true;
+  });
+
   const [settings, setSettings] = useState(false);
   const [myThemeColors, setMyThemeColors] = useState([]);
-  const [globalColor, setGlobalColor] = useState("#222222");
+  const [globalColor, setGlobalColor] = useState(() => {
+    const savedGlobalColor = localStorage.getItem("globalColor");
+    return savedGlobalColor || "#222222";
+  });
+
+  // Save state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("selectedColor", selectedColor);
+    localStorage.setItem("themeClass", themeClass);
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    localStorage.setItem("globalColor", globalColor);
+  }, [selectedColor, themeClass, darkMode, globalColor]);
 
   // console.log(globalColor);
   // default day mode colors
@@ -89,7 +113,7 @@ function App() {
             >
               <i className="fa fa-gear "></i>
             </div>
-            <div className="dayNightIcon" onClick={() => toggleDayNight()}>
+            <div className="dayNightIcon" onClick={toggleDayNight}>
               <i
                 className={
                   selectedColor === "dark"

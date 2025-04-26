@@ -6,6 +6,7 @@ import AboutMe from "./AboutMe/AboutMe";
 import PortfolioIntro from "./PortfolioIntro/PortfolioIntro";
 import GetInTouch from "./GetInTouch/GetInTouch";
 import { colorsStore } from "../../App";
+import Resume from "../../assets/Resume_Vijay_Chavala_ReactJs_2025.pdf";
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars
@@ -26,7 +27,7 @@ const Home = () => {
             <h5 className="mb-3">UI Developer</h5>
             <div className={` ${styles.homeButtonContainer}`}>
               <a
-                href="https://drive.google.com/uc?id=1jfc3ldsNPgEbybIyWzbKl1c8BuO8qqhB"
+                href={Resume}
                 target="_blank"
                 rel="noreferrer"
                 className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
