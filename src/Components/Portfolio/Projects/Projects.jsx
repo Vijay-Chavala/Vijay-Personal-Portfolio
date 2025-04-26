@@ -8,6 +8,8 @@ const Projects = () => {
   const [projectData, setProjectData] = useState(projects);
   const { id } = useParams();
 
+  console.log(projectData, "ProjectsprojectData");
+
   useEffect(() => {
     const newData = projectData.filter((data) => data.id === parseInt(id));
     setProjectData(newData);
@@ -36,7 +38,7 @@ const Projects = () => {
                   >
                     <img
                       src={project.image}
-                      alt="project_image "
+                      alt={project.title}
                       className={styles.projectImage}
                     />
                   </a>
@@ -47,17 +49,45 @@ const Projects = () => {
                   <div className={`p-3  ${styles.projectDetailsDescription}`}>
                     <h4 className="text-center">Project Details</h4>
                     <h5>{project.title}</h5>
-                    <p>Category : {project.category}</p>
+                    <h6>{project.subTitle}</h6>
+                    <p>Category: {project.category}</p>
                     <p>{project.desc}</p>
-                    <div className={` ${styles.projectDetailsTools}`}>
-                      {project.tags.map((tag, index) => {
-                        return (
+
+                    {/* Technologies Used */}
+                    <div className="mt-4">
+                      <h5>Technologies Used</h5>
+                      <div className={styles.projectDetailsTools}>
+                        {project.tags.map((tag, index) => (
                           <div key={index}>
                             <p>{tag}</p>
                           </div>
-                        );
-                      })}
+                        ))}
+                      </div>
                     </div>
+
+                    {/* Key Features Section */}
+                    {project.features && (
+                      <div className="mt-4">
+                        <h5>Key Features</h5>
+                        <ul className={styles.featuresList}>
+                          {project.features.map((feature, index) => (
+                            <li key={index}>{feature}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Contributions Section */}
+                    {project.contributions && (
+                      <div className="mt-4">
+                        <h5>My Contributions</h5>
+                        <ul className={styles.contributionsList}>
+                          {project.contributions.map((contribution, index) => (
+                            <li key={index}>{contribution}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                   <div className={`mt-4  ${styles.buttons}`}>
                     {project.link && (

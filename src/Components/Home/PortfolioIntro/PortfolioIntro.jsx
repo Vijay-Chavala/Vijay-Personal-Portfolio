@@ -21,7 +21,8 @@ const PortfolioIntro = () => {
                   <img src={project.image} alt="projectImg" />
                 </div>
                 <div className={`pt-4 py-2 ${styles.cardBody}`}>
-                  <h5>{project.title}</h5>
+                  <h5 className="text-bold">{project.title}</h5>
+                  <h6>{project.subTitle}</h6>
                   <div className={styles.underline}></div>
                   <p>{project.desc}</p>
                 </div>

@@ -15,7 +15,8 @@
 }
 .projectImageContainer .projectImageLink {
   width: 100%;
-  height: 400px;
+  max-height: 400px;
+  height: 100%;
   margin: 30px auto !important;
   overflow-y: scroll;
 }
@@ -95,4 +96,68 @@
     width: 100%;
     margin-top: 10px;
   }
+}
+
+/* Add these new styles to your existing CSS */
+
+.featuresList,
+.contributionsList {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.featuresList li,
+.contributionsList li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.featuresList li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+.contributionsList li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.projectDetailsDescription h5 {
+  color: var(--text-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.projectDetailsDescription h5:first-child {
+  margin-top: 0;
+}
+
+.projectDetailsTools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.projectDetailsTools div {
+  background: var(--background-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+}
+
+.projectDetailsTools p {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 0.9rem;
 }
