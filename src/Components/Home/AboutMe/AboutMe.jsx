@@ -179,15 +179,25 @@ const AboutMe = () => {
         <Col sm="12" md="12" lg="6" className="mt-4">
           <div className={`${styles.aboutMeContent}`}>
             <p>
-              Self-Motivated <b>Freelance Front End Developer</b> around 3 years
-              of working experience in developing maintaining websites and web
-              applications. Passionate and hardworking in delivering within
-              deadlines and providing the best quality product.
+              Self-motivated and detail-oriented React.js Developer with over
+              5.5 years of experience, including 2.5+ years in a fast-paced
+              startup environment and 3 years as a freelance developer. Proven
+              ability to build dynamic, scalable web applications with clean and
+              efficient UI. Passionate about delivering responsive,
+              pixel-perfect interfaces and proficient in advanced state
+              management, performance optimization, and cross-browser
+              compatibility.
             </p>
             <p>
-              I’ve worked together with a senior backend freelance developer.
-              Develop high performance websites and web applications using
-              HTML5, CSS3, Bootstrap,JavaScript,ReactJS etc.
+              Over the past 2.5 years at Applaunch, a dynamic startup, I’ve been
+              working as a React.js developer building scalable web applications
+              using React, Redux, Redux-Saga, Axios, and Styled Components. I
+              played a key role in developing user-centric features with clean
+              architecture and state management. Prior to that, I spent over 3
+              years as a freelance developer, collaborating with collaborating
+              with senior backend developers to deliver complete full-stack
+              solutions. I focused on building responsive, high-performance
+              frontends using HTML5, CSS3, JavaScript, Bootstrap, and React.js.
             </p>
 
             <div className="btn-group">

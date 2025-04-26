@@ -58,16 +58,22 @@ const Portfolio = () => {
           return (
             <Col
               as={Link}
-              to={`projects/${project.id}`}
+              to={`/projects/${project.id}`}
               key={project.id}
               className={` mx-auto ${styles.Link}`}
             >
               <div className={styles.Card}>
-                <div className={styles.cardImage}>
+                <div
+                  className={styles.cardImage}
+                  style={{
+                    height: project.category === "design" ? "255px" : "200px",
+                  }}
+                >
                   <img src={project.image} alt="projectImg" />
                 </div>
                 <div className={styles.cardBody}>
                   <h4>{project.title}</h4>
+                  <h6>{project.subTitle}</h6>
                 </div>
               </div>
             </Col>

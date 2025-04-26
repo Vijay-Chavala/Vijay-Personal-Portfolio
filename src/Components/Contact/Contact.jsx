@@ -64,7 +64,7 @@ const Contact = () => {
               <Form.Label className={styles.label}>Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Name"
+                placeholder="Enter your name"
                 name="name"
                 required
               />
@@ -73,7 +73,7 @@ const Contact = () => {
               <Form.Label className={styles.label}>Email address</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="please enter email"
+                placeholder="Enter your email"
                 name="email"
                 required
                 className={styles.input}

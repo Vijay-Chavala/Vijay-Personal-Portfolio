@@ -11,7 +11,8 @@
 .cardImage {
   padding: 10px;
   overflow-y: hidden;
-  height: 200px;
+  max-height: 200px;
+  height: 100%;
 }
 .cardImage img {
   width: 100%;
@@ -19,6 +20,12 @@
 }
 .cardBody {
   color: var(--text-color);
+}
+.cardBody h6 {
+  color: var(--text-color-2);
+}
+.cardBody h5 {
+  font-weight: 600;
 }
 .cardBody p {
   padding: 0 20px;

@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect } from "react";
 import "./App.css";
 import { colors, themeColors } from "./Data/Data.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 // import { Container } from "react-bootstrap";
 import Home from "./Components/Home/Home";
@@ -16,12 +16,36 @@ import PageNotFound from "./Components/PageNotFound";
 export const colorsStore = createContext();
 
 function App() {
-  const [selectedColor, setSelectedColor] = useState("mainBody");
-  const [themeClass, setThemeClass] = useState("");
-  const [darkMode, setDarkMode] = useState(true);
+  // Initialize state from localStorage or default values
+  const [selectedColor, setSelectedColor] = useState(() => {
+    const savedColor = localStorage.getItem("selectedColor");
+    return savedColor || "mainBody";
+  });
+
+  const [themeClass, setThemeClass] = useState(() => {
+    const savedThemeClass = localStorage.getItem("themeClass");
+    return savedThemeClass || "";
+  });
+
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    return savedDarkMode ? JSON.parse(savedDarkMode) : true;
+  });
+
   const [settings, setSettings] = useState(false);
   const [myThemeColors, setMyThemeColors] = useState([]);
-  const [globalColor, setGlobalColor] = useState("#222222");
+  const [globalColor, setGlobalColor] = useState(() => {
+    const savedGlobalColor = localStorage.getItem("globalColor");
+    return savedGlobalColor || "#222222";
+  });
+
+  // Save state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("selectedColor", selectedColor);
+    localStorage.setItem("themeClass", themeClass);
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    localStorage.setItem("globalColor", globalColor);
+  }, [selectedColor, themeClass, darkMode, globalColor]);
 
   // console.log(globalColor);
   // default day mode colors
@@ -89,7 +113,7 @@ function App() {
             >
               <i className="fa fa-gear "></i>
             </div>
-            <div className="dayNightIcon" onClick={() => toggleDayNight()}>
+            <div className="dayNightIcon" onClick={toggleDayNight}>
               <i
                 className={
                   selectedColor === "dark"
@@ -136,15 +160,15 @@ function App() {
           </div>
 
           <NavBar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/services" component={Services} />
-            <Route path="/portfolio" component={Portfolio} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/projects/:id" component={Projects} />
-            <Route path="*" component={PageNotFound} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects/:id" element={<Projects />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
         </div>
       </colorsStore.Provider>
     </Router>
