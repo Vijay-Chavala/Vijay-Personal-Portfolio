@@ -6,7 +6,7 @@ import AboutMe from "./AboutMe/AboutMe";
 import PortfolioIntro from "./PortfolioIntro/PortfolioIntro";
 import GetInTouch from "./GetInTouch/GetInTouch";
 import { colorsStore } from "../../App";
-import Resume from "../../assets/Resume_Vijay_Chavala_ReactJs_2025.pdf";
+import Resume from "../../assets/Vijay_Chavala_React_Resume.pdf";
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars
@@ -24,7 +24,7 @@ const Home = () => {
           <div className={` ${styles.homeContent}`}>
             <h5 className="text-left">Hello</h5>
             <h1 className="my-3">I'm Vijay Chavala</h1>
-            <h5 className="mb-3">UI Developer</h5>
+            <h5 className="mb-3">React.js / Next.js Developer</h5>
             <div className={` ${styles.homeButtonContainer}`}>
               <a
                 href={Resume}
