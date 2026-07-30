@@ -5,7 +5,8 @@
   background-color: var(--main-color);
   color: var(--text-color);
   text-transform: capitalize !important;
-  transition: 0.5s !important;
+  transition: box-shadow var(--dur) var(--ease), color var(--dur) var(--ease),
+    transform var(--dur) var(--ease) !important;
   margin-top: 10px;
 }
 .categoryButtons:hover,
@@ -17,7 +18,12 @@
   white-space: nowrap;
   font-size: 1rem;
   background-color: var(--main-color);
-  transition: 0.5s !important;
+}
+.categoryButtons:hover {
+  transform: translateY(-2px);
+}
+.btnActive {
+  transform: translateY(-2px);
 }
 .Card {
   background-color: var(--main-color);
@@ -31,13 +37,15 @@
   text-align: center;
   position: relative;
   margin-top: 60px;
-  transition: 0.6s ease-in-out;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
   overflow: hidden;
   height: 350px;
 }
 
 .Card:hover {
-  transform: translateY(-3%);
+  transform: translateY(-8px);
+  box-shadow: 12px 16px 28px var(--shadow-out),
+    -8px -8px 20px var(--shadow-in) !important;
   cursor: pointer;
 }
 .cardImage {
@@ -54,10 +62,12 @@
 
 .cardImage img {
   width: 100%;
-  transition: 2s ease-in-out;
+  /* Was 2s, which meant the zoom was still creeping long after the cursor
+     had moved on. Drive it from the card so image and lift move together. */
+  transition: transform var(--dur-slow) var(--ease);
 }
-.cardImage img:hover {
-  transform: scale(1.02);
+.Card:hover .cardImage img {
+  transform: scale(1.06);
 }
 
 .cardBody {

@@ -11,7 +11,7 @@ body {
   background: var(--main-color) !important;
   background-size: contain;
   position: relative;
-  transition: 0.5s;
+  transition: background-color var(--dur) var(--ease);
   width: 100%;
   min-width: 100%;
   overflow-x: hidden;
@@ -47,7 +47,8 @@ body {
   height: 50px;
   display: grid;
   place-items: center;
-  transition: 0.5s ease;
+  transition: box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease-back);
   cursor: pointer;
 }
 .settingIcon:focus-visible,
@@ -55,6 +56,22 @@ body {
 .colors:focus-visible {
   outline: 2px solid var(--theme-color);
   outline-offset: 3px;
+}
+.settingIcon:hover,
+.dayNightIcon:hover {
+  transform: scale(1.08);
+}
+.settingIcon:active,
+.dayNightIcon:active {
+  transform: scale(0.94);
+  transition-duration: 60ms;
+}
+/* The moon/sun swaps with a quick spin rather than popping in place. */
+.dayNightIcon i {
+  transition: transform var(--dur-slow) var(--ease-back);
+}
+.dayNightIcon:hover i {
+  transform: rotate(-25deg);
 }
 .settingIcon i {
   font-size: 30px;
@@ -91,7 +108,8 @@ body {
   height: 50px;
   display: grid;
   place-items: center;
-  transition: 0.5s ease;
+  transition: box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease-back);
   cursor: pointer;
 }
 
@@ -122,9 +140,17 @@ body {
   height: 30px;
   display: grid;
   place-items: center;
-  transition: 0.5s ease;
+  transition: box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease-back);
   cursor: pointer;
   margin-left: 15px;
+}
+.colors:hover {
+  transform: scale(1.18);
+}
+.colors[aria-pressed="true"] {
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.35),
+    0 0 0 2px var(--theme-color) !important;
 }
 .selectedColors {
   padding-top: 20px;
@@ -185,7 +211,8 @@ body {
 .nav-tabs .nav-link {
   background-color: var(--main-color);
   color: var(--text-color) !important;
-  transition: 0.5s ease;
+  transition: box-shadow var(--dur) var(--ease), color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
   /*
    box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
   border-radius: 5px;
@@ -224,7 +251,9 @@ body {
   margin-top: 2.5px !important;
   margin-left: 5px;
   width: 0;
-  transition: 0.5s;
+  /* Fills from 0 when the skills panel scrolls into view — see Skills.jsx.
+     Slightly longer than --dur-slow so the sweep reads as deliberate. */
+  transition: width 900ms var(--ease);
 }
 .progressBarPercent {
   position: absolute;
@@ -237,6 +266,8 @@ body {
   font-size: 0.9rem;
   font-weight: bolder;
   color: var(--text-color);
+  /* Fades in alongside the bar it labels. */
+  transition: opacity var(--dur-slow) var(--ease) 220ms;
 }
 
 /* Contact Component Styles */
@@ -250,7 +281,7 @@ body {
   font-size: 1rem;
   box-shadow: inset 2px 2px 3px var(--shadow-out),
     inset -3px -3px 7px var(--shadow-in) !important;
-  transition: 0.5s ease;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
   padding: 8px 15px;
 }
 .form-control:focus {
@@ -261,7 +292,7 @@ body {
     inset -5px -5px 30px var(--shadow-in) !important;
 }
 .form-control::placeholder {
-  transition: 1s ease-in-out;
+  transition: opacity var(--dur) var(--ease);
   color: var(--theme-color);
 }
 .form-control:focus::placeholder {

@@ -6,6 +6,7 @@ import AboutMe from "./AboutMe/AboutMe";
 import PortfolioIntro from "./PortfolioIntro/PortfolioIntro";
 import GetInTouch from "./GetInTouch/GetInTouch";
 import { colorsStore } from "../../App";
+import Reveal from "../common/Reveal";
 import Resume from "../../assets/Vijay_Chavala_React_Resume.pdf";
 
 const Home = () => {
@@ -21,10 +22,18 @@ const Home = () => {
           className="order-lg-1 order-md-2 order-sm-2 order-2 sm-text-center"
         >
           <div className={` ${styles.homeContent}`}>
-            <h5 className="text-left">Hello</h5>
-            <h1 className="my-3">I'm Vijay Chavala</h1>
-            <h5 className="mb-3">React.js / Next.js Developer</h5>
-            <div className={` ${styles.homeButtonContainer}`}>
+            {/* Staggered so the greeting, name, role and buttons arrive in
+                reading order rather than all at once. */}
+            <Reveal as="h5" className="text-left">
+              Hello
+            </Reveal>
+            <Reveal as="h1" className="my-3" delay={90}>
+              I'm <span className={styles.nameHighlight}>Vijay Chavala</span>
+            </Reveal>
+            <Reveal as="h5" className="mb-3" delay={180}>
+              React.js / Next.js Developer
+            </Reveal>
+            <Reveal className={` ${styles.homeButtonContainer}`} delay={270}>
               <a
                 href={Resume}
                 target="_blank"
@@ -39,7 +48,7 @@ const Home = () => {
               >
                 See my works
               </Link>
-            </div>
+            </Reveal>
           </div>
         </Col>
         <Col
@@ -48,7 +57,11 @@ const Home = () => {
           lg="7"
           className="order-lg-2 order-md-1 order-sm-1 order-1 mx-sm-auto"
         >
-          <div className={styles.imgContainer}>
+          <Reveal
+            variant="right"
+            delay={160}
+            className={styles.imgContainer}
+          >
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -539,7 +552,7 @@ const Home = () => {
                 ></path>
               </svg>
             </div>
-          </div>
+          </Reveal>
         </Col>
       </Row>
       <AboutMe />

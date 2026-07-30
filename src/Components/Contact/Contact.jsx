@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import styles from "../Contact/Contact.module.css";
 import emailjs from "emailjs-com";
+import Reveal from "../common/Reveal";
 
 const CHANNEL_MESSAGES = {
   phone: "Connecting to the Phone...",
@@ -54,11 +55,11 @@ const Contact = () => {
 
   return (
     <Container className={` ${styles.contactSection}`}>
-      <div className="text-center mt-5 headingContent">
+      <Reveal className="text-center mt-5 headingContent">
         <h6>Contact Me</h6>
         <h2>Ways to contact</h2>
         <div className="underline"></div>
-      </div>
+      </Reveal>
       <Row>
         <Col sm="12" md="12" lg="6" className={`mx-auto ${styles.col1}`}>
           <Form autoComplete="off" onSubmit={sendEmail}>

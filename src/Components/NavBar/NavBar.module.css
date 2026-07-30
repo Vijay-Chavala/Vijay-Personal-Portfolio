@@ -10,7 +10,8 @@
   padding: 5px 25px;
   border-radius: 5px;
   color: var(--theme-color) !important;
-  transition: 0.5s ease-in-out !important;
+  transition: box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease) !important;
   font-size: 1.5rem;
 }
 .navBarLogo:hover {
@@ -24,8 +25,12 @@
   font-size: 0.9rem;
   box-shadow: 5px 5px 15px var(--shadow-out), -5px -5px 15px var(--shadow-in) !important;
   text-transform: capitalize;
-  transition: 0.5s;
+  transition: box-shadow var(--dur) var(--ease), color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
   font-weight: bold;
+}
+.navLink:hover {
+  transform: translateY(-2px);
 }
 .navActive,
 .navLink:hover,

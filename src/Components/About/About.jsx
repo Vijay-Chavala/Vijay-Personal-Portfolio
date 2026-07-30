@@ -8,19 +8,20 @@ import Skills from "./Skills/Skills";
 import Education from "./Education/Education";
 import { Link } from "react-router-dom";
 import { colorsStore } from "../../App";
+import Reveal from "../common/Reveal";
 const About = () => {
   const [key, setKey] = useState("skills");
   const globalColor = useContext(colorsStore);
   return (
     <Container className="bgHeight">
-      <div className="text-center mt-5 headingContent">
+      <Reveal className="text-center mt-5 headingContent">
         <h6>Main Info</h6>
         <h2>About</h2>
         <div className="underline"></div>
-      </div>
+      </Reveal>
       <Row>
         <Col sm="12" md="7">
-          <div className={styles.selfIntroduction}>
+          <Reveal variant="left" className={styles.selfIntroduction}>
             <h5>Hi, I'm Vijay Kumar</h5>
             <h2>React.js / Next.js Developer</h2>
             <p>
@@ -46,8 +47,8 @@ const About = () => {
               applications built with HTML5, CSS3, Bootstrap, JavaScript, and
               React.js.
             </p>
-          </div>
-          <div className={styles.btnGroup}>
+          </Reveal>
+          <Reveal variant="left" delay={120} className={styles.btnGroup}>
             <a
               href={Resume}
               target="_blank"
@@ -62,10 +63,10 @@ const About = () => {
             >
               Contact Me
             </Link>
-          </div>
+          </Reveal>
         </Col>
         <Col sm="12" md="5">
-          <div className="mt-3">
+          <Reveal variant="right" delay={140} className="mt-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -276,7 +277,7 @@ const About = () => {
                 fill="#eee"
               ></path>
             </svg>
-          </div>
+          </Reveal>
         </Col>
       </Row>
 

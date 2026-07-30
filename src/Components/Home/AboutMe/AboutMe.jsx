@@ -3,16 +3,19 @@ import { Link } from "react-router-dom";
 import styles from "../AboutMe/AboutMe.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { colorsStore } from "../../../App";
+import Reveal from "../../common/Reveal";
 
 const AboutMe = () => {
   const globalColor = useContext(colorsStore);
   return (
     <Container className={` ${styles.aboutContainer}`}>
-      <h2 className="text-center mt-5">About Me </h2>
-      <div className="underline my-3"></div>
+      <Reveal>
+        <h2 className="text-center mt-5">About Me </h2>
+        <div className="underline my-3"></div>
+      </Reveal>
       <Row className="mx-auto">
         <Col sm="12" md="12" lg="6" className=" ">
-          <div className={styles.imgContainer}>
+          <Reveal variant="left" className={styles.imgContainer}>
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -173,10 +176,14 @@ const AboutMe = () => {
                 ></path>
               </svg>
             </div>
-          </div>
+          </Reveal>
         </Col>
         <Col sm="12" md="12" lg="6" className="mt-4">
-          <div className={`${styles.aboutMeContent}`}>
+          <Reveal
+            variant="right"
+            delay={120}
+            className={`${styles.aboutMeContent}`}
+          >
             <p>
               React.js / Next.js Developer with around 4 years of experience
               delivering high-performance web applications across B2B SaaS,
@@ -207,7 +214,7 @@ const AboutMe = () => {
                 More About Me
               </Link>
             </div>
-          </div>
+          </Reveal>
         </Col>
       </Row>
     </Container>

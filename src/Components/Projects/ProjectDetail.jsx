@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../../Data/Data";
 import styles from "./ProjectDetail.module.css";
+import Reveal from "../common/Reveal";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -40,16 +41,19 @@ const ProjectDetail = () => {
 
   return (
     <Container className="bgHeight pb-5">
-      <div className="text-center mt-5 headingContent">
+      <Reveal className="text-center mt-5 headingContent">
         <h6>Projects</h6>
         <h2>Look at my projects</h2>
         <div className="underline"></div>
-      </div>
+      </Reveal>
 
       <div className={`mt-5 ${styles.projectInfoSection}`}>
         <div>
           <Row>
-            <div className={` mt-3 mb-5 ${styles.projectImageContainer}`}>
+            <Reveal
+              variant="scale"
+              className={` mt-3 mb-5 ${styles.projectImageContainer}`}
+            >
               {/* Only link the screenshot when there is somewhere to go —
                   an empty href just reloads the current page. */}
               {project.link ? (
@@ -64,11 +68,14 @@ const ProjectDetail = () => {
               ) : (
                 projectImage
               )}
-            </div>
+            </Reveal>
           </Row>
           <Row className={`p-3 ${styles.projectDetails}`}>
             <Col sm="12" md="11" className="mx-auto">
-              <div className={`p-3  ${styles.projectDetailsDescription}`}>
+              <Reveal
+                delay={80}
+                className={`p-3  ${styles.projectDetailsDescription}`}
+              >
                 <h4 className="text-center">Project Details</h4>
                 <h5>{project.title}</h5>
                 <h6>{project.subTitle}</h6>
@@ -112,7 +119,7 @@ const ProjectDetail = () => {
                     </ul>
                   </div>
                 )}
-              </div>
+              </Reveal>
               <div className={`mt-4  ${styles.buttons}`}>
                 {project.link && (
                   <a
