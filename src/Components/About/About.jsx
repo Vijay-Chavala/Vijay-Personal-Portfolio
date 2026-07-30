@@ -24,9 +24,10 @@ const About = () => {
             <h5>Hi, I'm Vijay Kumar</h5>
             <h2>React.js / Next.js Developer</h2>
             <p>
-              I design, build, and optimize high-performance web applications
-              across B2B SaaS, enterprise, e-learning, healthcare, and
-              e-commerce domains. My focus is on robust dashboards, secure
+              I'm a React.js / Next.js Developer with around 4 years of
+              experience designing, building, and optimizing high-performance web
+              applications across B2B SaaS, enterprise, e-learning, healthcare,
+              and e-commerce domains. My focus is on robust dashboards, secure
               authorization systems, real-time communication modules, and modular
               frontend architectures using JavaScript, Node.js, and modern state
               management.

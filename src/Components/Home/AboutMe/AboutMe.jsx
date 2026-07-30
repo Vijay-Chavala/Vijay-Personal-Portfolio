@@ -178,11 +178,12 @@ const AboutMe = () => {
         <Col sm="12" md="12" lg="6" className="mt-4">
           <div className={`${styles.aboutMeContent}`}>
             <p>
-              React.js / Next.js Developer specializing in high-performance web
-              applications across B2B SaaS, enterprise, e-learning, healthcare,
-              and e-commerce. I build robust dashboards, secure authorization
-              systems, real-time modules, and modular frontend architectures
-              with modern state management and full-stack integrations.
+              React.js / Next.js Developer with around 4 years of experience
+              delivering high-performance web applications across B2B SaaS,
+              enterprise, e-learning, healthcare, and e-commerce. I build robust
+              dashboards, secure authorization systems, real-time modules, and
+              modular frontend architectures with modern state management and
+              full-stack integrations.
             </p>
             <p>
               At Applaunch Technologies, I architect scalable enterprise platforms
