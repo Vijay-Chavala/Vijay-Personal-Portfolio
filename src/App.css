@@ -38,6 +38,7 @@ body {
   position: absolute;
   top: 60px;
   left: -52px;
+  padding: 0;
   background-color: var(--main-color);
   box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
   border-radius: 50%;
@@ -48,6 +49,12 @@ body {
   place-items: center;
   transition: 0.5s ease;
   cursor: pointer;
+}
+.settingIcon:focus-visible,
+.dayNightIcon:focus-visible,
+.colors:focus-visible {
+  outline: 2px solid var(--theme-color);
+  outline-offset: 3px;
 }
 .settingIcon i {
   font-size: 30px;
@@ -75,6 +82,7 @@ body {
   position: absolute;
   top: 140px;
   left: -52px;
+  padding: 0;
   background-color: var(--main-color);
   box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
   border-radius: 50%;
@@ -105,6 +113,8 @@ body {
 }
 .colors {
   margin-top: 8px;
+  padding: 0;
+  border: none;
   background-color: var(--main-color);
   box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
   border-radius: 50%;
@@ -238,7 +248,6 @@ body {
   border: 1px solid var(--border-color);
   white-space: nowrap;
   font-size: 1rem;
-  text-transform: capitalize;
   box-shadow: inset 2px 2px 3px var(--shadow-out),
     inset -3px -3px 7px var(--shadow-in) !important;
   transition: 0.5s ease;

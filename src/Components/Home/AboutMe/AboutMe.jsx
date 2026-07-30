@@ -5,8 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { colorsStore } from "../../../App";
 
 const AboutMe = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [globalColor, setGlobalColor] = useContext(colorsStore);
+  const globalColor = useContext(colorsStore);
   return (
     <Container className={` ${styles.aboutContainer}`}>
       <h2 className="text-center mt-5">About Me </h2>

@@ -69,7 +69,12 @@ const Portfolio = () => {
                     height: project.category === "design" ? "255px" : "200px",
                   }}
                 >
-                  <img src={project.image} alt="projectImg" />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className={styles.cardBody}>
                   <h4>{project.title}</h4>

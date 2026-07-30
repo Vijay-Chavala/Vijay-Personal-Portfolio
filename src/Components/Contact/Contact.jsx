@@ -3,52 +3,54 @@ import { Container, Form, Row, Col } from "react-bootstrap";
 import styles from "../Contact/Contact.module.css";
 import emailjs from "emailjs-com";
 
+const CHANNEL_MESSAGES = {
+  phone: "Connecting to the Phone...",
+  mail: "Opening mail...",
+  whatsapp: "Connecting to WhatsApp...",
+};
+
 const Contact = () => {
-  const [phoneConnectionStatus, setPhoneConnectionStatus] = useState("");
-  const [mailConnectionStatus, setMailConnectionStatus] = useState("");
-  const [whatsppConnectionStatus, setWhatsappConnectionStatus] = useState("");
+  // One value instead of three states with three effects — only one channel
+  // can be opening at a time anyway.
+  const [activeChannel, setActiveChannel] = useState(null);
+  const [status, setStatus] = useState({ state: "idle", message: "" });
 
   useEffect(() => {
-    setTimeout(() => {
-      setPhoneConnectionStatus("");
-    }, 5000);
-  }, [phoneConnectionStatus]);
+    if (!activeChannel) return;
+    const timer = setTimeout(() => setActiveChannel(null), 5000);
+    return () => clearTimeout(timer);
+  }, [activeChannel]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setMailConnectionStatus("");
-    }, 5000);
-  }, [mailConnectionStatus]);
+  const labelFor = (channel, fallback) =>
+    activeChannel === channel ? CHANNEL_MESSAGES[channel] : fallback;
 
-  useEffect(() => {
-    setTimeout(() => {
-      setWhatsappConnectionStatus("");
-    }, 5000);
-  }, [whatsppConnectionStatus]);
-
-  function sendEmail(e) {
+  async function sendEmail(e) {
     e.preventDefault();
+    const form = e.target;
+    setStatus({ state: "sending", message: "" });
 
-    emailjs
-      .sendForm(
+    try {
+      await emailjs.sendForm(
         "service_6o7cpgc",
         "template_0tmbdpf",
-        e.target,
+        form,
         "user_0oYxQ6veRJeBj7a9Ycqhd"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          if (result.text === "OK") {
-            alert("Message Sent Successfully..!");
-          }
-        },
-        (error) => {
-          console.log(error.text);
-        }
       );
-    e.target.reset();
+      form.reset();
+      setStatus({
+        state: "sent",
+        message: "Thanks — your message has been sent. I'll get back to you soon.",
+      });
+    } catch (error) {
+      setStatus({
+        state: "error",
+        message:
+          "Sorry, the message could not be sent. Please email me directly at vijayychavala@gmail.com.",
+      });
+    }
   }
+
+  const isSending = status.state === "sending";
 
   return (
     <Container className={` ${styles.contactSection}`}>
@@ -60,7 +62,7 @@ const Contact = () => {
       <Row>
         <Col sm="12" md="12" lg="6" className={`mx-auto ${styles.col1}`}>
           <Form autoComplete="off" onSubmit={sendEmail}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="contactName">
               <Form.Label className={styles.label}>Name</Form.Label>
               <Form.Control
                 type="text"
@@ -69,7 +71,7 @@ const Contact = () => {
                 required
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="contactEmail">
               <Form.Label className={styles.label}>Email address</Form.Label>
               <Form.Control
                 type="email"
@@ -80,10 +82,7 @@ const Contact = () => {
               />
             </Form.Group>
 
-            <Form.Group
-              className=" mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            <Form.Group className=" mb-3" controlId="contactMessage">
               <Form.Label className={styles.label}>Message</Form.Label>
               <Form.Control
                 as="textarea"
@@ -93,9 +92,21 @@ const Contact = () => {
                 name="message"
               />
             </Form.Group>
-            <button type="submit" className="soft-light-shadow btn soft-btn">
-              Send Message
+            <button
+              type="submit"
+              className="soft-light-shadow btn soft-btn"
+              disabled={isSending}
+            >
+              {isSending ? "Sending..." : "Send Message"}
             </button>
+            {status.message && (
+              <p
+                className="mt-3 mb-0"
+                role={status.state === "error" ? "alert" : "status"}
+              >
+                {status.message}
+              </p>
+            )}
           </Form>
         </Col>
         <Col sm="12" md="12" lg="6">
@@ -103,40 +114,32 @@ const Contact = () => {
             <ul className={styles.sidebar}>
               <li
                 className={styles.navItem}
-                onClick={() =>
-                  setPhoneConnectionStatus("Connecting to the Phone...")
-                }
+                onClick={() => setActiveChannel("phone")}
               >
                 <a href="tel:+917660061579" className={styles.navLink}>
                   <i className="fa fa-phone" aria-hidden="true"></i>
                   <span className={styles.title}>
-                    {phoneConnectionStatus
-                      ? phoneConnectionStatus
-                      : "+917660061579"}
+                    {labelFor("phone", "+917660061579")}
                   </span>
                 </a>
               </li>
               <li
                 className={styles.navItem}
-                onClick={() => setMailConnectionStatus("Opening mail...")}
+                onClick={() => setActiveChannel("mail")}
               >
                 <a
                   href="mailto:vijayychavala@gmail.com"
                   className={styles.navLink}
                 >
-                  <i className="fa fa-envelope" aria-hidden></i>
+                  <i className="fa fa-envelope" aria-hidden="true"></i>
                   <span className={styles.title}>
-                    {mailConnectionStatus
-                      ? mailConnectionStatus
-                      : "vijayychavala@gmail.com"}
+                    {labelFor("mail", "vijayychavala@gmail.com")}
                   </span>
                 </a>
               </li>
               <li
                 className={styles.navItem}
-                onClick={() =>
-                  setWhatsappConnectionStatus("Connecting to WhatsApp...")
-                }
+                onClick={() => setActiveChannel("whatsapp")}
               >
                 <a
                   target="_blank"
@@ -146,9 +149,7 @@ const Contact = () => {
                 >
                   <i className="fa fa-whatsapp" aria-hidden="true"></i>
                   <span className={styles.title}>
-                    {whatsppConnectionStatus
-                      ? whatsppConnectionStatus
-                      : "+917660061579"}
+                    {labelFor("whatsapp", "+917660061579")}
                   </span>
                 </a>
               </li>

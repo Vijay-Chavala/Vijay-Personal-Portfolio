@@ -2,7 +2,7 @@ import React from "react";
 import { skillSet, otherSkills } from "../../../Data/Data";
 import { Row, Col } from "react-bootstrap";
 import styles from "../Skills/Skills.module.css";
-const Skills = ({ tabKey, keyValue }) => {
+const Skills = () => {
   return (
     <div className={`pb-3  ${styles.skillsSection}`}>
       <div className="pb-3">
@@ -32,9 +32,10 @@ const Skills = ({ tabKey, keyValue }) => {
                         width: `${skill.percentage}%`,
                       }}
                       role="progressbar"
-                      aria-valuenow="50"
+                      aria-label={skill.language}
+                      aria-valuenow={skill.percentage}
                       aria-valuemin="0"
-                      aria-valuemax="50"
+                      aria-valuemax="100"
                     ></div>
                   </div>
                 </div>
@@ -64,9 +65,10 @@ const Skills = ({ tabKey, keyValue }) => {
                         width: `${skill.percentage}%`,
                       }}
                       role="progressbar"
-                      aria-valuenow="50"
+                      aria-label={skill.tool}
+                      aria-valuenow={skill.percentage}
                       aria-valuemin="0"
-                      aria-valuemax="50"
+                      aria-valuemax="100"
                     ></div>
                   </div>
                 </div>

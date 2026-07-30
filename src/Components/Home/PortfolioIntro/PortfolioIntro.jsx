@@ -18,7 +18,12 @@ const PortfolioIntro = () => {
             <Col key={project.id}>
               <div className={`soft-light-shadow my-3 py-3 ${styles.Card}`}>
                 <div className={styles.cardImage}>
-                  <img src={project.image} alt="projectImg" />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className={`py-2 ${styles.cardBody}`}>
                   <h5 className="text-bold">{project.title}</h5>

@@ -9,8 +9,7 @@ import { colorsStore } from "../../App";
 import Resume from "../../assets/Vijay_Chavala_React_Resume.pdf";
 
 const Home = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [globalColor, setGlobalColor] = useContext(colorsStore);
+  const globalColor = useContext(colorsStore);
 
   return (
     <Container className={`mt-5 ${styles.homeContainer}`}>
