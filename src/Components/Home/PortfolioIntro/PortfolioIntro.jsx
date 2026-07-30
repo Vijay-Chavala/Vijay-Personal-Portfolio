@@ -37,7 +37,7 @@ const PortfolioIntro = () => {
         })}
       </Row>
       <Link
-        to="portfolio"
+        to="/projects"
         className={`text-center btn soft-light-shadow soft-btn ${styles.link}`}
       >
         More Works...

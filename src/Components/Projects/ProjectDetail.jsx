@@ -1,10 +1,10 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import { projects } from "../../../Data/Data";
-import styles from "../Projects/Projects.module.css";
+import { projects } from "../../Data/Data";
+import styles from "./ProjectDetail.module.css";
 
-const Projects = () => {
+const ProjectDetail = () => {
   const { id } = useParams();
 
   // Derived from the URL rather than held in state, so navigating straight
@@ -22,7 +22,7 @@ const Projects = () => {
         </div>
         <div className="text-center mt-5">
           <p>That project doesn't exist or has been removed.</p>
-          <Link to="/portfolio" className="soft-light-shadow btn soft-btn mt-3">
+          <Link to="/projects" className="soft-light-shadow btn soft-btn mt-3">
             Back to all projects
           </Link>
         </div>
@@ -147,4 +147,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectDetail;

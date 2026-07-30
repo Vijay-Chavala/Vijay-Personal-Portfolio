@@ -118,8 +118,8 @@ export const menuItems = [
   },
   {
     id: 4,
-    menuName: "portfolio",
-    to: "portfolio",
+    menuName: "projects",
+    to: "projects",
   },
   {
     id: 5,

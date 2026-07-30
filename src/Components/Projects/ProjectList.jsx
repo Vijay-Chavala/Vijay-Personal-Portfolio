@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import styles from "../Portfolio/Portfolio.module.css";
+import styles from "./ProjectList.module.css";
 import { projects } from "../../Data/Data";
 import { Link } from "react-router-dom";
 // ******Filtering Categories********
@@ -8,7 +8,7 @@ const allCategories = [
   "all",
   ...new Set(projects.map((project) => project.category)),
 ];
-const Portfolio = () => {
+const ProjectList = () => {
   const [myProjects, setMyProjects] = useState(projects);
   const [active, setActive] = useState(0);
 
@@ -89,4 +89,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default ProjectList;

@@ -34,7 +34,7 @@ const Home = () => {
                 Download CV
               </a>
               <Link
-                to="/portfolio"
+                to="/projects"
                 className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
               >
                 See my works

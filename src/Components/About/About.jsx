@@ -338,7 +338,7 @@ const About = () => {
                     Services
                   </Link>
                   <Link
-                    to="/portfolio"
+                    to="/projects"
                     className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
                   >
                     See My Works

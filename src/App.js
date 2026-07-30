@@ -1,14 +1,19 @@
 import { useState, createContext, useEffect, useMemo } from "react";
 import "./App.css";
 import { colors, themeColors } from "./Data/Data.js";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import Services from "./Components/Services/Services";
-import Portfolio from "./Components/Portfolio/Portfolio";
+import ProjectList from "./Components/Projects/ProjectList";
 import Contact from "./Components/Contact/Contact";
-import Projects from "./Components/Portfolio/Projects/Projects";
+import ProjectDetail from "./Components/Projects/ProjectDetail";
 import PageNotFound from "./Components/PageNotFound";
 
 // Accent colour used for the inline illustrations when no accent is picked.
@@ -142,9 +147,15 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/projects" element={<ProjectList />} />
+            <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/projects/:id" element={<Projects />} />
+            {/* The list used to live at /portfolio — keep old shared links
+                (resume, LinkedIn) working instead of 404ing them. */}
+            <Route
+              path="/portfolio"
+              element={<Navigate to="/projects" replace />}
+            />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
