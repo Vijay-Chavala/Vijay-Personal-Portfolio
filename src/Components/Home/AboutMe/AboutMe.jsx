@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 import styles from "../AboutMe/AboutMe.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { colorsStore } from "../../../App";
+import Reveal from "../../common/Reveal";
 
 const AboutMe = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [globalColor, setGlobalColor] = useContext(colorsStore);
+  const globalColor = useContext(colorsStore);
   return (
     <Container className={` ${styles.aboutContainer}`}>
-      <h2 className="text-center mt-5">About Me </h2>
-      <div className="underline my-3"></div>
+      <Reveal>
+        <h2 className="text-center mt-5">About Me </h2>
+        <div className="underline my-3"></div>
+      </Reveal>
       <Row className="mx-auto">
         <Col sm="12" md="12" lg="6" className=" ">
-          <div className={styles.imgContainer}>
+          <Reveal variant="left" className={styles.imgContainer}>
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -174,30 +176,28 @@ const AboutMe = () => {
                 ></path>
               </svg>
             </div>
-          </div>
+          </Reveal>
         </Col>
         <Col sm="12" md="12" lg="6" className="mt-4">
-          <div className={`${styles.aboutMeContent}`}>
+          <Reveal
+            variant="right"
+            delay={120}
+            className={`${styles.aboutMeContent}`}
+          >
             <p>
-              Self-motivated and detail-oriented React.js Developer with over
-              5.5 years of experience, including 2.5+ years in a fast-paced
-              startup environment and 3 years as a freelance developer. Proven
-              ability to build dynamic, scalable web applications with clean and
-              efficient UI. Passionate about delivering responsive,
-              pixel-perfect interfaces and proficient in advanced state
-              management, performance optimization, and cross-browser
-              compatibility.
+              React.js / Next.js Developer with around 4 years of experience
+              delivering high-performance web applications across B2B SaaS,
+              enterprise, e-learning, healthcare, and e-commerce. I build robust
+              dashboards, secure authorization systems, real-time modules, and
+              modular frontend architectures with modern state management and
+              full-stack integrations.
             </p>
             <p>
-              Over the past 2.5 years at Applaunch, a dynamic startup, I’ve been
-              working as a React.js developer building scalable web applications
-              using React, Redux, Redux-Saga, Axios, and Styled Components. I
-              played a key role in developing user-centric features with clean
-              architecture and state management. Prior to that, I spent over 3
-              years as a freelance developer, collaborating with collaborating
-              with senior backend developers to deliver complete full-stack
-              solutions. I focused on building responsive, high-performance
-              frontends using HTML5, CSS3, JavaScript, Bootstrap, and React.js.
+              At Applaunch Technologies, I architect scalable enterprise platforms
+              with React.js, Next.js, and TypeScript — from dual admin dashboards
+              and LMS portals to commerce and construction management systems.
+              My portfolio also showcases freelance web design and development
+              work, including responsive websites and client UI projects.
             </p>
 
             <div className="btn-group">
@@ -214,7 +214,7 @@ const AboutMe = () => {
                 More About Me
               </Link>
             </div>
-          </div>
+          </Reveal>
         </Col>
       </Row>
     </Container>

@@ -3,22 +3,30 @@ import { Container, Row, Col } from "react-bootstrap";
 import styles from "../PortfolioIntro/PortfolioIntro.module.css";
 import { Link } from "react-router-dom";
 import { projects } from "../../../Data/Data";
+import Reveal from "../../common/Reveal";
 
 const PortfolioIntro = () => {
   return (
     <Container
       className={`my-4 py-4 text-center mx-auto ${styles.PortfolioIntroSection}`}
     >
-      <h2 className="text-center pt-3 ">Recent Works</h2>
-      <div className="underline my-3"></div>
+      <Reveal>
+        <h2 className="text-center pt-3 ">Recent Works</h2>
+        <div className="underline my-3"></div>
+      </Reveal>
 
       <Row xs="1" sm="1" md="2" lg="3" className="py-3 mx-auto ">
-        {projects.slice(0, 3).map((project) => {
+        {projects.slice(0, 3).map((project, index) => {
           return (
-            <Col key={project.id}>
+            <Reveal as={Col} key={project.id} delay={index * 110}>
               <div className={`soft-light-shadow my-3 py-3 ${styles.Card}`}>
                 <div className={styles.cardImage}>
-                  <img src={project.image} alt="projectImg" />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className={`py-2 ${styles.cardBody}`}>
                   <h5 className="text-bold">{project.title}</h5>
@@ -27,16 +35,18 @@ const PortfolioIntro = () => {
                   <p>{project.desc}</p>
                 </div>
               </div>
-            </Col>
+            </Reveal>
           );
         })}
       </Row>
-      <Link
-        to="portfolio"
-        className={`text-center btn soft-light-shadow soft-btn ${styles.link}`}
-      >
-        More Works...
-      </Link>
+      <Reveal>
+        <Link
+          to="/projects"
+          className={`text-center btn soft-light-shadow soft-btn ${styles.link}`}
+        >
+          More Works...
+        </Link>
+      </Reveal>
     </Container>
   );
 };

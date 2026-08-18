@@ -2,75 +2,53 @@ import React, { useState, useContext } from "react";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import styles from "../About/About.module.css";
 import "./Education/Education.css";
-import Resume from "../../assets/Resume_Vijay_Chavala_ReactJs_2025.pdf";
+import Resume from "../../assets/Vijay_Chavala_React_Resume.pdf";
 
 import Skills from "./Skills/Skills";
 import Education from "./Education/Education";
 import { Link } from "react-router-dom";
 import { colorsStore } from "../../App";
+import Reveal from "../common/Reveal";
 const About = () => {
   const [key, setKey] = useState("skills");
-  // eslint-disable-next-line no-unused-vars
-  const [globalColor, setGlobalColor] = useContext(colorsStore);
-  console.log("about " + globalColor);
+  const globalColor = useContext(colorsStore);
   return (
     <Container className="bgHeight">
-      <div className="text-center mt-5 headingContent">
+      <Reveal className="text-center mt-5 headingContent">
         <h6>Main Info</h6>
         <h2>About</h2>
         <div className="underline"></div>
-      </div>
+      </Reveal>
       <Row>
         <Col sm="12" md="7">
-          <div className={styles.selfIntroduction}>
-            <h5>Hi,Im Vijay Kumar</h5>
-            <h2>UI Developer</h2>
+          <Reveal variant="left" className={styles.selfIntroduction}>
+            <h5>Hi, I'm Vijay Kumar</h5>
+            <h2>React.js / Next.js Developer</h2>
             <p>
-              After graduating in 2018 with a Bachelor’s Degree in Computer
-              Science and Engineering, I spent around 3 years working together
-              with senior backend developers as a freelance UI developer I
-              acquired project and time management skills, as well as the
-              ability to work on new technologies.
+              I'm a React.js / Next.js Developer with around 4 years of
+              experience designing, building, and optimizing high-performance web
+              applications across B2B SaaS, enterprise, e-learning, healthcare,
+              and e-commerce domains. My focus is on robust dashboards, secure
+              authorization systems, real-time communication modules, and modular
+              frontend architectures using JavaScript, Node.js, and modern state
+              management.
             </p>
             <p>
-              For the past 2.5 years, I’ve been working as a React.js Developer
-              at Applaunch, a fast-paced startup. I’ve contributed to building
-              and maintaining scalable web applications using technologies like
-              React, Redux, Redux-Saga, Axios, and Styled Components. My role
-              focuses on developing component-driven UIs, handling complex state
-              management, integrating APIs, and delivering smooth, user-centric
-              experiences.
+              At Applaunch Technologies, I architect and engineer scalable
+              enterprise platforms using React.js, Next.js, TypeScript, and
+              Node.js integration in Agile environments. I build modular UI with
+              Tailwind CSS, Material UI, and Shadcn/UI, integrate REST APIs and
+              WebSockets with Redux Toolkit, RTK Query, and TanStack Query, and
+              implement JWT, OTP, and RBAC security workflows.
             </p>
-
             <p>
-              Prior to joining Applaunch, I spent over 3 years as a freelance UI
-              developer, working closely with senior backend developers on
-              various web projects. During this time, I gained strong skills in
-              project ownership, time management, and adapting quickly to new
-              tools and client needs.
+              My portfolio also includes freelance web design and development
+              projects — responsive websites, UI mockups, and client-facing
+              applications built with HTML5, CSS3, Bootstrap, JavaScript, and
+              React.js.
             </p>
-
-            <p>
-              As a freelancer, I provided end-to-end web design and development
-              services. I used Photoshop for design mockups and technologies
-              such as HTML5, CSS3, Bootstrap, JavaScript, and React.js to create
-              responsive websites and web applications optimized for all screen
-              sizes and browsers.
-            </p>
-
-            <p>
-              I’ve always had a keen interest in UI/UX design. My combined
-              knowledge of visual design and front-end development allows me to
-              craft intuitive, modern, and user-focused interfaces.
-            </p>
-
-            <p>
-              While my main expertise lies in frontend development, I’m also
-              passionate about full-stack development and constantly learning
-              new tools to improve the user experience and development workflow.
-            </p>
-          </div>
-          <div className={styles.btnGroup}>
+          </Reveal>
+          <Reveal variant="left" delay={120} className={styles.btnGroup}>
             <a
               href={Resume}
               target="_blank"
@@ -85,10 +63,10 @@ const About = () => {
             >
               Contact Me
             </Link>
-          </div>
+          </Reveal>
         </Col>
         <Col sm="12" md="5">
-          <div className="mt-3">
+          <Reveal variant="right" delay={140} className="mt-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -299,7 +277,7 @@ const About = () => {
                 fill="#eee"
               ></path>
             </svg>
-          </div>
+          </Reveal>
         </Col>
       </Row>
 
@@ -309,7 +287,6 @@ const About = () => {
             <Education />
           </Tab>
           <Tab eventKey="skills" title="Skills">
-            {key}
             <Skills />
           </Tab>
 
@@ -321,55 +298,36 @@ const About = () => {
                     <div className="timeline-items">
                       <div className="timeline-item">
                         <div className="timeline-dot"></div>
-                        <div className="timeline-date">2+ years</div>
+                        <div className="timeline-date">Nov 2022 – Present</div>
                         <div className="timeline-content ">
-                          <h3> UI Developer/React Developer</h3>
+                          <h3>
+                            React.js / Next.js Developer — Applaunch Technologies
+                          </h3>
+                          <p>Bengaluru, India</p>
                           <li>
-                            Developed high performance applications using React
-                            JS, HTML, CSS, JavaScript, Boostrap5 and Redux.
+                            Architect and engineer scalable enterprise web
+                            platforms using React.js, Next.js, Node.js, and
+                            TypeScript in Agile environments.
                           </li>
                           <li>
-                            Design reusable UI components using React with
-                            JavaScript.
+                            Reduced initial page load times by 40% through
+                            code-splitting, route lazy loading, and SSR/ISR
+                            strategies.
                           </li>
                           <li>
-                            Building stable and maintainable codebases using
-                            React.
+                            Design modular, reusable UI components with Tailwind
+                            CSS, Material UI, Styled Components, and Shadcn/UI.
                           </li>
                           <li>
-                            Developed fully responsive user interfaces using
-                            boostrap and custom media queries.
+                            Integrate REST APIs and WebSocket layers using Redux
+                            Toolkit, RTK Query, TanStack Query, and Axios.
+                          </li>
+                          <li>
+                            Implement JWT access/refresh token rotation, OTP
+                            validation, and Role-Based Access Control (RBAC).
                           </li>
                         </div>
                       </div>
-                      <div className="timeline-item">
-                        <div className="timeline-dot"></div>
-                        <div className="timeline-date">1+ years</div>
-                        <div className="timeline-content ">
-                          <h3> UI Developer</h3>
-                          <li>
-                            Responsible for developing responsive page layouts
-                            using HTML5, CSS3, JavaScript along with bootstrap
-                            and ReactJs library,
-                          </li>
-                          <li>
-                            Used jQuery for basic animation and user screen
-                            customization purposes.
-                          </li>
-                          <li>
-                            Designed UI designs based on client requirements.
-                            {/* together with a backend developer{" "} */}
-                          </li>
-                        </div>
-                      </div>
-                      {/* <div className="timeline-item">
-                        <div className="timeline-dot"></div>
-                        <div className="timeline-date">2021</div>
-                        <div className="timeline-content">
-                          <h3> </h3>
-                          <p></p>
-                        </div>
-                      </div> */}
                     </div>
                   </section>
                 </div>
@@ -382,7 +340,7 @@ const About = () => {
                     Services
                   </Link>
                   <Link
-                    to="/portfolio"
+                    to="/projects"
                     className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
                   >
                     See My Works

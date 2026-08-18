@@ -11,10 +11,8 @@
 .label {
   color: var(--text-color);
 }
-.input,
-.input:focus {
-  text-transform: lowercase;
-}
+/* No text-transform here: it only restyles the rendered text, so what the
+   visitor sees would not match the value actually submitted. */
 .contactIcons {
   display: flex;
   align-items: flex-start;

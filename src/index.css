@@ -1,12 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
-
 *,
 ::after,
 ::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  transition: 0.5s;
 }
 html {
   scroll-behavior: smooth;
@@ -18,9 +15,29 @@ html {
   --shadow-out: #b8b9be;
   --shadow-in: #ffffff;
   --border-color: #d1d9e6;
-  --theme-color: #222222;
+  /* The light theme's accent. Was #222222, which left every heading,
+     underline and icon effectively black — the main reason the light theme
+     read as colourless. #6c63ff is already in the accent palette below. */
+  --theme-color: #6c63ff;
 
-  /* --border-color: none; */
+  /* Motion tokens. One easing curve and three durations, so every
+     transition in the app feels like it belongs to the same system. */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-back: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --dur-fast: 140ms;
+  --dur: 240ms;
+  --dur-slow: 620ms;
+}
+
+/* Theme switching cross-fades colours. Deliberately scoped to colour
+   properties and given zero specificity via :where(), so it can never
+   animate transforms or layout, and any component rule wins outright.
+   The previous `* { transition: 0.5s }` was shorthand for `all`, which put
+   a 500ms delay on every hover and transform in the app. */
+:where(.mainBody *, .mainBody *::before, .mainBody *::after) {
+  transition-property: background-color, color, border-color, box-shadow, fill;
+  transition-duration: var(--dur);
+  transition-timing-function: var(--ease);
 }
 
 .dark {
@@ -39,8 +56,6 @@ html {
   --border-color: #bfe3ff;
   --text-color: #000;
   --text-color-2: #383838;
-
-  /* --theme-color: #fff; */
 }
 
 .pink {
@@ -95,7 +110,7 @@ html {
   --theme-color: #ff81be;
 }
 .yellowww {
-  --theme-color: #ffdc5c; 
+  --theme-color: #ffdc5c;
 }
 .lightGreen {
   --theme-color: #abfc68;
@@ -134,11 +149,112 @@ ul li {
   white-space: nowrap;
   font-size: 1rem;
   text-transform: capitalize;
-  transition: 0.5s ease;
+  transition: box-shadow var(--dur) var(--ease), color var(--dur) var(--ease),
+    transform var(--dur-fast) var(--ease);
 }
 .soft-btn:hover,
 .soft-btn:focus {
   box-shadow: inset 2px 2px 5px var(--shadow-out),
     inset -3px -3px 7px var(--shadow-in) !important;
   color: var(--theme-color) !important;
+  transform: translateY(-2px);
+}
+/* Press feedback — the button visibly gives way under the cursor. */
+.soft-btn:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 60ms;
+}
+.soft-btn:focus-visible {
+  outline: 2px solid var(--theme-color);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll reveal. Elements start offset and transparent, then settle when the
+   Reveal component marks them visible. Paired with src/Components/common.
+   --------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease),
+    transform var(--dur-slow) var(--ease);
+  will-change: opacity, transform;
+}
+.revealUp {
+  transform: translate3d(0, 28px, 0);
+}
+.revealLeft {
+  transform: translate3d(-32px, 0, 0);
+}
+.revealRight {
+  transform: translate3d(32px, 0, 0);
+}
+.revealScale {
+  transform: scale(0.94);
+}
+.reveal.isVisible {
+  opacity: 1;
+  transform: none;
+}
+/* Drop the hint once the animation is done so it stops costing memory. */
+.reveal.isSettled {
+  will-change: auto;
+}
+
+/* Section underlines wipe out from the centre once their heading lands.
+   Scoped to .reveal so any underline outside a Reveal stays as-is rather
+   than being stuck at scaleX(0) with no observer to release it. */
+.reveal .underline {
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--dur-slow) var(--ease) 140ms;
+}
+.reveal.isVisible .underline {
+  transform: scaleX(1);
+}
+
+/* Gentle idle float for the hero illustrations. */
+@keyframes floatY {
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* Shared card lift. Raising the shadow as the card rises is what reads as
+   depth — translate alone just slides a flat panel around. */
+.liftCard {
+  transition: transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+.liftCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 12px 16px 28px var(--shadow-out),
+    -8px -8px 20px var(--shadow-in) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Anyone who has asked their OS to reduce motion gets the finished state
+   immediately: no reveals, no float, no spinning gear.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  /* Deliberate exception: the spinning gear is kept, because it is the one
+     piece of motion that also acts as an affordance — it signals the theme
+     panel is interactive. Slowed rather than stopped so it stays calm. */
+  .settingIcon i {
+    animation: spin 6s linear infinite !important;
+  }
 }

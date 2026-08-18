@@ -1,158 +1,141 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext, useEffect, useMemo } from "react";
 import "./App.css";
 import { colors, themeColors } from "./Data/Data.js";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
-// import { Container } from "react-bootstrap";
 import Home from "./Components/Home/Home";
-// import AboutMe from "./Components/AboutMe/AboutMe";
 import About from "./Components/About/About";
 import Services from "./Components/Services/Services";
-import Portfolio from "./Components/Portfolio/Portfolio";
+import ProjectList from "./Components/Projects/ProjectList";
 import Contact from "./Components/Contact/Contact";
-import Projects from "./Components/Portfolio/Projects/Projects";
+import ProjectDetail from "./Components/Projects/ProjectDetail";
 import PageNotFound from "./Components/PageNotFound";
 
-export const colorsStore = createContext();
+// Accent colour used for the inline illustrations when no accent is picked.
+// Mirrors --theme-color in index.css for the matching theme.
+const DEFAULT_ACCENT = { light: "#222222", dark: "#ff9d9d" };
+
+export const colorsStore = createContext(DEFAULT_ACCENT.light);
+
+const prefersDark = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia?.("(prefers-color-scheme: dark)").matches;
 
 function App() {
-  // Initialize state from localStorage or default values
-  const [selectedColor, setSelectedColor] = useState(() => {
-    const savedColor = localStorage.getItem("selectedColor");
-    return savedColor || "mainBody";
-  });
+  // The background theme: "mainBody" (light), "dark", or one of the palettes
+  // in `colors`. Only ever one at a time — they all set --main-color.
+  const [selectedColor, setSelectedColor] = useState(
+    () => localStorage.getItem("selectedColor") || (prefersDark() ? "dark" : "mainBody")
+  );
 
-  const [themeClass, setThemeClass] = useState(() => {
-    const savedThemeClass = localStorage.getItem("themeClass");
-    return savedThemeClass || "";
-  });
-
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedDarkMode = localStorage.getItem("darkMode");
-    return savedDarkMode ? JSON.parse(savedDarkMode) : true;
-  });
+  // The accent class, e.g. "pinky". Sets --theme-color on top of the theme.
+  const [accentClass, setAccentClass] = useState(
+    () => localStorage.getItem("accentClass") || ""
+  );
 
   const [settings, setSettings] = useState(false);
-  const [myThemeColors, setMyThemeColors] = useState([]);
-  const [globalColor, setGlobalColor] = useState(() => {
-    const savedGlobalColor = localStorage.getItem("globalColor");
-    return savedGlobalColor || "#222222";
-  });
 
-  // Save state to localStorage whenever it changes
+  const isDark = selectedColor === "dark";
+
   useEffect(() => {
     localStorage.setItem("selectedColor", selectedColor);
-    localStorage.setItem("themeClass", themeClass);
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
-    localStorage.setItem("globalColor", globalColor);
-  }, [selectedColor, themeClass, darkMode, globalColor]);
+    localStorage.setItem("accentClass", accentClass);
+  }, [selectedColor, accentClass]);
 
-  // console.log(globalColor);
-  // default day mode colors
-  useEffect(() => {
-    const dayColors = themeColors.filter(
-      (themeColor) => themeColor.category === "mainBody"
-    );
-    setMyThemeColors(dayColors);
-  }, []);
+  // Accents are theme-specific: the dark set is too bright for the light
+  // theme and vice versa. Derived, so it can never drift out of sync with
+  // the theme the way a separate state value could.
+  const accentOptions = useMemo(
+    () =>
+      themeColors.filter(
+        (themeColor) => themeColor.category === (isDark ? "dark" : "mainBody")
+      ),
+    [isDark]
+  );
 
-  //toggle day night
+  // The palettes in `colors` replace the light/dark theme entirely, so there
+  // is no matching accent set to offer for them.
+  const showAccents = selectedColor === "dark" || selectedColor === "mainBody";
+
+  const globalColor =
+    themeColors.find(
+      (themeColor) => themeColor.colorClassName === accentClass
+    )?.colorCode ?? (isDark ? DEFAULT_ACCENT.dark : DEFAULT_ACCENT.light);
 
   const toggleDayNight = () => {
-    darkMode ? setSelectedColor("dark") : setSelectedColor("mainBody");
-    setDarkMode(!darkMode);
-
-    //filter colors based on day night and setting filtered theme colors to newColors
-
-    const newColors = themeColors.filter(
-      (themeColor) => themeColor.category !== selectedColor
-    );
-    // to avoid dark colors to apply day theme
-    if (selectedColor === "dark") {
-      setThemeClass(myThemeColors.colorClassName);
-      setGlobalColor("#222222");
-    }
-    if (selectedColor === "mainBody") {
-      setThemeClass(myThemeColors.colorClassName);
-      setGlobalColor("#ffcaca");
-    }
-
-    console.log(myThemeColors);
-    console.log(selectedColor);
-    console.log(newColors);
-    setMyThemeColors(newColors);
+    setSelectedColor(isDark ? "mainBody" : "dark");
+    // The current accent belongs to the theme we are leaving.
+    setAccentClass("");
   };
 
-  //applying clicked color to selectedColor state(Background Theme)
-  const applyColor = (color) => {
-    console.log("applying clicked color" + color.colorName);
-    setSelectedColor(color.colorName);
-  };
-
-  const filterColors = (themeColor) => {
-    if (themeColor.category === selectedColor) {
-      console.log("Current selected color " + selectedColor);
-      setThemeClass(themeColor.colorClassName);
-      setGlobalColor(themeColor.colorCode);
-
-      console.log("className " + themeColor.colorClassName);
-      console.log("colorCode " + themeColor.colorCode);
-    } else {
-      setThemeClass("");
-    }
-  };
+  // "mainBody" is both the base class and the name of the light theme, so
+  // dedupe rather than emitting it twice.
+  const themeClassName = [
+    ...new Set(["mainBody", selectedColor, accentClass].filter(Boolean)),
+  ].join(" ");
 
   return (
     <Router>
-      <colorsStore.Provider value={[globalColor, setGlobalColor]}>
-        <div className={`mainBody ${selectedColor} ${themeClass}`}>
+      <colorsStore.Provider value={globalColor}>
+        <div className={themeClassName}>
           <div className={settings ? "settings settingsActive " : "settings "}>
-            <div
-              className="settingIcon "
+            <button
+              type="button"
+              className="settingIcon"
               onClick={() => setSettings(!settings)}
+              aria-expanded={settings}
+              aria-label={settings ? "Close theme settings" : "Open theme settings"}
             >
-              <i className="fa fa-gear "></i>
-            </div>
-            <div className="dayNightIcon" onClick={toggleDayNight}>
+              <i className="fa fa-gear" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              className="dayNightIcon"
+              onClick={toggleDayNight}
+              aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+            >
               <i
-                className={
-                  selectedColor === "dark"
-                    ? "bi bi-brightness-high"
-                    : "bi bi-moon"
-                }
+                className={isDark ? "bi bi-brightness-high" : "bi bi-moon"}
+                aria-hidden="true"
               ></i>
-            </div>
+            </button>
             <div className="colorsContainer ">
               <div className="themeContainer">
                 <h5>Theme</h5>
                 <div className="themeColors">
-                  {colors.map((color) => {
-                    return (
-                      <div
-                        key={color.id}
-                        className="colors"
-                        onClick={() => applyColor(color)}
-                        style={{ backgroundColor: `${color.colorCode}` }}
-                      ></div>
-                    );
-                  })}
+                  {colors.map((color) => (
+                    <button
+                      type="button"
+                      key={color.id}
+                      className="colors"
+                      onClick={() => setSelectedColor(color.colorName)}
+                      aria-pressed={selectedColor === color.colorName}
+                      aria-label={`${color.colorName} theme`}
+                      style={{ backgroundColor: color.colorCode }}
+                    ></button>
+                  ))}
                 </div>
               </div>
-              {selectedColor === "dark" ||
-              (selectedColor === "mainBody" && myThemeColors.length < 4) ? (
+              {showAccents ? (
                 <div className="selectedColors">
                   <h5>Colors</h5>
                   <div className="frontColors">
-                    {myThemeColors.map((themeColor) => {
-                      return (
-                        <div
-                          key={themeColor.id}
-                          className="colors"
-                          onClick={() => filterColors(themeColor)}
-                          style={{ backgroundColor: `${themeColor.colorCode}` }}
-                        ></div>
-                      );
-                    })}
+                    {accentOptions.map((themeColor) => (
+                      <button
+                        type="button"
+                        key={themeColor.id}
+                        className="colors"
+                        onClick={() => setAccentClass(themeColor.colorClassName)}
+                        aria-pressed={accentClass === themeColor.colorClassName}
+                        aria-label={`${themeColor.colorClassName} accent colour`}
+                        style={{ backgroundColor: themeColor.colorCode }}
+                      ></button>
+                    ))}
                   </div>
                 </div>
               ) : null}
@@ -164,9 +147,15 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/projects" element={<ProjectList />} />
+            <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/projects/:id" element={<Projects />} />
+            {/* The list used to live at /portfolio — keep old shared links
+                (resume, LinkedIn) working instead of 404ing them. */}
+            <Route
+              path="/portfolio"
+              element={<Navigate to="/projects" replace />}
+            />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>

@@ -2,9 +2,41 @@ import React from "react";
 import { skillSet, otherSkills } from "../../../Data/Data";
 import { Row, Col } from "react-bootstrap";
 import styles from "../Skills/Skills.module.css";
-const Skills = ({ tabKey, keyValue }) => {
+import useInView from "../../../hooks/useInView";
+
+const SkillBar = ({ label, percentage, filled }) => (
+  <>
+    <h6>{label}</h6>
+    <div className="progressBars">
+      <div
+        style={{ left: ` calc(${percentage}% - 6%)`, opacity: filled ? 1 : 0 }}
+        className="progressBarPercent"
+      >
+        {percentage}%
+      </div>
+
+      <div className="progress">
+        <div
+          className={`progress-bar`}
+          // Held at 0 until the panel scrolls into view, so the bars sweep
+          // up to their value instead of being painted already full.
+          style={{ width: filled ? `${percentage}%` : 0 }}
+          role="progressbar"
+          aria-label={label}
+          aria-valuenow={percentage}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+    </div>
+  </>
+);
+
+const Skills = () => {
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
   return (
-    <div className={`pb-3  ${styles.skillsSection}`}>
+    <div ref={ref} className={`pb-3  ${styles.skillsSection}`}>
       <div className="pb-3">
         <h3>Technical Skills</h3>
         <Row xs="1" md="1" lg="2">
@@ -14,30 +46,11 @@ const Skills = ({ tabKey, keyValue }) => {
                 key={skill.id}
                 className={`pe-4 mb-3  ${styles.technicalSkills}`}
               >
-                <h6>{skill.language}</h6>
-                <div className="progressBars">
-                  <div
-                    style={{
-                      left: ` calc(${skill.percentage}% - 6%)`,
-                    }}
-                    className="progressBarPercent"
-                  >
-                    {skill.percentage}%
-                  </div>
-
-                  <div className="progress">
-                    <div
-                      className={`progress-bar`}
-                      style={{
-                        width: `${skill.percentage}%`,
-                      }}
-                      role="progressbar"
-                      aria-valuenow="50"
-                      aria-valuemin="0"
-                      aria-valuemax="50"
-                    ></div>
-                  </div>
-                </div>
+                <SkillBar
+                  label={skill.language}
+                  percentage={skill.percentage}
+                  filled={inView}
+                />
               </Col>
             );
           })}
@@ -49,27 +62,11 @@ const Skills = ({ tabKey, keyValue }) => {
           {otherSkills.map((skill) => {
             return (
               <Col key={skill.id} className="pe-4 pb-5">
-                <h6>{skill.tool}</h6>
-                <div className="progressBars">
-                  <div
-                    style={{ left: ` calc(${skill.percentage}% - 6%)` }}
-                    className="progressBarPercent"
-                  >
-                    {skill.percentage}%
-                  </div>
-                  <div className="progress">
-                    <div
-                      className={`progress-bar`}
-                      style={{
-                        width: `${skill.percentage}%`,
-                      }}
-                      role="progressbar"
-                      aria-valuenow="50"
-                      aria-valuemin="0"
-                      aria-valuemax="50"
-                    ></div>
-                  </div>
-                </div>
+                <SkillBar
+                  label={skill.tool}
+                  percentage={skill.percentage}
+                  filled={inView}
+                />
               </Col>
             );
           })}

@@ -3,10 +3,18 @@
 }
 
 .Card {
-  transition: 0.6s ease-in-out;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 .Card:hover {
-  transform: translateY(-3%);
+  transform: translateY(-8px);
+  box-shadow: 12px 16px 28px var(--shadow-out),
+    -8px -8px 20px var(--shadow-in) !important;
+}
+.Card:hover .cardImage img {
+  transform: scale(1.06);
+}
+.Card:hover h5 {
+  color: var(--theme-color);
 }
 .cardImage {
   padding: 10px;
@@ -17,6 +25,7 @@
 .cardImage img {
   width: 100%;
   height: auto;
+  transition: transform var(--dur-slow) var(--ease);
 }
 .cardBody {
   color: var(--text-color);
