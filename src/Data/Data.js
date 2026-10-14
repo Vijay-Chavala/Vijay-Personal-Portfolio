@@ -228,7 +228,7 @@ export const services = [
     id: 1,
     icon: "fa fa-mobile",
     title: "Responsive Design",
-    info: "Get insights into who is browsing your site so that you can make smarter business decisions.",
+    info: "Layouts that adapt cleanly from phones to wide desktops, so every visitor gets a polished experience on any screen.",
   },
   {
     id: 2,
@@ -244,7 +244,7 @@ export const services = [
   },
   {
     id: 4,
-    icon: "bi bi-scissors mb-3",
+    icon: "bi bi-scissors",
     title: "Creative Editing",
     info: "Video editing services can include cutting or splicing segments, re-sequencing clips, adding transitions, formatting, and more...",
   },

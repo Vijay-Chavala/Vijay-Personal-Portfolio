@@ -28,28 +28,30 @@ const Reveal = ({
   const [ref, inView] = useInView();
   const [settled, setSettled] = useState(false);
 
-  // Release will-change once the transition has finished.
+  // Mark the entrance finished once its transition has run.
   useEffect(() => {
     if (!inView) return;
     const timer = setTimeout(() => setSettled(true), delay + 700);
     return () => clearTimeout(timer);
   }, [inView, delay]);
 
-  const classes = [
-    "reveal",
-    VARIANTS[variant] ?? VARIANTS.up,
-    inView ? "isVisible" : "",
-    settled ? "isSettled" : "",
-    className,
-  ]
+  // Once the entrance has played, step out of the way entirely: drop the
+  // reveal classes and the stagger delay. Otherwise an element that is both
+  // a Reveal and a hover card (e.g. <Reveal className={styles.Card}>) keeps
+  // the 620ms reveal transition plus its delay, and every hover lags.
+  const classes = (
+    settled
+      ? [className]
+      : ["reveal", VARIANTS[variant] ?? VARIANTS.up, inView ? "isVisible" : "", className]
+  )
     .filter(Boolean)
     .join(" ");
 
   return (
     <Tag
       ref={ref}
-      className={classes}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      className={classes || undefined}
+      style={delay && !settled ? { transitionDelay: `${delay}ms` } : undefined}
       {...rest}
     >
       {children}

@@ -1,48 +1,173 @@
+/* Sticky, and transparent until the page scrolls — then a frosted strip of
+   the theme colour so links stay legible over whatever passes beneath. */
 .navBar {
+  position: sticky !important;
+  top: 0;
+  z-index: 1020;
   background: transparent;
+  /* Constant padding: shrinking the bar on scroll changed its height, and
+     since it is sticky that shoved the whole page up by the difference. */
+  padding: 14px 0;
+  transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
-.backgroundTransparent {
-  background: transparent !important;
+.navScrolled {
+  background-color: color-mix(in srgb, var(--main-color) 82%, transparent);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  box-shadow: 0 10px 24px -14px var(--shadow-out);
 }
+/* Browsers without color-mix get a solid bar rather than a see-through one. */
+@supports not (background-color: color-mix(in srgb, red 50%, transparent)) {
+  .navScrolled {
+    background-color: var(--main-color);
+  }
+}
+
 .navBarLogo {
-  font-weight: 700 !important;
-  box-shadow: -6px 6px 12px var(--shadow-in);
-  padding: 5px 25px;
-  border-radius: 5px;
-  color: var(--theme-color) !important;
-  transition: box-shadow var(--dur) var(--ease),
-    transform var(--dur) var(--ease) !important;
-  font-size: 1.5rem;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800 !important;
+  font-size: 1.25rem;
+  color: var(--text-color) !important;
+  padding: 0;
 }
-.navBarLogo:hover {
-  box-shadow: 6px -6px 12px var(--shadow-in), -6px 6px 12px var(--shadow-in);
+.logoMark {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--theme-color);
+  background-color: var(--main-color);
+  box-shadow: var(--sh-raised);
+  transition: box-shadow var(--dur-hover) var(--ease-hover);
+}
+.navBarLogo:hover .logoMark {
+  box-shadow: var(--sh-pressed);
+}
+.logoText {
+  transition: color var(--dur-hover) var(--ease-hover);
+}
+.navBarLogo:hover .logoText {
+  color: var(--theme-color);
+}
+
+.navList {
+  gap: 10px;
+  align-items: center;
 }
 .navLink {
+  position: relative;
   color: var(--text-color) !important;
-  border-radius: 5px;
-  /* border: 1px solid var(--border-color); */
+  border-radius: var(--radius-sm);
   white-space: nowrap;
-  font-size: 0.9rem;
-  box-shadow: 5px 5px 15px var(--shadow-out), -5px -5px 15px var(--shadow-in) !important;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 9px 20px !important;
   text-transform: capitalize;
-  transition: box-shadow var(--dur) var(--ease), color var(--dur) var(--ease),
-    transform var(--dur) var(--ease);
-  font-weight: bold;
+  box-shadow: var(--sh-raised) !important;
+  transition: box-shadow var(--dur-hover) var(--ease-hover),
+    color var(--dur-hover) var(--ease-hover);
 }
 .navLink:hover {
-  transform: translateY(-2px);
+  color: var(--theme-color) !important;
 }
-.navActive,
-.navLink:hover,
-.navLink:focus {
-  box-shadow: inset 2px 2px 5px var(--shadow-out),
-    inset -3px -3px 7px var(--shadow-in) !important;
+/* Only keyboard focus gets a ring. The old :focus rule reused the active
+   style, so whichever link was last clicked kept looking like the current
+   page after navigating away from it. */
+.navLink:focus-visible {
+  outline: 2px solid var(--theme-color);
+  outline-offset: 3px;
+}
+.navActive {
+  box-shadow: var(--sh-pressed) !important;
   color: var(--theme-color) !important;
   background-color: var(--main-color);
 }
+/* Small accent dot under the current page. */
+.navActive::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background-color: var(--theme-color);
+  animation: global(popIn) 360ms var(--ease-back) both;
+}
+
+/* Custom hamburger: three bars that fold into an X. */
+.toggler {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px !important;
+  display: grid;
+  place-items: center;
+  background-color: var(--main-color);
+  box-shadow: 5px 5px 10px var(--shadow-out), -5px -5px 10px var(--shadow-in) !important;
+}
+.burger {
+  position: relative;
+  width: 20px;
+  height: 14px;
+}
+.burger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--theme-color);
+  transition: transform var(--dur) var(--ease), opacity var(--dur-fast) var(--ease),
+    top var(--dur) var(--ease);
+}
+.burger span:nth-child(1) {
+  top: 0;
+}
+.burger span:nth-child(2) {
+  top: 6px;
+}
+.burger span:nth-child(3) {
+  top: 12px;
+}
+.burgerOpen span:nth-child(1) {
+  top: 6px;
+  transform: rotate(45deg);
+}
+.burgerOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.2);
+}
+.burgerOpen span:nth-child(3) {
+  top: 6px;
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 991px) {
+  .navList {
+    align-items: stretch;
+    padding: 18px 0 8px;
+    gap: 12px;
+  }
+  .navLink {
+    text-align: center;
+  }
+  /* Links drop in one after another when the menu opens. --i is set per
+     link in NavBar.jsx. */
+  :global(.navbar-collapse.show) .navLink,
+  :global(.navbar-collapse.collapsing) .navLink {
+    animation: global(pageEnter) 360ms var(--ease) both;
+    animation-delay: calc(var(--i) * 45ms);
+  }
+}
 
 @media screen and (max-width: 350px) {
-  .navBarLogo {
+  .logoText {
     font-size: 1rem;
   }
 }

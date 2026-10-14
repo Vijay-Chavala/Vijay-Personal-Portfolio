@@ -1,7 +1,23 @@
-/* Check App.css for Skills Styles */
+/* Check App.css for the shared progress-bar styles */
+.skillsSection {
+  padding-bottom: 24px;
+}
+.group + .group {
+  margin-top: 40px;
+}
 .skillsSection h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--theme-color);
+  margin-bottom: 22px;
 }
 .skillsSection h6 {
   color: var(--text-color);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.skill {
+  margin-bottom: 26px;
 }

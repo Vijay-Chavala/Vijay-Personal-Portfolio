@@ -1,0 +1,143 @@
+/* .card is the hover target and .surface the visible card — see
+   .hoverCard / .hoverSurface in index.css. */
+.card {
+  border-radius: var(--radius);
+  color: var(--text-color);
+}
+.card:hover {
+  color: var(--text-color);
+}
+.card:focus-visible {
+  outline: 2px solid var(--theme-color);
+  outline-offset: 4px;
+}
+.surface {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  background-color: var(--main-color);
+  box-shadow: var(--shadow-raised);
+}
+
+/* Fixed aspect ratio + object-fit replaces the old per-category pixel
+   heights, so every thumbnail in a row lines up exactly. */
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 4px);
+  box-shadow: inset 2px 2px 5px var(--shadow-out),
+    inset -3px -3px 7px var(--shadow-in);
+}
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--main-color);
+  background-color: var(--theme-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* Hover veil with a "View details" chip. It fades in where it sits — the
+   screenshot no longer zooms and the chip no longer slides, since that
+   movement is what made the card look like it was shifting. */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    color-mix(in srgb, var(--main-color) 88%, transparent)
+  );
+  opacity: 0;
+  transition: opacity var(--dur-hover) var(--ease-hover);
+}
+.overlayBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--theme-color);
+  background-color: var(--main-color);
+  box-shadow: var(--shadow-raised);
+}
+.card:hover .overlay,
+.card:focus-visible .overlay {
+  opacity: 1;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 8px 6px;
+  text-align: left;
+}
+.title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+  transition: color var(--dur-hover) var(--ease-hover);
+}
+.card:hover .title {
+  color: var(--theme-color);
+}
+.subTitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-color-2);
+  margin: 0;
+}
+.desc {
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+  color: var(--text-color-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* margin-top: auto pins the tags to the bottom so cards with short
+   subtitles still end on the same line as their neighbours. */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: auto 0 0;
+  padding: 16px 0 0;
+  list-style: none;
+}
+.tags li {
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text-color-2);
+  box-shadow: inset 1px 1px 3px var(--shadow-out),
+    inset -2px -2px 4px var(--shadow-in);
+}
+.tags .more {
+  color: var(--theme-color);
+}

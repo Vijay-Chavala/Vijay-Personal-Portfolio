@@ -1,31 +1,37 @@
 .selfIntroduction h5 {
   color: var(--theme-color);
+  font-weight: 700;
 }
 .selfIntroduction h2 {
   color: var(--text-color);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.4rem);
+  margin-bottom: 18px;
 }
 .selfIntroduction p {
-  font-size: 1.1rem;
+  font-size: 1.06rem;
+  line-height: 1.8;
   color: var(--text-color-2);
 }
 .btnGroup {
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
 }
 .linkBtn {
-  margin: 0 10px 0 0;
-  padding: 8px;
-  width: 150px;
-  max-width: 100%;
+  min-width: 170px;
+  padding: 12px 22px !important;
 }
 .workingImage {
   width: 100%;
   height: auto;
 }
 
+/* Sized by its content — a fixed 60vh either clipped the card on short
+   screens or floated it in empty space on tall ones. */
 .experienceTab {
-  height: 60vh;
-  display: grid;
-  place-items: center;
+  padding: 8px 0 32px;
 }
 .experienceTabContainer {
   border: 1px solid var(--border-color);
@@ -34,13 +40,17 @@
   box-shadow: inset 2px 2px 5px var(--shadow-out),
     inset -3px -3px 7px var(--shadow-in);
   padding: 30px;
-  border-radius: 15px;
+  border-radius: var(--radius);
   width: 100%;
   margin: 0 auto;
   color: var(--text-color-2);
 }
 .expBtnGroup {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
 }
 /*For More styles Check "About" Section Tab Styles in App.css */
 @media screen and (max-width: 480px) {
@@ -48,10 +58,7 @@
     text-align: center;
   }
 
-  .expBtnGroup .linkBtn {
-    margin: 0 10px 0 0;
-    padding: 8px;
-    width: 90%;
-    max-width: 100%;
+  .linkBtn {
+    flex: 1 1 100%;
   }
 }

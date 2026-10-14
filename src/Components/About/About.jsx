@@ -14,12 +14,12 @@ const About = () => {
   const globalColor = useContext(colorsStore);
   return (
     <Container className="bgHeight">
-      <Reveal className="text-center mt-5 headingContent">
+      <Reveal className="headingContent">
         <h6>Main Info</h6>
-        <h2>About</h2>
+        <h2>About me</h2>
         <div className="underline"></div>
       </Reveal>
-      <Row>
+      <Row className="align-items-center">
         <Col sm="12" md="7">
           <Reveal variant="left" className={styles.selfIntroduction}>
             <h5>Hi, I'm Vijay Kumar</h5>
@@ -53,15 +53,15 @@ const About = () => {
               href={Resume}
               target="_blank"
               rel="noreferrer"
-              className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+              className={`soft-light-shadow btn soft-btn btnPrimary ${styles.linkBtn}`}
             >
-              Download CV
+              <i className="bi bi-download" aria-hidden="true"></i> Download CV
             </a>
             <Link
               to="/contact"
-              className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+              className={`soft-light-shadow btn soft-btn ${styles.linkBtn}`}
             >
-              Contact Me
+              Contact me
             </Link>
           </Reveal>
         </Col>
@@ -335,13 +335,13 @@ const About = () => {
                 <div className={styles.expBtnGroup}>
                   <Link
                     to="/services"
-                    className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+                    className={`soft-light-shadow btn soft-btn ${styles.linkBtn}`}
                   >
                     Services
                   </Link>
                   <Link
                     to="/projects"
-                    className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+                    className={`soft-light-shadow btn soft-btn ${styles.linkBtn}`}
                   >
                     See My Works
                   </Link>

@@ -7,47 +7,77 @@ import PortfolioIntro from "./PortfolioIntro/PortfolioIntro";
 import GetInTouch from "./GetInTouch/GetInTouch";
 import { colorsStore } from "../../App";
 import Reveal from "../common/Reveal";
+import Typewriter from "../common/Typewriter";
+import { projects } from "../../Data/Data";
 import Resume from "../../assets/Vijay_Chavala_React_Resume.pdf";
+
+// Module-level so the array keeps its identity and Typewriter's effect does
+// not restart on every render.
+const ROLES = [
+  "React.js Developer",
+  "Next.js Developer",
+  "TypeScript Engineer",
+  "UI Craftsman",
+];
+
+const STATS = [
+  { value: "4+", label: "Years experience" },
+  { value: `${projects.length}+`, label: "Projects shipped" },
+  { value: "5", label: "Industries served" },
+];
 
 const Home = () => {
   const globalColor = useContext(colorsStore);
 
   return (
-    <Container className={`mt-5 ${styles.homeContainer}`}>
-      <Row className="d-flex ">
+    <Container className={styles.homeContainer}>
+      <Row className={`align-items-center ${styles.hero}`}>
         <Col
           sm="12"
           md="12"
           lg="5"
           className="order-lg-1 order-md-2 order-sm-2 order-2 sm-text-center"
         >
-          <div className={` ${styles.homeContent}`}>
-            {/* Staggered so the greeting, name, role and buttons arrive in
-                reading order rather than all at once. */}
-            <Reveal as="h5" className="text-left">
-              Hello
+          <div className={styles.homeContent}>
+            {/* Staggered so the badge, name, role, copy, buttons and stats
+                arrive in reading order rather than all at once. */}
+            <Reveal className={styles.badge}>
+              <span className={styles.badgeDot} aria-hidden="true" />
+              Frontend developer · Bengaluru, India
             </Reveal>
-            <Reveal as="h1" className="my-3" delay={90}>
-              I'm <span className={styles.nameHighlight}>Vijay Chavala</span>
+            <Reveal as="h1" className={styles.heroTitle} delay={90}>
+              Hi, I'm <span className={styles.nameHighlight}>Vijay Chavala</span>
             </Reveal>
-            <Reveal as="h5" className="mb-3" delay={180}>
-              React.js / Next.js Developer
+            <Reveal as="h2" className={styles.heroRole} delay={180}>
+              <Typewriter phrases={ROLES} />
             </Reveal>
-            <Reveal className={` ${styles.homeButtonContainer}`} delay={270}>
+            <Reveal as="p" className={styles.heroLead} delay={240}>
+              I build fast, accessible web apps — dashboards, LMS portals and
+              commerce platforms — with React, Next.js and TypeScript.
+            </Reveal>
+            <Reveal className={styles.homeButtonContainer} delay={300}>
+              <Link
+                to="/projects"
+                className={`soft-light-shadow btn soft-btn btnPrimary ${styles.homeButton}`}
+              >
+                See my work <i className="bi bi-arrow-right" aria-hidden="true"></i>
+              </Link>
               <a
                 href={Resume}
                 target="_blank"
                 rel="noreferrer"
-                className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
+                className={`soft-light-shadow btn soft-btn ${styles.homeButton}`}
               >
-                Download CV
+                <i className="bi bi-download" aria-hidden="true"></i> Download CV
               </a>
-              <Link
-                to="/projects"
-                className={`soft-light-shadow btn soft-btn py-2 ${styles.homeButton}`}
-              >
-                See my works
-              </Link>
+            </Reveal>
+            <Reveal as="ul" className={styles.stats} delay={380}>
+              {STATS.map((stat) => (
+                <li key={stat.label} className={styles.stat}>
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </li>
+              ))}
             </Reveal>
           </div>
         </Col>
@@ -555,6 +585,9 @@ const Home = () => {
           </Reveal>
         </Col>
       </Row>
+      <a href="#about-me" className={styles.scrollCue} aria-label="Scroll to About Me">
+        <span />
+      </a>
       <AboutMe />
       <PortfolioIntro />
       <GetInTouch />

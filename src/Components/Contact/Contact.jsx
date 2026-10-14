@@ -4,11 +4,36 @@ import styles from "../Contact/Contact.module.css";
 import emailjs from "emailjs-com";
 import Reveal from "../common/Reveal";
 
-const CHANNEL_MESSAGES = {
-  phone: "Connecting to the Phone...",
-  mail: "Opening mail...",
-  whatsapp: "Connecting to WhatsApp...",
-};
+// Each channel shows its details up front. They used to sit behind a hover
+// reveal, which touch screens can't trigger, so on phones the only way to
+// see the number or address was to tap and launch the dialer.
+const CHANNELS = [
+  {
+    key: "phone",
+    icon: "fa fa-phone",
+    label: "Call me",
+    value: "+91 76600 61579",
+    href: "tel:+917660061579",
+    pending: "Connecting to the phone...",
+  },
+  {
+    key: "mail",
+    icon: "fa fa-envelope",
+    label: "Email me",
+    value: "vijaychavala.dev@gmail.com",
+    href: "mailto:vijaychavala.dev@gmail.com",
+    pending: "Opening mail...",
+  },
+  {
+    key: "whatsapp",
+    icon: "fa fa-whatsapp",
+    label: "WhatsApp",
+    value: "+91 76600 61579",
+    href: "https://wa.link/p5bfyy",
+    external: true,
+    pending: "Connecting to WhatsApp...",
+  },
+];
 
 const Contact = () => {
   // One value instead of three states with three effects — only one channel
@@ -22,21 +47,13 @@ const Contact = () => {
     return () => clearTimeout(timer);
   }, [activeChannel]);
 
-  const labelFor = (channel, fallback) =>
-    activeChannel === channel ? CHANNEL_MESSAGES[channel] : fallback;
-
   async function sendEmail(e) {
     e.preventDefault();
     const form = e.target;
     setStatus({ state: "sending", message: "" });
 
     try {
-      await emailjs.sendForm(
-        "service_6o7cpgc",
-        "template_0tmbdpf",
-        form,
-        "user_0oYxQ6veRJeBj7a9Ycqhd"
-      );
+      await emailjs.sendForm("service_6o7cpgc", "template_0tmbdpf", form, "user_0oYxQ6veRJeBj7a9Ycqhd");
       form.reset();
       setStatus({
         state: "sent",
@@ -45,8 +62,7 @@ const Contact = () => {
     } catch (error) {
       setStatus({
         state: "error",
-        message:
-          "Sorry, the message could not be sent. Please email me directly at vijayychavala@gmail.com.",
+        message: "Sorry, the message could not be sent. Please email me directly at vijaychavala.dev@gmail.com.",
       });
     }
   }
@@ -54,108 +70,78 @@ const Contact = () => {
   const isSending = status.state === "sending";
 
   return (
-    <Container className={` ${styles.contactSection}`}>
-      <Reveal className="text-center mt-5 headingContent">
+    <Container className={`pb-5 ${styles.contactSection}`}>
+      <Reveal className='headingContent'>
         <h6>Contact Me</h6>
-        <h2>Ways to contact</h2>
-        <div className="underline"></div>
+        <h2>Let's work together</h2>
+        <div className='underline'></div>
       </Reveal>
-      <Row>
-        <Col sm="12" md="12" lg="6" className={`mx-auto ${styles.col1}`}>
-          <Form autoComplete="off" onSubmit={sendEmail}>
-            <Form.Group className="mb-3" controlId="contactName">
-              <Form.Label className={styles.label}>Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter your name"
-                name="name"
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="contactEmail">
-              <Form.Label className={styles.label}>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                name="email"
-                required
-                className={styles.input}
-              />
-            </Form.Group>
-
-            <Form.Group className=" mb-3" controlId="contactMessage">
-              <Form.Label className={styles.label}>Message</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={5}
-                required
-                className={styles.input}
-                name="message"
-              />
-            </Form.Group>
-            <button
-              type="submit"
-              className="soft-light-shadow btn soft-btn"
-              disabled={isSending}
-            >
-              {isSending ? "Sending..." : "Send Message"}
-            </button>
-            {status.message && (
-              <p
-                className="mt-3 mb-0"
-                role={status.state === "error" ? "alert" : "status"}
-              >
-                {status.message}
-              </p>
-            )}
-          </Form>
-        </Col>
-        <Col sm="12" md="12" lg="6">
-          <div className={` ${styles.contactIcons}`}>
-            <ul className={styles.sidebar}>
-              <li
-                className={styles.navItem}
-                onClick={() => setActiveChannel("phone")}
-              >
-                <a href="tel:+917660061579" className={styles.navLink}>
-                  <i className="fa fa-phone" aria-hidden="true"></i>
-                  <span className={styles.title}>
-                    {labelFor("phone", "+917660061579")}
-                  </span>
-                </a>
-              </li>
-              <li
-                className={styles.navItem}
-                onClick={() => setActiveChannel("mail")}
-              >
-                <a
-                  href="mailto:vijayychavala@gmail.com"
-                  className={styles.navLink}
-                >
-                  <i className="fa fa-envelope" aria-hidden="true"></i>
-                  <span className={styles.title}>
-                    {labelFor("mail", "vijayychavala@gmail.com")}
-                  </span>
-                </a>
-              </li>
-              <li
-                className={styles.navItem}
-                onClick={() => setActiveChannel("whatsapp")}
-              >
-                <a
-                  target="_blank"
-                  href="https://wa.link/p5bfyy"
-                  rel="noreferrer"
-                  className={styles.navLink}
-                >
-                  <i className="fa fa-whatsapp" aria-hidden="true"></i>
-                  <span className={styles.title}>
-                    {labelFor("whatsapp", "+917660061579")}
-                  </span>
-                </a>
-              </li>
+      <Row className='g-4 align-items-stretch'>
+        <Col lg='5'>
+          <Reveal variant='left' className={styles.channels}>
+            <h3 className={styles.panelTitle}>Get in touch directly</h3>
+            <p className={styles.panelLead}>Prefer a quick chat? Reach me on any of these — I usually reply within a day.</p>
+            <ul className={styles.channelList}>
+              {CHANNELS.map((channel) => (
+                <li key={channel.key}>
+                  <a href={channel.href} className={styles.channel} onClick={() => setActiveChannel(channel.key)} {...(channel.external ? { target: "_blank", rel: "noreferrer" } : {})}>
+                    <span className={styles.channelIcon}>
+                      <i className={channel.icon} aria-hidden='true'></i>
+                    </span>
+                    <span className={styles.channelText}>
+                      <small>{channel.label}</small>
+                      <span>{activeChannel === channel.key ? channel.pending : channel.value}</span>
+                    </span>
+                    <i className={`bi bi-arrow-up-right ${styles.channelArrow}`} aria-hidden='true'></i>
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
+          </Reveal>
+        </Col>
+        <Col lg='7'>
+          <Reveal variant='right' delay={100} className={styles.formPanel}>
+            <h3 className={styles.panelTitle}>Send a message</h3>
+            <Form autoComplete='off' onSubmit={sendEmail}>
+              <Row className='g-3'>
+                <Col md='6'>
+                  <Form.Group controlId='contactName'>
+                    <Form.Label className={styles.label}>Name</Form.Label>
+                    <Form.Control type='text' placeholder='Your name' name='name' required />
+                  </Form.Group>
+                </Col>
+                <Col md='6'>
+                  <Form.Group controlId='contactEmail'>
+                    <Form.Label className={styles.label}>Email address</Form.Label>
+                    <Form.Control type='email' placeholder='you@example.com' name='email' required />
+                  </Form.Group>
+                </Col>
+                <Col xs='12'>
+                  <Form.Group controlId='contactMessage'>
+                    <Form.Label className={styles.label}>Message</Form.Label>
+                    <Form.Control as='textarea' rows={6} placeholder='Tell me a little about your project...' required name='message' />
+                  </Form.Group>
+                </Col>
+              </Row>
+              <button type='submit' className={`soft-light-shadow btn soft-btn btnPrimary ${styles.submit}`} disabled={isSending}>
+                {isSending ? (
+                  <>
+                    <span className={styles.spinner} aria-hidden='true' /> Sending...
+                  </>
+                ) : (
+                  <>
+                    Send message <i className='bi bi-send' aria-hidden='true'></i>
+                  </>
+                )}
+              </button>
+              {status.message && (
+                <p key={status.state} className={`${styles.status} ${status.state === "error" ? styles.statusError : styles.statusOk}`} role={status.state === "error" ? "alert" : "status"}>
+                  <i className={status.state === "error" ? "bi bi-exclamation-circle" : "bi bi-check-circle"} aria-hidden='true'></i>
+                  {status.message}
+                </p>
+              )}
+            </Form>
+          </Reveal>
         </Col>
       </Row>
     </Container>

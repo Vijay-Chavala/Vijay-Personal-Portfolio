@@ -8,12 +8,13 @@ import Reveal from "../../common/Reveal";
 const AboutMe = () => {
   const globalColor = useContext(colorsStore);
   return (
-    <Container className={` ${styles.aboutContainer}`}>
-      <Reveal>
-        <h2 className="text-center mt-5">About Me </h2>
-        <div className="underline my-3"></div>
+    <Container id="about-me" className={`section ${styles.aboutContainer}`}>
+      <Reveal className="headingContent">
+        <h6>Who I am</h6>
+        <h2>About Me</h2>
+        <div className="underline"></div>
       </Reveal>
-      <Row className="mx-auto">
+      <Row className="mx-auto align-items-center">
         <Col sm="12" md="12" lg="6" className=" ">
           <Reveal variant="left" className={styles.imgContainer}>
             <div>
@@ -178,7 +179,7 @@ const AboutMe = () => {
             </div>
           </Reveal>
         </Col>
-        <Col sm="12" md="12" lg="6" className="mt-4">
+        <Col sm="12" md="12" lg="6" className="mt-4 mt-lg-0">
           <Reveal
             variant="right"
             delay={120}
@@ -200,18 +201,18 @@ const AboutMe = () => {
               work, including responsive websites and client UI projects.
             </p>
 
-            <div className="btn-group">
-              <Link
-                to="/services"
-                className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
-              >
-                Services
-              </Link>
+            <div className={styles.btnRow}>
               <Link
                 to="/about"
-                className={`soft-light-shadow btn soft-btn mt-4 ${styles.linkBtn}`}
+                className={`soft-light-shadow btn soft-btn btnPrimary ${styles.linkBtn}`}
               >
-                More About Me
+                More about me <i className="bi bi-arrow-right" aria-hidden="true"></i>
+              </Link>
+              <Link
+                to="/services"
+                className={`soft-light-shadow btn soft-btn ${styles.linkBtn}`}
+              >
+                Services
               </Link>
             </div>
           </Reveal>
