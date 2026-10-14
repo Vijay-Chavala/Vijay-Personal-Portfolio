@@ -4,23 +4,25 @@ import { Row, Col } from "react-bootstrap";
 import styles from "../Skills/Skills.module.css";
 import useInView from "../../../hooks/useInView";
 
-const SkillBar = ({ label, percentage, filled }) => (
+const SkillBar = ({ label, percentage, filled, order }) => (
   <>
-    <h6>{label}</h6>
-    <div className="progressBars">
-      <div
-        style={{ left: ` calc(${percentage}% - 6%)`, opacity: filled ? 1 : 0 }}
-        className="progressBarPercent"
-      >
+    <div className="skillHead">
+      <h6>{label}</h6>
+      <span className="progressBarPercent" style={{ opacity: filled ? 1 : 0 }}>
         {percentage}%
-      </div>
-
+      </span>
+    </div>
+    <div className="progressBars">
       <div className="progress">
         <div
-          className={`progress-bar`}
+          className="progress-bar"
           // Held at 0 until the panel scrolls into view, so the bars sweep
-          // up to their value instead of being painted already full.
-          style={{ width: filled ? `${percentage}%` : 0 }}
+          // up to their value instead of being painted already full. Each
+          // bar starts a beat after the one before it.
+          style={{
+            width: filled ? `${percentage}%` : 0,
+            transitionDelay: `${order * 70}ms`,
+          }}
           role="progressbar"
           aria-label={label}
           aria-valuenow={percentage}
@@ -32,46 +34,42 @@ const SkillBar = ({ label, percentage, filled }) => (
   </>
 );
 
+const SkillGroup = ({ title, items, labelKey, filled, offset = 0 }) => (
+  <div className={styles.group}>
+    <h3>{title}</h3>
+    <Row xs="1" lg="2" className="gx-5">
+      {items.map((skill, index) => (
+        <Col key={skill.id} className={styles.skill}>
+          <SkillBar
+            label={skill[labelKey]}
+            percentage={skill.percentage}
+            filled={filled}
+            order={offset + index}
+          />
+        </Col>
+      ))}
+    </Row>
+  </div>
+);
+
 const Skills = () => {
   const [ref, inView] = useInView({ threshold: 0.2 });
 
   return (
-    <div ref={ref} className={`pb-3  ${styles.skillsSection}`}>
-      <div className="pb-3">
-        <h3>Technical Skills</h3>
-        <Row xs="1" md="1" lg="2">
-          {skillSet.map((skill) => {
-            return (
-              <Col
-                key={skill.id}
-                className={`pe-4 mb-3  ${styles.technicalSkills}`}
-              >
-                <SkillBar
-                  label={skill.language}
-                  percentage={skill.percentage}
-                  filled={inView}
-                />
-              </Col>
-            );
-          })}
-        </Row>
-      </div>
-      <div className="mt-3">
-        <h3>Other Technical Skills</h3>
-        <Row xs="1" md="1" lg="2" className="mt-3">
-          {otherSkills.map((skill) => {
-            return (
-              <Col key={skill.id} className="pe-4 pb-5">
-                <SkillBar
-                  label={skill.tool}
-                  percentage={skill.percentage}
-                  filled={inView}
-                />
-              </Col>
-            );
-          })}
-        </Row>
-      </div>
+    <div ref={ref} className={styles.skillsSection}>
+      <SkillGroup
+        title="Technical Skills"
+        items={skillSet}
+        labelKey="language"
+        filled={inView}
+      />
+      <SkillGroup
+        title="Other Technical Skills"
+        items={otherSkills}
+        labelKey="tool"
+        filled={inView}
+        offset={skillSet.length}
+      />
     </div>
   );
 };

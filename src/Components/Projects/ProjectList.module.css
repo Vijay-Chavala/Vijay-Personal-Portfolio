@@ -1,82 +1,53 @@
-.Link {
-  text-decoration: none;
-}
-.categoryButtons {
-  background-color: var(--main-color);
-  color: var(--text-color);
-  text-transform: capitalize !important;
-  transition: box-shadow var(--dur) var(--ease), color var(--dur) var(--ease),
-    transform var(--dur) var(--ease) !important;
-  margin-top: 10px;
-}
-.categoryButtons:hover,
-.btnActive {
-  box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
-  color: var(--theme-color) !important;
-  border-radius: 5px;
-  border: 1px solid var(--border-color);
-  white-space: nowrap;
-  font-size: 1rem;
-  background-color: var(--main-color);
-}
-.categoryButtons:hover {
-  transform: translateY(-2px);
-}
-.btnActive {
-  transform: translateY(-2px);
-}
-.Card {
-  background-color: var(--main-color);
-  color: var(--text-color);
-  box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
-  border-radius: 5px;
-  border: 1px solid var(--border-color);
-  font-size: 1rem;
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  margin-top: 60px;
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-  overflow: hidden;
-  height: 350px;
-}
-
-.Card:hover {
-  transform: translateY(-8px);
-  box-shadow: 12px 16px 28px var(--shadow-out),
-    -8px -8px 20px var(--shadow-in) !important;
-  cursor: pointer;
-}
-.cardImage {
-  overflow: hidden;
-  max-height: 200px;
-  height: 200px;
+.filters {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 12px;
+  margin-bottom: 44px;
 }
-.Card:hover h4 {
+.categoryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+  background-color: var(--main-color);
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 0.92rem;
+  box-shadow: var(--sh-raised);
+  transition: box-shadow var(--dur-hover) var(--ease-hover),
+    color var(--dur-hover) var(--ease-hover), transform var(--dur-fast) var(--ease);
+}
+.categoryButton:hover {
   color: var(--theme-color);
 }
-
-.cardImage img {
-  width: 100%;
-  /* Was 2s, which meant the zoom was still creeping long after the cursor
-     had moved on. Drive it from the card so image and lift move together. */
-  transition: transform var(--dur-slow) var(--ease);
+.categoryButton:active {
+  transform: scale(0.97);
 }
-.Card:hover .cardImage img {
-  transform: scale(1.06);
+.categoryButton:focus-visible {
+  outline: 2px solid var(--theme-color);
+  outline-offset: 3px;
 }
-
-.cardBody {
-  margin-top: 20px;
+.btnActive,
+.btnActive:hover {
+  color: var(--theme-color);
+  box-shadow: var(--sh-pressed);
 }
-.cardBody h4 {
-  padding: 0 20px;
-}
-.cardBody h6 {
-  padding: 0 20px;
+.count {
+  min-width: 24px;
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 800;
   color: var(--text-color-2);
+  box-shadow: inset 1px 1px 3px var(--shadow-out),
+    inset -2px -2px 4px var(--shadow-in);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.btnActive .count {
+  background-color: var(--theme-color);
+  color: var(--main-color);
+  box-shadow: none;
 }

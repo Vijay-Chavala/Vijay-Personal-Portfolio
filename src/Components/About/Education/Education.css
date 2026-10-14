@@ -1,7 +1,8 @@
+/* No min-height: 100vh — the section is only as tall as its entries, so
+   the tab no longer ends in a screen of empty space. */
 .timeline-section {
   background-color: var(--main-color);
-  min-height: 100vh;
-  padding: 60px 15px;
+  padding: 20px 15px 48px;
 }
 .timeline-items {
   max-width: 100%;
@@ -15,7 +16,12 @@
   position: absolute;
   width: 2px;
   height: 100%;
-  background-color: var(--text-color);
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--theme-color),
+    color-mix(in srgb, var(--theme-color) 15%, transparent)
+  );
   left: calc(50% - 1px);
 }
 .timeline-item {
@@ -46,8 +52,8 @@
   border-radius: 50%;
   top: 10px;
   background-color: var(--theme-color);
-
-  box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important;
+  border: 4px solid var(--main-color);
+  animation: pulseRing 2.4s var(--ease) infinite;
 }
 .timeline-date {
   font-size: 18px;
@@ -58,18 +64,23 @@
 .timeline-content {
   border: 1px solid var(--border-color);
   background-color: var(--main-color);
-  /* box-shadow: 6px 6px 12px var(--shadow-out), -6px -6px 12px var(--shadow-in) !important; */
-  box-shadow: inset 2px 2px 5px var(--shadow-out),
-    inset -3px -3px 7px var(--shadow-in);
-  padding: 20px 30px;
-  border-radius: 15px;
+  box-shadow: var(--sh-pressed);
+  padding: 22px 30px;
+  border-radius: var(--radius);
+  transition: box-shadow var(--dur-hover) var(--ease-hover);
+}
+.timeline-content:hover {
+  box-shadow: var(--sh-raised);
+}
+.timeline-content li {
+  color: var(--text-color-2);
+  margin-bottom: 6px;
 }
 .timeline-content h3 {
-  font-size: 20px;
+  font-size: 1.2rem;
   color: var(--text-color);
   margin: 0 0 10px;
-  text-transform: capitalize;
-  font-weight: 500;
+  font-weight: 800;
 }
 .timeline-content p {
   color: var(--text-color-2);

@@ -1,36 +1,25 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import styles from "../GetInTouch/GetInTouch.module.css";
 import { Link } from "react-router-dom";
 import Reveal from "../../common/Reveal";
 
 const GetInTouch = () => {
   return (
-    <Container className={`mb-5 ${styles.GetInTouchContainer}`}>
-      <Row>
-        <Col>
-          <Reveal>
-            <h2 className="text-center pt-3">Get in touch</h2>
-            <div className="underline my-3"></div>
-          </Reveal>
-
-          <Reveal
-            variant="scale"
-            delay={100}
-            className="soft-light-shadow-inset text-center py-5 px-3 "
-          >
-            <h5>Thanks for viewing my Portfolio.</h5>
-            <h5>I really hope that you've enjoyed looking at my work!</h5>
-            {/* <p>Feel free to contact if you like my works!</p> */}
-            <Link
-              to="contact"
-              className={` btn soft-light-shadow soft-btn ${styles.link}`}
-            >
-              Contact
-            </Link>
-          </Reveal>
-        </Col>
-      </Row>
+    <Container className={`section ${styles.GetInTouchContainer}`}>
+      <Reveal variant="scale" className={`soft-light-shadow-inset ${styles.panel}`}>
+        <span className={styles.orb} aria-hidden="true" />
+        <span className={`${styles.orb} ${styles.orbTwo}`} aria-hidden="true" />
+        <h6 className={styles.eyebrow}>Get in touch</h6>
+        <h2 className={styles.title}>Have a project in mind?</h2>
+        <p className={styles.lead}>
+          Thanks for looking through my work. If you'd like to build something
+          together — or just talk shop — I'd love to hear from you.
+        </p>
+        <Link to="/contact" className={`btn soft-light-shadow soft-btn btnPrimary ${styles.link}`}>
+          Say hello <i className="bi bi-arrow-right" aria-hidden="true"></i>
+        </Link>
+      </Reveal>
     </Container>
   );
 };

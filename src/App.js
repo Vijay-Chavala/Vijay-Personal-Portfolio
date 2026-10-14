@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect, useMemo } from "react";
+import { useState, createContext, useEffect, useMemo, useRef } from "react";
 import "./App.css";
 import { colors, themeColors } from "./Data/Data.js";
 import {
@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";
@@ -15,12 +16,36 @@ import ProjectList from "./Components/Projects/ProjectList";
 import Contact from "./Components/Contact/Contact";
 import ProjectDetail from "./Components/Projects/ProjectDetail";
 import PageNotFound from "./Components/PageNotFound";
+import ScrollExtras from "./Components/common/ScrollExtras";
 
 // Accent colour used for the inline illustrations when no accent is picked.
 // Mirrors --theme-color in index.css for the matching theme.
-const DEFAULT_ACCENT = { light: "#222222", dark: "#ff9d9d" };
+const DEFAULT_ACCENT = { light: "#6c63ff", dark: "#ff9d9d" };
 
 export const colorsStore = createContext(DEFAULT_ACCENT.light);
+
+// Keyed on the pathname so each navigation remounts the page wrapper and
+// replays the .pageEnter fade. Lives in its own component because
+// useLocation only works underneath the Router.
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <main key={location.pathname} className="pageEnter">
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/projects" element={<ProjectList />} />
+        <Route path="/projects/:id" element={<ProjectDetail />} />
+        <Route path="/contact" element={<Contact />} />
+        {/* The list used to live at /portfolio — keep old shared links
+            (resume, LinkedIn) working instead of 404ing them. */}
+        <Route path="/portfolio" element={<Navigate to="/projects" replace />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </main>
+  );
+};
 
 const prefersDark = () =>
   typeof window !== "undefined" &&
@@ -39,6 +64,23 @@ function App() {
   );
 
   const [settings, setSettings] = useState(false);
+  const settingsRef = useRef(null);
+
+  // The panel used to stay open until the gear was clicked again. Close it
+  // on Escape or on any click outside, the way a popover is expected to.
+  useEffect(() => {
+    if (!settings) return;
+    const onKey = (e) => e.key === "Escape" && setSettings(false);
+    const onPointer = (e) => {
+      if (!settingsRef.current?.contains(e.target)) setSettings(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointer);
+    };
+  }, [settings]);
 
   const isDark = selectedColor === "dark";
 
@@ -83,7 +125,10 @@ function App() {
     <Router>
       <colorsStore.Provider value={globalColor}>
         <div className={themeClassName}>
-          <div className={settings ? "settings settingsActive " : "settings "}>
+          <div
+            ref={settingsRef}
+            className={settings ? "settings settingsActive" : "settings"}
+          >
             <button
               type="button"
               className="settingIcon"
@@ -142,22 +187,9 @@ function App() {
             </div>
           </div>
 
+          <ScrollExtras />
           <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<ProjectList />} />
-            <Route path="/projects/:id" element={<ProjectDetail />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* The list used to live at /portfolio — keep old shared links
-                (resume, LinkedIn) working instead of 404ing them. */}
-            <Route
-              path="/portfolio"
-              element={<Navigate to="/projects" replace />}
-            />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
+          <AnimatedRoutes />
         </div>
       </colorsStore.Provider>
     </Router>
